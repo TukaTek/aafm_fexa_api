@@ -76,6 +76,7 @@ public class MenuSystem
         System.Console.WriteLine("12. Test Note Service");
         System.Console.WriteLine("13. Test Client PO Filter");
         System.Console.WriteLine("14. Test Client Service");
+        System.Console.WriteLine("15. Test Vendor Service");
         System.Console.WriteLine("0. Exit");
         System.Console.WriteLine();
         System.Console.Write("Enter your choice: ");
@@ -126,6 +127,9 @@ public class MenuSystem
                 break;
             case "14":
                 await TestClientService();
+                break;
+            case "15":
+                await TestVendorService();
                 break;
             case "0":
                 _exitRequested = true;
@@ -1736,5 +1740,14 @@ public class MenuSystem
         
         var testClientService = new TestClientService(_services);
         await testClientService.RunTests();
+    }
+    
+    private async Task TestVendorService()
+    {
+        System.Console.Clear();
+        ShowHeader("Test Vendor Service");
+        
+        var testVendorService = new TestVendorService(_services);
+        await testVendorService.RunTests();
     }
 }

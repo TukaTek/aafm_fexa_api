@@ -61,6 +61,7 @@ public static class ServiceCollectionExtensions
         // Register additional services
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IClientService, ClientService>();
+        services.AddScoped<IVendorService, VendorService>();
         services.AddScoped<IClientInvoiceService, ClientInvoiceService>();
         services.AddScoped<IVisitService, VisitService>();
         services.AddScoped<IWorkOrderService, WorkOrderService>();
@@ -120,6 +121,7 @@ public static class ServiceCollectionExtensions
         // Register additional services
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IClientService, ClientService>();
+        services.AddScoped<IVendorService, VendorService>();
         services.AddScoped<IClientInvoiceService, ClientInvoiceService>();
         services.AddScoped<IVisitService, VisitService>();
         services.AddScoped<IWorkOrderService, WorkOrderService>();

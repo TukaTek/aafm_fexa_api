@@ -73,6 +73,9 @@ public class WorkOrder
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
     
+    [JsonPropertyName("assignments")]
+    public List<Assignment>? Assignments { get; set; }
+    
     // Helper property to get status from ObjectState
     [JsonIgnore]
     public string Status => ObjectState?.Status?.Name ?? "Unknown";

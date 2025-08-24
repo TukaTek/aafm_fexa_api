@@ -107,7 +107,7 @@ public class Subcontractor
     public Address? DefaultShippingAddress { get; set; }
     
     [JsonPropertyName("object_state")]
-    public ObjectState? ObjectState { get; set; }
+    public VendorObjectState? ObjectState { get; set; }
 }
 
 public class Organization
@@ -306,6 +306,156 @@ public class Address
     
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
+    
+    [JsonPropertyName("import_id")]
+    public int? ImportId { get; set; }
+    
+    [JsonPropertyName("import_date")]
+    public DateTime? ImportDate { get; set; }
+}
+
+public class VendorObjectState
+{
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+    
+    [JsonPropertyName("object_id")]
+    public int? ObjectId { get; set; }
+    
+    [JsonPropertyName("status_id")]
+    public int StatusId { get; set; }
+    
+    [JsonPropertyName("created_by")]
+    public int? CreatedBy { get; set; }
+    
+    [JsonPropertyName("updated_by")]
+    public int? UpdatedBy { get; set; }
+    
+    [JsonPropertyName("created_at")]
+    public DateTime? CreatedAt { get; set; }
+    
+    [JsonPropertyName("updated_at")]
+    public DateTime? UpdatedAt { get; set; }
+    
+    [JsonPropertyName("custom_field_values")]
+    public Dictionary<string, object>? CustomFieldValues { get; set; }
+    
+    [JsonPropertyName("last_status_id")]
+    public int? LastStatusId { get; set; }
+    
+    [JsonPropertyName("status_pending_approval_id")]
+    public int? StatusPendingApprovalId { get; set; }
+    
+    [JsonPropertyName("object_type")]
+    public string? ObjectType { get; set; }
+    
+    [JsonPropertyName("object_subtype")]
+    public string? ObjectSubtype { get; set; }
+    
+    [JsonPropertyName("past_status_expiration_date")]
+    public bool? PastStatusExpirationDate { get; set; }
+    
+    [JsonPropertyName("status_expiration_date")]
+    public DateTime? StatusExpirationDate { get; set; }
+    
+    [JsonPropertyName("status_last_changed")]
+    public DateTime? StatusLastChanged { get; set; }
+    
+    [JsonPropertyName("import_id")]
+    public int? ImportId { get; set; }
+    
+    [JsonPropertyName("import_date")]
+    public DateTime? ImportDate { get; set; }
+    
+    [JsonPropertyName("seconds_in_workflow_type")]
+    public Dictionary<string, long>? SecondsInWorkflowType { get; set; }
+    
+    [JsonPropertyName("first_entered_workflow_type")]
+    public Dictionary<string, DateTime>? FirstEnteredWorkflowType { get; set; }
+    
+    [JsonPropertyName("last_approver_id")]
+    public int? LastApproverId { get; set; }
+    
+    [JsonPropertyName("status")]
+    public VendorStatus? Status { get; set; }
+}
+
+public class VendorStatus
+{
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+    
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
+    
+    [JsonPropertyName("workflow_id")]
+    public int? WorkflowId { get; set; }
+    
+    [JsonPropertyName("created_by")]
+    public int? CreatedBy { get; set; }
+    
+    [JsonPropertyName("updated_by")]
+    public int? UpdatedBy { get; set; }
+    
+    [JsonPropertyName("created_at")]
+    public DateTime? CreatedAt { get; set; }
+    
+    [JsonPropertyName("updated_at")]
+    public DateTime? UpdatedAt { get; set; }
+    
+    [JsonPropertyName("point")]
+    public Dictionary<string, decimal>? Point { get; set; }
+    
+    [JsonPropertyName("workflow_type_id")]
+    public int? WorkflowTypeId { get; set; }
+    
+    [JsonPropertyName("custom_field_values")]
+    public Dictionary<string, object>? CustomFieldValues { get; set; }
+    
+    [JsonPropertyName("ordinal")]
+    public int? Ordinal { get; set; }
+    
+    [JsonPropertyName("import_id")]
+    public int? ImportId { get; set; }
+    
+    [JsonPropertyName("import_date")]
+    public DateTime? ImportDate { get; set; }
+    
+    [JsonPropertyName("starting_status")]
+    public bool? StartingStatus { get; set; }
+    
+    [JsonPropertyName("internal_description")]
+    public string? InternalDescription { get; set; }
+    
+    [JsonPropertyName("workflow_type")]
+    public VendorWorkflowType? WorkflowType { get; set; }
+}
+
+public class VendorWorkflowType
+{
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+    
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
+    
+    [JsonPropertyName("created_by")]
+    public int? CreatedBy { get; set; }
+    
+    [JsonPropertyName("updated_by")]
+    public int? UpdatedBy { get; set; }
+    
+    [JsonPropertyName("created_at")]
+    public DateTime? CreatedAt { get; set; }
+    
+    [JsonPropertyName("updated_at")]
+    public DateTime? UpdatedAt { get; set; }
+    
+    [JsonPropertyName("custom_field_values")]
+    public Dictionary<string, object>? CustomFieldValues { get; set; }
+    
+    [JsonPropertyName("color")]
+    public string? Color { get; set; }
     
     [JsonPropertyName("import_id")]
     public int? ImportId { get; set; }
