@@ -2,7 +2,9 @@
 
 A scalable, reusable, and secure .NET client library for accessing the Fexa API (AAFM - American Association of Fleet Managers).
 
-**API Documentation**: https://aafmapisandbox.fexa.io/fexa_docs/index.html
+**Repository**: [https://github.com/TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)  
+**API Documentation**: https://aafmapisandbox.fexa.io/fexa_docs/index.html  
+**Organization**: [TukaTek](https://github.com/TukaTek)
 
 ## Features
 
@@ -37,7 +39,11 @@ FexaApiClient/
 
 ## Quick Start
 
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/TukaTek/aafm_fexa_api.git
+   cd aafm_fexa_api/FexaApiClient
+   ```
 2. Navigate to the console application directory:
    ```bash
    cd src/Fexa.ApiClient.Console
@@ -511,4 +517,16 @@ The client uses OAuth 2.0 client credentials flow for authentication:
 
 ## License
 
-[Your License Here]
+This project is developed by [TukaTek](https://github.com/TukaTek) for integration with the AAFM Fexa API.
+
+## Support
+
+For issues and questions:
+- Create an issue on [GitHub](https://github.com/TukaTek/aafm_fexa_api/issues)
+- Contact: [TukaTek](https://github.com/TukaTek)
+
+## Repository Information
+
+- **Repository**: [TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)
+- **Organization**: [TukaTek](https://github.com/TukaTek)
+- **Latest Updates**: December 2024

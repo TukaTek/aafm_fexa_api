@@ -2,6 +2,9 @@
 
 This Azure Functions project provides a middleware API layer for the Fexa API client library.
 
+**Repository**: [https://github.com/TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)  
+**Organization**: [TukaTek](https://github.com/TukaTek)
+
 ## Configuration
 
 Before running the functions, configure your Fexa API credentials:
@@ -107,3 +110,15 @@ To add new endpoints:
 2. Inject required Fexa services via constructor
 3. Add `[Function]` decorated methods for each endpoint
 4. Follow the existing pattern for error handling and response formatting
+
+## Support
+
+For issues and questions:
+- Create an issue on [GitHub](https://github.com/TukaTek/aafm_fexa_api/issues)
+- Contact: [TukaTek](https://github.com/TukaTek)
+
+## Repository Information
+
+- **Repository**: [TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)
+- **Organization**: [TukaTek](https://github.com/TukaTek)
+- **Latest Updates**: December 2024

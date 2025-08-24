@@ -5,6 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 This is a .NET 8.0 API client library for the Fexa API, providing OAuth 2.0 authenticated access to AAFM (American Association of Fleet Managers) data including users, invoices, visits, work orders, and workflow transitions.
 
+**Repository**: [https://github.com/TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)  
+**Organization**: [TukaTek](https://github.com/TukaTek)  
+**Status**: Active Development (December 2024)
+
 ## Essential Commands
 
 ### Build and Test
@@ -264,6 +268,12 @@ Key menu classes:
 - `TestStatusUpdateFix.cs` - Direct status update testing
 - `DownloadTransitions.cs` - Export transitions to JSON
 
+### Repository Migration
+- **December 2024**: Repository migrated to TukaTek organization
+- **Repository URL**: https://github.com/TukaTek/aafm_fexa_api
+- **Organization**: TukaTek
+- **Status**: Active development and maintenance
+
 ### Recent Fixes and Improvements
 
 1. **Work Order Filter Fix (December 2024)**:
@@ -346,3 +356,11 @@ Key menu classes:
 6. Use proper service scoping (CreateScope for scoped services)
 7. URL-encode filter JSON when passing as query parameters
 8. Include time components in date filters (00:00:00 to 23:59:59)
+
+## Repository Information
+
+- **Repository**: [TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)
+- **Organization**: [TukaTek](https://github.com/TukaTek)
+- **Issues**: [GitHub Issues](https://github.com/TukaTek/aafm_fexa_api/issues)
+- **Latest Updates**: December 2024
+- **Maintained by**: TukaTek development team

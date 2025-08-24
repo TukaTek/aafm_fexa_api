@@ -1,8 +1,12 @@
 # Visit and Work Order Service Troubleshooting Guide
 
+**Repository**: [https://github.com/TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)  
+**Organization**: [TukaTek](https://github.com/TukaTek)
+
 ## Current Status (December 2024)
 - Visit Service is working correctly with the `/api/ev1/visits` endpoint
 - Work Order Service is working correctly with the `/api/ev1/workorders` endpoint
+- Repository migrated to TukaTek organization
 
 ## Known Issues and Solutions
 
@@ -123,3 +127,14 @@ If you encounter issues:
 2. Verify property names are correct for the endpoint
 3. Use the debug tools to test raw API calls
 4. Check API documentation at https://aafmapisandbox.fexa.io/fexa_docs/index.html
+
+## Repository Information
+
+- **Repository**: [TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)
+- **Organization**: [TukaTek](https://github.com/TukaTek)
+- **Issues**: [GitHub Issues](https://github.com/TukaTek/aafm_fexa_api/issues)
+- **Latest Updates**: December 2024
+
+For questions and support:
+- Create an issue on [GitHub](https://github.com/TukaTek/aafm_fexa_api/issues)
+- Contact: [TukaTek](https://github.com/TukaTek)
