@@ -75,6 +75,7 @@ public class MenuSystem
         System.Console.WriteLine("11. Test Direct Status Update (Debug)");
         System.Console.WriteLine("12. Test Note Service");
         System.Console.WriteLine("13. Test Client PO Filter");
+        System.Console.WriteLine("14. Test Client Service");
         System.Console.WriteLine("0. Exit");
         System.Console.WriteLine();
         System.Console.Write("Enter your choice: ");
@@ -122,6 +123,9 @@ public class MenuSystem
                 break;
             case "13":
                 await TestClientPOFilter.RunAsync(_configuration);
+                break;
+            case "14":
+                await TestClientService();
                 break;
             case "0":
                 _exitRequested = true;
@@ -1723,5 +1727,14 @@ public class MenuSystem
                 ShowError($"Inner exception: {ex.InnerException.Message}");
             }
         }
+    }
+    
+    private async Task TestClientService()
+    {
+        System.Console.Clear();
+        ShowHeader("Test Client Service");
+        
+        var testClientService = new TestClientService(_services);
+        await testClientService.RunTests();
     }
 }
