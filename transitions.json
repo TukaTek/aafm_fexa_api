@@ -1,0 +1,6894 @@
+{
+  "transitions": [
+    {
+      "name": "Accept",
+      "from_status_id": 14,
+      "to_status_id": 11,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      },
+      "to_status": {
+        "id": 11,
+        "name": "Schedule Pending Acceptance"
+      }
+    },
+    {
+      "name": "Accept Order",
+      "from_status_id": 111,
+      "to_status_id": 115,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 111,
+        "name": "Order Needed"
+      },
+      "to_status": {
+        "id": 115,
+        "name": "Order Acknowledged"
+      }
+    },
+    {
+      "name": "Accept Proposal Request",
+      "from_status_id": 14,
+      "to_status_id": 140,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      },
+      "to_status": {
+        "id": 140,
+        "name": "Accepted - Proposal Request"
+      }
+    },
+    {
+      "name": "Accept Proposal Request",
+      "from_status_id": 137,
+      "to_status_id": 140,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 137,
+        "name": "Proposal Request"
+      },
+      "to_status": {
+        "id": 140,
+        "name": "Accepted - Proposal Request"
+      }
+    },
+    {
+      "name": "Assignment Declined",
+      "from_status_id": 206,
+      "to_status_id": 14,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 206,
+        "name": "Response Deadline Missed"
+      },
+      "to_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      }
+    },
+    {
+      "name": "Back to In Progress",
+      "from_status_id": 110,
+      "to_status_id": 105,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 110,
+        "name": "Completed - Processed"
+      },
+      "to_status": {
+        "id": 105,
+        "name": "In Progress"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 158,
+      "to_status_id": 116,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 158,
+        "name": "Need Schedule"
+      },
+      "to_status": {
+        "id": 116,
+        "name": "Cancelled - Assignment Not Needed"
+      }
+    },
+    {
+      "name": "Cancel Assignment",
+      "from_status_id": 104,
+      "to_status_id": 116,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 104,
+        "name": "Scheduled"
+      },
+      "to_status": {
+        "id": 116,
+        "name": "Cancelled - Assignment Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Created in Error",
+      "from_status_id": 198,
+      "to_status_id": 13,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 198,
+        "name": "Supplier Quote Needed"
+      },
+      "to_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Created in Error",
+      "from_status_id": 11,
+      "to_status_id": 13,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 11,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Created in Error",
+      "from_status_id": 127,
+      "to_status_id": 13,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Created in Error",
+      "from_status_id": 17,
+      "to_status_id": 13,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 17,
+        "name": "Assigned to Vendor"
+      },
+      "to_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Created in Error",
+      "from_status_id": 137,
+      "to_status_id": 13,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 137,
+        "name": "Proposal Request"
+      },
+      "to_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Not Needed",
+      "from_status_id": 206,
+      "to_status_id": 116,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 206,
+        "name": "Response Deadline Missed"
+      },
+      "to_status": {
+        "id": 116,
+        "name": "Cancelled - Assignment Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Not Needed",
+      "from_status_id": 11,
+      "to_status_id": 116,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 11,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 116,
+        "name": "Cancelled - Assignment Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Assignment Not Needed",
+      "from_status_id": 17,
+      "to_status_id": 116,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 17,
+        "name": "Assigned to Vendor"
+      },
+      "to_status": {
+        "id": 116,
+        "name": "Cancelled - Assignment Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Created in Error",
+      "from_status_id": 131,
+      "to_status_id": 13,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 131,
+        "name": "Equipment On Site"
+      },
+      "to_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Equipment Not Available",
+      "from_status_id": 127,
+      "to_status_id": 135,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 135,
+        "name": "Cancelled - Equipment Not Available"
+      }
+    },
+    {
+      "name": "Cancel - Equipment Not Available",
+      "from_status_id": 115,
+      "to_status_id": 136,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 115,
+        "name": "Order Acknowledged"
+      },
+      "to_status": {
+        "id": 136,
+        "name": "Cancelled - Product Not Available"
+      }
+    },
+    {
+      "name": "Cancel - Equipment Not Available",
+      "from_status_id": 129,
+      "to_status_id": 135,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 129,
+        "name": "Equipment Request Acknowledged"
+      },
+      "to_status": {
+        "id": 135,
+        "name": "Cancelled - Equipment Not Available"
+      }
+    },
+    {
+      "name": "Cancel - Equipment Not Needed",
+      "from_status_id": 128,
+      "to_status_id": 133,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 128,
+        "name": "Equipment Delivery Scheduled"
+      },
+      "to_status": {
+        "id": 133,
+        "name": "Cancelled - Equipment not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Equipment Not Needed",
+      "from_status_id": 129,
+      "to_status_id": 133,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 129,
+        "name": "Equipment Request Acknowledged"
+      },
+      "to_status": {
+        "id": 133,
+        "name": "Cancelled - Equipment not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Equipment Not Needed",
+      "from_status_id": 127,
+      "to_status_id": 133,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 133,
+        "name": "Cancelled - Equipment not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Order Not Needed",
+      "from_status_id": 111,
+      "to_status_id": 134,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 111,
+        "name": "Order Needed"
+      },
+      "to_status": {
+        "id": 134,
+        "name": "Cancelled - Order Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Order Not Needed",
+      "from_status_id": 115,
+      "to_status_id": 134,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 115,
+        "name": "Order Acknowledged"
+      },
+      "to_status": {
+        "id": 134,
+        "name": "Cancelled - Order Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Product Not Available",
+      "from_status_id": 111,
+      "to_status_id": 136,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 111,
+        "name": "Order Needed"
+      },
+      "to_status": {
+        "id": 136,
+        "name": "Cancelled - Product Not Available"
+      }
+    },
+    {
+      "name": "Complete - Equipment Picked Up",
+      "from_status_id": 196,
+      "to_status_id": 130,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 196,
+        "name": "Reopen Assignment"
+      },
+      "to_status": {
+        "id": 130,
+        "name": "Completed - Equipment Picked Up"
+      }
+    },
+    {
+      "name": "Complete - Warranty Work",
+      "from_status_id": 108,
+      "to_status_id": 208,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 108,
+        "name": "Completed - Confirmed"
+      },
+      "to_status": {
+        "id": 208,
+        "name": "Completed - Warranty Work"
+      }
+    },
+    {
+      "name": "Decline",
+      "from_status_id": 17,
+      "to_status_id": 14,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 17,
+        "name": "Assigned to Vendor"
+      },
+      "to_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      }
+    },
+    {
+      "name": "Decline",
+      "from_status_id": 127,
+      "to_status_id": 14,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      }
+    },
+    {
+      "name": "Decline",
+      "from_status_id": 137,
+      "to_status_id": 14,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 137,
+        "name": "Proposal Request"
+      },
+      "to_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      }
+    },
+    {
+      "name": "Decline Assignment",
+      "from_status_id": 11,
+      "to_status_id": 14,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 11,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      }
+    },
+    {
+      "name": "*Declined",
+      "from_status_id": 198,
+      "to_status_id": 156,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 198,
+        "name": "Supplier Quote Needed"
+      },
+      "to_status": {
+        "id": 156,
+        "name": "Proposal Declined"
+      }
+    },
+    {
+      "name": "Decline Proposal Request",
+      "from_status_id": 140,
+      "to_status_id": 14,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 140,
+        "name": "Accepted - Proposal Request"
+      },
+      "to_status": {
+        "id": 14,
+        "name": "Provider Declined"
+      }
+    },
+    {
+      "name": "Delivery Scheduled",
+      "from_status_id": 129,
+      "to_status_id": 128,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 129,
+        "name": "Equipment Request Acknowledged"
+      },
+      "to_status": {
+        "id": 128,
+        "name": "Equipment Delivery Scheduled"
+      }
+    },
+    {
+      "name": "Equipment Delivery Scheduled",
+      "from_status_id": 336,
+      "to_status_id": 128,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 336,
+        "name": "Equipment Quote Needed"
+      },
+      "to_status": {
+        "id": 128,
+        "name": "Equipment Delivery Scheduled"
+      }
+    },
+    {
+      "name": "Equipment On Site",
+      "from_status_id": 128,
+      "to_status_id": 131,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 128,
+        "name": "Equipment Delivery Scheduled"
+      },
+      "to_status": {
+        "id": 131,
+        "name": "Equipment On Site"
+      }
+    },
+    {
+      "name": "Equipment Quote Needed",
+      "from_status_id": 127,
+      "to_status_id": 336,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 336,
+        "name": "Equipment Quote Needed"
+      }
+    },
+    {
+      "name": "Issue Resolved - No Return Visit Needed",
+      "from_status_id": 162,
+      "to_status_id": 164,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 162,
+        "name": "Recall - Negative Feedback Submitted"
+      },
+      "to_status": {
+        "id": 164,
+        "name": "Recall Resolved - Pending Confirmation"
+      }
+    },
+    {
+      "name": "Materials Arrived Need Schedule",
+      "from_status_id": 218,
+      "to_status_id": 158,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 218,
+        "name": "Vendor Supplied Materials"
+      },
+      "to_status": {
+        "id": 158,
+        "name": "Need Schedule"
+      }
+    },
+    {
+      "name": "Move Back to Accepted",
+      "from_status_id": 182,
+      "to_status_id": 11,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 182,
+        "name": "Proposal Needed - Don\u0027t Schedule"
+      },
+      "to_status": {
+        "id": 11,
+        "name": "Schedule Pending Acceptance"
+      }
+    },
+    {
+      "name": "Need to Submit a Proposal",
+      "from_status_id": 17,
+      "to_status_id": 182,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 17,
+        "name": "Assigned to Vendor"
+      },
+      "to_status": {
+        "id": 182,
+        "name": "Proposal Needed - Don\u0027t Schedule"
+      }
+    },
+    {
+      "name": "Need to Submit a Proposal",
+      "from_status_id": 11,
+      "to_status_id": 182,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 11,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 182,
+        "name": "Proposal Needed - Don\u0027t Schedule"
+      }
+    },
+    {
+      "name": "Negative Feedback - No Charge",
+      "from_status_id": 108,
+      "to_status_id": 207,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 108,
+        "name": "Completed - Confirmed"
+      },
+      "to_status": {
+        "id": 207,
+        "name": "Negative Feedback - No Charge"
+      }
+    },
+    {
+      "name": "No Charge for this Assignment",
+      "from_status_id": 108,
+      "to_status_id": 15,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 108,
+        "name": "Completed - Confirmed"
+      },
+      "to_status": {
+        "id": 15,
+        "name": "Completed - No Charge"
+      }
+    },
+    {
+      "name": "Order Needed",
+      "from_status_id": 134,
+      "to_status_id": 111,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 134,
+        "name": "Cancelled - Order Not Needed"
+      },
+      "to_status": {
+        "id": 111,
+        "name": "Order Needed"
+      }
+    },
+    {
+      "name": "Order Placed",
+      "from_status_id": 115,
+      "to_status_id": 113,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 115,
+        "name": "Order Acknowledged"
+      },
+      "to_status": {
+        "id": 113,
+        "name": "Order Placed - Pending Delivery"
+      }
+    },
+    {
+      "name": "Order Received",
+      "from_status_id": 113,
+      "to_status_id": 132,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 113,
+        "name": "Order Placed - Pending Delivery"
+      },
+      "to_status": {
+        "id": 132,
+        "name": "Completed - Order Received"
+      }
+    },
+    {
+      "name": "*Proposal Approved",
+      "from_status_id": 198,
+      "to_status_id": 115,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 198,
+        "name": "Supplier Quote Needed"
+      },
+      "to_status": {
+        "id": 115,
+        "name": "Order Acknowledged"
+      }
+    },
+    {
+      "name": "Proposal Declined",
+      "from_status_id": 336,
+      "to_status_id": 156,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 336,
+        "name": "Equipment Quote Needed"
+      },
+      "to_status": {
+        "id": 156,
+        "name": "Proposal Declined"
+      }
+    },
+    {
+      "name": "Recall Visit Not Needed - Complete",
+      "from_status_id": 165,
+      "to_status_id": 164,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 165,
+        "name": "Recall - In Progress"
+      },
+      "to_status": {
+        "id": 164,
+        "name": "Recall Resolved - Pending Confirmation"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 108,
+      "to_status_id": 153,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 108,
+        "name": "Completed - Confirmed"
+      },
+      "to_status": {
+        "id": 153,
+        "name": "In Progress - Action Needed"
+      }
+    },
+    {
+      "name": "Reopen Assignment",
+      "from_status_id": 109,
+      "to_status_id": 153,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 109,
+        "name": "Completed - Processing"
+      },
+      "to_status": {
+        "id": 153,
+        "name": "In Progress - Action Needed"
+      }
+    },
+    {
+      "name": "Reopen Assignment",
+      "from_status_id": 131,
+      "to_status_id": 196,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 131,
+        "name": "Equipment On Site"
+      },
+      "to_status": {
+        "id": 196,
+        "name": "Reopen Assignment"
+      }
+    },
+    {
+      "name": "Reopen - Assign to Vendor",
+      "from_status_id": 116,
+      "to_status_id": 17,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 116,
+        "name": "Cancelled - Assignment Not Needed"
+      },
+      "to_status": {
+        "id": 17,
+        "name": "Assigned to Vendor"
+      }
+    },
+    {
+      "name": "Request Acknowledged",
+      "from_status_id": 127,
+      "to_status_id": 129,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 129,
+        "name": "Equipment Request Acknowledged"
+      }
+    },
+    {
+      "name": "Scheduled",
+      "from_status_id": 206,
+      "to_status_id": 104,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 206,
+        "name": "Response Deadline Missed"
+      },
+      "to_status": {
+        "id": 104,
+        "name": "Scheduled"
+      }
+    },
+    {
+      "name": "Supplier Quote Needed",
+      "from_status_id": 111,
+      "to_status_id": 198,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 111,
+        "name": "Order Needed"
+      },
+      "to_status": {
+        "id": 198,
+        "name": "Supplier Quote Needed"
+      }
+    },
+    {
+      "name": "Supplier Quote Needed",
+      "from_status_id": 127,
+      "to_status_id": 336,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 127,
+        "name": "Equipment Needed"
+      },
+      "to_status": {
+        "id": 336,
+        "name": "Equipment Quote Needed"
+      }
+    },
+    {
+      "name": "Uncancel",
+      "from_status_id": 13,
+      "to_status_id": 17,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 13,
+        "name": "Cancelled - Created in Error"
+      },
+      "to_status": {
+        "id": 17,
+        "name": "Assigned to Vendor"
+      }
+    },
+    {
+      "name": "Vendor Supplied Materials",
+      "from_status_id": 157,
+      "to_status_id": 218,
+      "workflow_object_type": "Assignment",
+      "from_status": {
+        "id": 157,
+        "name": "Proposal Pending"
+      },
+      "to_status": {
+        "id": 218,
+        "name": "Vendor Supplied Materials"
+      }
+    },
+    {
+      "name": "AFB- Approved for Billing",
+      "from_status_id": 309,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Approve for Billing",
+      "from_status_id": 237,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Approve for Processing",
+      "from_status_id": 309,
+      "to_status_id": 30,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      }
+    },
+    {
+      "name": "Approve for Processing",
+      "from_status_id": 37,
+      "to_status_id": 30,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      }
+    },
+    {
+      "name": "Approve for Processing (Pre-Avalara: HOLD)",
+      "from_status_id": 82,
+      "to_status_id": 325,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 82,
+        "name": "Issue - Exceeds DNE"
+      },
+      "to_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      }
+    },
+    {
+      "name": "Approve for Processing (Pre-Avalara: HOLD)",
+      "from_status_id": 272,
+      "to_status_id": 325,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      },
+      "to_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      }
+    },
+    {
+      "name": "Approve for Processing (Pre-Avalara: HOLD)",
+      "from_status_id": 309,
+      "to_status_id": 325,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      }
+    },
+    {
+      "name": "Approve for Processing (Pre-Avalara: HOLD)",
+      "from_status_id": 37,
+      "to_status_id": 325,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      }
+    },
+    {
+      "name": "Approve for Processing (Pre-Avalara: HOLD)",
+      "from_status_id": 31,
+      "to_status_id": 325,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      }
+    },
+    {
+      "name": "Approve for Processing (Pre-Avalara: HOLD)",
+      "from_status_id": 237,
+      "to_status_id": 325,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      },
+      "to_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      }
+    },
+    {
+      "name": "Auto-Submit",
+      "from_status_id": 33,
+      "to_status_id": 309,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      }
+    },
+    {
+      "name": "BACK TO: AFB - Approved for Billing",
+      "from_status_id": 340,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 340,
+        "name": "3rd Party Integration"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Billing Inquiry",
+      "from_status_id": 37,
+      "to_status_id": 31,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      }
+    },
+    {
+      "name": "Billing Inquiry",
+      "from_status_id": 309,
+      "to_status_id": 31,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      }
+    },
+    {
+      "name": "BYPASS SC Integration - Approve for Processing",
+      "from_status_id": 37,
+      "to_status_id": 30,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 30,
+      "to_status_id": 32,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      },
+      "to_status": {
+        "id": 32,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Invoice Created in Error",
+      "from_status_id": 309,
+      "to_status_id": 32,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 32,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Invoice Created in Error",
+      "from_status_id": 33,
+      "to_status_id": 32,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 32,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Invoice Created in Error",
+      "from_status_id": 37,
+      "to_status_id": 32,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 32,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Exported - Paid",
+      "from_status_id": 241,
+      "to_status_id": 35,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 241,
+        "name": "Paid - No Integration"
+      },
+      "to_status": {
+        "id": 35,
+        "name": "Paid in Full"
+      }
+    },
+    {
+      "name": "Exported - Void",
+      "from_status_id": 245,
+      "to_status_id": 246,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 245,
+        "name": "Exported - No Integration"
+      },
+      "to_status": {
+        "id": 246,
+        "name": "Exported - VOID"
+      }
+    },
+    {
+      "name": "Hold for NTE Increase from Client",
+      "from_status_id": 82,
+      "to_status_id": 31,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 82,
+        "name": "Issue - Exceeds DNE"
+      },
+      "to_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      }
+    },
+    {
+      "name": "Issue - NTE Exceeded",
+      "from_status_id": 309,
+      "to_status_id": 82,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 82,
+        "name": "Issue - Exceeds DNE"
+      }
+    },
+    {
+      "name": "Issue - NTE Exceeded",
+      "from_status_id": 37,
+      "to_status_id": 82,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 82,
+        "name": "Issue - Exceeds DNE"
+      }
+    },
+    {
+      "name": "Mark as Paid in Full",
+      "from_status_id": 90,
+      "to_status_id": 35,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 90,
+        "name": "Exported"
+      },
+      "to_status": {
+        "id": 35,
+        "name": "Paid in Full"
+      }
+    },
+    {
+      "name": "Mark as Paid (No Integration)",
+      "from_status_id": 242,
+      "to_status_id": 241,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 242,
+        "name": "Partially Paid - No Integration"
+      },
+      "to_status": {
+        "id": 241,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "Mark As Paid (No Integration)",
+      "from_status_id": 90,
+      "to_status_id": 241,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 90,
+        "name": "Exported"
+      },
+      "to_status": {
+        "id": 241,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "Mark as Partially Paid (No Integration)",
+      "from_status_id": 241,
+      "to_status_id": 242,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 241,
+        "name": "Paid - No Integration"
+      },
+      "to_status": {
+        "id": 242,
+        "name": "Partially Paid - No Integration"
+      }
+    },
+    {
+      "name": "Mark as Partially Paid (No Integration)",
+      "from_status_id": 90,
+      "to_status_id": 242,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 90,
+        "name": "Exported"
+      },
+      "to_status": {
+        "id": 242,
+        "name": "Partially Paid - No Integration"
+      }
+    },
+    {
+      "name": "Needs Revision",
+      "from_status_id": 30,
+      "to_status_id": 237,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      },
+      "to_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      }
+    },
+    {
+      "name": "Needs Revision",
+      "from_status_id": 34,
+      "to_status_id": 237,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      },
+      "to_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      }
+    },
+    {
+      "name": "Needs Revision",
+      "from_status_id": 37,
+      "to_status_id": 237,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      }
+    },
+    {
+      "name": "Needs Revision",
+      "from_status_id": 309,
+      "to_status_id": 237,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 37,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 33,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 272,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 309,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 31,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 34,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 37,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 237,
+      "to_status_id": 34,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      },
+      "to_status": {
+        "id": 34,
+        "name": "No Charge with No Incurred Cost"
+      }
+    },
+    {
+      "name": "Not Closed on Customer Platform",
+      "from_status_id": 33,
+      "to_status_id": 272,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      }
+    },
+    {
+      "name": "Not Closed on Customer Platform",
+      "from_status_id": 37,
+      "to_status_id": 272,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      }
+    },
+    {
+      "name": "Not Closed on Customer Platform",
+      "from_status_id": 309,
+      "to_status_id": 272,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      }
+    },
+    {
+      "name": "Paid - No Integration",
+      "from_status_id": 245,
+      "to_status_id": 241,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 245,
+        "name": "Exported - No Integration"
+      },
+      "to_status": {
+        "id": 241,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "Paperwork Needed",
+      "from_status_id": 237,
+      "to_status_id": 309,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 237,
+        "name": "Needs Revision"
+      },
+      "to_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      }
+    },
+    {
+      "name": "Partially Paid - No Integration",
+      "from_status_id": 245,
+      "to_status_id": 242,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 245,
+        "name": "Exported - No Integration"
+      },
+      "to_status": {
+        "id": 242,
+        "name": "Partially Paid - No Integration"
+      }
+    },
+    {
+      "name": "Ready for Review",
+      "from_status_id": 31,
+      "to_status_id": 309,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      }
+    },
+    {
+      "name": "Ready to Export",
+      "from_status_id": 325,
+      "to_status_id": 30,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 325,
+        "name": "Pre-Avalara Invoices - Hold"
+      },
+      "to_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      }
+    },
+    {
+      "name": "Ready to Review",
+      "from_status_id": 33,
+      "to_status_id": 309,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      }
+    },
+    {
+      "name": "Ready to Review",
+      "from_status_id": 272,
+      "to_status_id": 33,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      },
+      "to_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      }
+    },
+    {
+      "name": "Ready to Review",
+      "from_status_id": 33,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Ready to Review",
+      "from_status_id": 31,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Ready to Submit",
+      "from_status_id": 272,
+      "to_status_id": 309,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      },
+      "to_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      }
+    },
+    {
+      "name": "Ready to Submit",
+      "from_status_id": 272,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Ready to Submit to Client",
+      "from_status_id": 31,
+      "to_status_id": 309,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      }
+    },
+    {
+      "name": "Ready to Submit to Client",
+      "from_status_id": 31,
+      "to_status_id": 37,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      }
+    },
+    {
+      "name": "Send to SC",
+      "from_status_id": 37,
+      "to_status_id": 339,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 339,
+        "name": "Generate Invoice Document"
+      }
+    },
+    {
+      "name": "Submit Request for Increase",
+      "from_status_id": 33,
+      "to_status_id": 31,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      }
+    },
+    {
+      "name": "Uncancel",
+      "from_status_id": 32,
+      "to_status_id": 32,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 32,
+        "name": "Cancelled - Created in Error"
+      },
+      "to_status": {
+        "id": 32,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Void after Export",
+      "from_status_id": 90,
+      "to_status_id": 246,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 90,
+        "name": "Exported"
+      },
+      "to_status": {
+        "id": 246,
+        "name": "Exported - VOID"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 309,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 309,
+        "name": "AFB - Paperwork Needed"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 30,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 30,
+        "name": "Approved for Processing"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 33,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 33,
+        "name": "Prep for Billing"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 31,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 31,
+        "name": "Waiting for DNE Increase"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 38,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 272,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 272,
+        "name": "Waiting for Customer Platform to Close"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Warranty Work",
+      "from_status_id": 37,
+      "to_status_id": 38,
+      "workflow_object_type": "Client Invoice",
+      "from_status": {
+        "id": 37,
+        "name": "AFB - Approved for Billing"
+      },
+      "to_status": {
+        "id": 38,
+        "name": "Warranty Work"
+      }
+    },
+    {
+      "name": "Approved by Client",
+      "from_status_id": 68,
+      "to_status_id": 39,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 39,
+        "name": "Approved By Client"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 76,
+      "to_status_id": 72,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 76,
+        "name": "Approval Acknowledged"
+      },
+      "to_status": {
+        "id": 72,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel After-The-Fact",
+      "from_status_id": 39,
+      "to_status_id": 72,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 39,
+        "name": "Approved By Client"
+      },
+      "to_status": {
+        "id": 72,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Created in Error",
+      "from_status_id": 43,
+      "to_status_id": 72,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      },
+      "to_status": {
+        "id": 72,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Created in Error",
+      "from_status_id": 42,
+      "to_status_id": 72,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 42,
+        "name": "Draft"
+      },
+      "to_status": {
+        "id": 72,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancelled - Created in Error",
+      "from_status_id": 68,
+      "to_status_id": 72,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 72,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Client Cancelled Request",
+      "from_status_id": 41,
+      "to_status_id": 40,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 41,
+        "name": "Revision Required"
+      },
+      "to_status": {
+        "id": 40,
+        "name": "Cancelled - Client Cancelled Request"
+      }
+    },
+    {
+      "name": "Client Cancelled Request",
+      "from_status_id": 43,
+      "to_status_id": 40,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      },
+      "to_status": {
+        "id": 40,
+        "name": "Cancelled - Client Cancelled Request"
+      }
+    },
+    {
+      "name": "Client Cancelled Request",
+      "from_status_id": 42,
+      "to_status_id": 40,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 42,
+        "name": "Draft"
+      },
+      "to_status": {
+        "id": 40,
+        "name": "Cancelled - Client Cancelled Request"
+      }
+    },
+    {
+      "name": "Client Cancelled Request",
+      "from_status_id": 68,
+      "to_status_id": 40,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 40,
+        "name": "Cancelled - Client Cancelled Request"
+      }
+    },
+    {
+      "name": "Client Put Work On Hold",
+      "from_status_id": 68,
+      "to_status_id": 71,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 71,
+        "name": "On Hold per Client"
+      }
+    },
+    {
+      "name": "Copied to Client Invoice",
+      "from_status_id": 39,
+      "to_status_id": 76,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 39,
+        "name": "Approved By Client"
+      },
+      "to_status": {
+        "id": 76,
+        "name": "Approval Acknowledged"
+      }
+    },
+    {
+      "name": "Need to Revise",
+      "from_status_id": 43,
+      "to_status_id": 41,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      },
+      "to_status": {
+        "id": 41,
+        "name": "Revision Required"
+      }
+    },
+    {
+      "name": "Pending Client Approval",
+      "from_status_id": 326,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 326,
+        "name": "Rejected - Needs Revision"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Pending Client Approval",
+      "from_status_id": 70,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 70,
+        "name": "Rejected by Client"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Pending Client Approval",
+      "from_status_id": 73,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 73,
+        "name": "Rejected - Need to Bill Incurred"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Pending Client Approval",
+      "from_status_id": 39,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 39,
+        "name": "Approved By Client"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Quote Rejected by Client",
+      "from_status_id": 68,
+      "to_status_id": 70,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 70,
+        "name": "Rejected by Client"
+      }
+    },
+    {
+      "name": "Ready To Review",
+      "from_status_id": 42,
+      "to_status_id": 43,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 42,
+        "name": "Draft"
+      },
+      "to_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      }
+    },
+    {
+      "name": "Ready To Review Again",
+      "from_status_id": 41,
+      "to_status_id": 43,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 41,
+        "name": "Revision Required"
+      },
+      "to_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      }
+    },
+    {
+      "name": "Ready to Send to Client",
+      "from_status_id": 41,
+      "to_status_id": 69,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 41,
+        "name": "Revision Required"
+      },
+      "to_status": {
+        "id": 69,
+        "name": "Ready to Send to Client"
+      }
+    },
+    {
+      "name": "Ready to Send to Client",
+      "from_status_id": 43,
+      "to_status_id": 69,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      },
+      "to_status": {
+        "id": 69,
+        "name": "Ready to Send to Client"
+      }
+    },
+    {
+      "name": "Rejected - Needs Revision",
+      "from_status_id": 68,
+      "to_status_id": 326,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 326,
+        "name": "Rejected - Needs Revision"
+      }
+    },
+    {
+      "name": "Rejected - Need to Bill Incurred",
+      "from_status_id": 68,
+      "to_status_id": 73,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 73,
+        "name": "Rejected - Need to Bill Incurred"
+      }
+    },
+    {
+      "name": "Release Hold - Client Approved",
+      "from_status_id": 71,
+      "to_status_id": 39,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 71,
+        "name": "On Hold per Client"
+      },
+      "to_status": {
+        "id": 39,
+        "name": "Approved By Client"
+      }
+    },
+    {
+      "name": "Release Hold - Wait for Client Approval",
+      "from_status_id": 71,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 71,
+        "name": "On Hold per Client"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Uncancel",
+      "from_status_id": 40,
+      "to_status_id": 40,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 40,
+        "name": "Cancelled - Client Cancelled Request"
+      },
+      "to_status": {
+        "id": 40,
+        "name": "Cancelled - Client Cancelled Request"
+      }
+    },
+    {
+      "name": "Wait for Client Approval",
+      "from_status_id": 43,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 43,
+        "name": "Ready To Review (OPS)"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Wait for Client Approval",
+      "from_status_id": 69,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 69,
+        "name": "Ready to Send to Client"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Wait for Client Approval",
+      "from_status_id": 42,
+      "to_status_id": 68,
+      "workflow_object_type": "Client Quote",
+      "from_status": {
+        "id": 42,
+        "name": "Draft"
+      },
+      "to_status": {
+        "id": 68,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Back to  In Progress",
+      "from_status_id": 312,
+      "to_status_id": 310,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 312,
+        "name": "Closed"
+      },
+      "to_status": {
+        "id": 310,
+        "name": "In Progress"
+      }
+    },
+    {
+      "name": "Back to In Progress",
+      "from_status_id": 323,
+      "to_status_id": 310,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 323,
+        "name": "Cancelled"
+      },
+      "to_status": {
+        "id": 310,
+        "name": "In Progress"
+      }
+    },
+    {
+      "name": "Back to In Progress",
+      "from_status_id": 311,
+      "to_status_id": 310,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 311,
+        "name": "Completed"
+      },
+      "to_status": {
+        "id": 310,
+        "name": "In Progress"
+      }
+    },
+    {
+      "name": "Back to New",
+      "from_status_id": 310,
+      "to_status_id": 273,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 310,
+        "name": "In Progress"
+      },
+      "to_status": {
+        "id": 273,
+        "name": "New"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 311,
+      "to_status_id": 323,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 311,
+        "name": "Completed"
+      },
+      "to_status": {
+        "id": 323,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 273,
+      "to_status_id": 323,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 273,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 323,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 310,
+      "to_status_id": 323,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 310,
+        "name": "In Progress"
+      },
+      "to_status": {
+        "id": 323,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Completed",
+      "from_status_id": 311,
+      "to_status_id": 312,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 311,
+        "name": "Completed"
+      },
+      "to_status": {
+        "id": 312,
+        "name": "Closed"
+      }
+    },
+    {
+      "name": "Completed",
+      "from_status_id": 310,
+      "to_status_id": 311,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 310,
+        "name": "In Progress"
+      },
+      "to_status": {
+        "id": 311,
+        "name": "Completed"
+      }
+    },
+    {
+      "name": "In Progess",
+      "from_status_id": 273,
+      "to_status_id": 310,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 273,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 310,
+        "name": "In Progress"
+      }
+    },
+    {
+      "name": "Undo",
+      "from_status_id": 323,
+      "to_status_id": 323,
+      "workflow_object_type": "Project",
+      "from_status": {
+        "id": 323,
+        "name": "Cancelled"
+      },
+      "to_status": {
+        "id": 323,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "*Back to Expired",
+      "from_status_id": 328,
+      "to_status_id": 211,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 328,
+        "name": "Temp Auth (48 Hours)"
+      },
+      "to_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      }
+    },
+    {
+      "name": "BACK TO: New (Provider type NOT \u0022Vendor\u0022)",
+      "from_status_id": 210,
+      "to_status_id": 238,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 210,
+        "name": "Active"
+      },
+      "to_status": {
+        "id": 238,
+        "name": "New"
+      }
+    },
+    {
+      "name": "*DO NOT USE",
+      "from_status_id": 330,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 330,
+        "name": "DNU - Non Compliant"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "*DO NOT USE",
+      "from_status_id": 333,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 333,
+        "name": "AFE Tech"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "*DO NOT USE",
+      "from_status_id": 329,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 329,
+        "name": "DNU - Minimal Compliance"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "DO NOT USE",
+      "from_status_id": 210,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 210,
+        "name": "Active"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "DO NOT USE",
+      "from_status_id": 331,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 331,
+        "name": "Pending Compliance"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "DO NOT USE",
+      "from_status_id": 211,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "DO NOT USE Supplier",
+      "from_status_id": 240,
+      "to_status_id": 219,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 240,
+        "name": "Supplier"
+      },
+      "to_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      }
+    },
+    {
+      "name": "Provider Type NOT \u0022Supplier\u0022",
+      "from_status_id": 240,
+      "to_status_id": 211,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 240,
+        "name": "Supplier"
+      },
+      "to_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      }
+    },
+    {
+      "name": "Provider Type = Supplier (Approval Required)",
+      "from_status_id": 211,
+      "to_status_id": 240,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      },
+      "to_status": {
+        "id": 240,
+        "name": "Supplier"
+      }
+    },
+    {
+      "name": "Provider Type = Supplier (Approval Required)",
+      "from_status_id": 331,
+      "to_status_id": 240,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 331,
+        "name": "Pending Compliance"
+      },
+      "to_status": {
+        "id": 240,
+        "name": "Supplier"
+      }
+    },
+    {
+      "name": "Provider Type = Supplier (Requires Approval)",
+      "from_status_id": 210,
+      "to_status_id": 240,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 210,
+        "name": "Active"
+      },
+      "to_status": {
+        "id": 240,
+        "name": "Supplier"
+      }
+    },
+    {
+      "name": "Provider Type = Vendor",
+      "from_status_id": 240,
+      "to_status_id": 211,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 240,
+        "name": "Supplier"
+      },
+      "to_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      }
+    },
+    {
+      "name": "*Temp Auth (48 Hours)",
+      "from_status_id": 219,
+      "to_status_id": 328,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 219,
+        "name": "DO NOT USE"
+      },
+      "to_status": {
+        "id": 328,
+        "name": "Temp Auth (48 Hours)"
+      }
+    },
+    {
+      "name": "*Temp Auth (48 Hours)",
+      "from_status_id": 330,
+      "to_status_id": 328,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 330,
+        "name": "DNU - Non Compliant"
+      },
+      "to_status": {
+        "id": 328,
+        "name": "Temp Auth (48 Hours)"
+      }
+    },
+    {
+      "name": "*Temp Auth (48 Hours)",
+      "from_status_id": 329,
+      "to_status_id": 328,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 329,
+        "name": "DNU - Minimal Compliance"
+      },
+      "to_status": {
+        "id": 328,
+        "name": "Temp Auth (48 Hours)"
+      }
+    },
+    {
+      "name": "Temp Auth (48 Hours)",
+      "from_status_id": 211,
+      "to_status_id": 328,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      },
+      "to_status": {
+        "id": 328,
+        "name": "Temp Auth (48 Hours)"
+      }
+    },
+    {
+      "name": "This is a Duplicate Supplier (make inactive)",
+      "from_status_id": 240,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 240,
+        "name": "Supplier"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "This is a Duplicate Vendor (make inactive)",
+      "from_status_id": 333,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 333,
+        "name": "AFE Tech"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "This is a Duplicate Vendor (make inactive)",
+      "from_status_id": 331,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 331,
+        "name": "Pending Compliance"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "This is a Duplicate Vendor (make inactive)",
+      "from_status_id": 328,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 328,
+        "name": "Temp Auth (48 Hours)"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "This is a Duplicate Vendor (make inactive)",
+      "from_status_id": 211,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "This is a Duplicate Vendor (make inactive)",
+      "from_status_id": 210,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 210,
+        "name": "Active"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "This is a Duplicate Vendor (make inactive)",
+      "from_status_id": 330,
+      "to_status_id": 321,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 330,
+        "name": "DNU - Non Compliant"
+      },
+      "to_status": {
+        "id": 321,
+        "name": "Duplicate"
+      }
+    },
+    {
+      "name": "UNDO: AFE Tech is NOT a duplicate",
+      "from_status_id": 321,
+      "to_status_id": 333,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 321,
+        "name": "Duplicate"
+      },
+      "to_status": {
+        "id": 333,
+        "name": "AFE Tech"
+      }
+    },
+    {
+      "name": "UNDO: Supplier is NOT a Duplicate",
+      "from_status_id": 321,
+      "to_status_id": 240,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 321,
+        "name": "Duplicate"
+      },
+      "to_status": {
+        "id": 240,
+        "name": "Supplier"
+      }
+    },
+    {
+      "name": "UNDO: Vendor is NOT a duplicate",
+      "from_status_id": 321,
+      "to_status_id": 211,
+      "workflow_object_type": "Vendor",
+      "from_status": {
+        "id": 321,
+        "name": "Duplicate"
+      },
+      "to_status": {
+        "id": 211,
+        "name": "Expired (Not Compliant)"
+      }
+    },
+    {
+      "name": "Approve for Processing",
+      "from_status_id": 226,
+      "to_status_id": 18,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 226,
+        "name": "Ready To Process"
+      },
+      "to_status": {
+        "id": 18,
+        "name": "Approved for Processing"
+      }
+    },
+    {
+      "name": "Back to Pending Submission",
+      "from_status_id": 103,
+      "to_status_id": 22,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 103,
+        "name": "Auto-Submit - Pending Confirmation"
+      },
+      "to_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      }
+    },
+    {
+      "name": "BACK TO: Pending Submission",
+      "from_status_id": 248,
+      "to_status_id": 22,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 248,
+        "name": "Expired Invoice"
+      },
+      "to_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      }
+    },
+    {
+      "name": "Back to Submitted - In Review",
+      "from_status_id": 317,
+      "to_status_id": 101,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 317,
+        "name": "Pending Paperwork"
+      },
+      "to_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 80,
+      "to_status_id": 19,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 80,
+        "name": "Submitted - Exceeds NTE"
+      },
+      "to_status": {
+        "id": 19,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 22,
+      "to_status_id": 19,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 19,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Created In Error",
+      "from_status_id": 226,
+      "to_status_id": 19,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 226,
+        "name": "Ready To Process"
+      },
+      "to_status": {
+        "id": 19,
+        "name": "Cancelled - Created in Error"
+      }
+    },
+    {
+      "name": "Exported - No Integration",
+      "from_status_id": 20,
+      "to_status_id": 299,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 20,
+        "name": "Paid"
+      },
+      "to_status": {
+        "id": 299,
+        "name": "Exported - No Integration"
+      }
+    },
+    {
+      "name": "In Review",
+      "from_status_id": 22,
+      "to_status_id": 101,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      }
+    },
+    {
+      "name": "In Review",
+      "from_status_id": 24,
+      "to_status_id": 101,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 24,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      }
+    },
+    {
+      "name": "Issue Resolved",
+      "from_status_id": 79,
+      "to_status_id": 101,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 79,
+        "name": "Issue AP Review (USE ONLY FOR AFE/SUPPLIER)"
+      },
+      "to_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      }
+    },
+    {
+      "name": "Mark as Paid (No Integration)",
+      "from_status_id": 102,
+      "to_status_id": 243,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 102,
+        "name": "Exported"
+      },
+      "to_status": {
+        "id": 243,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 101,
+      "to_status_id": 172,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      },
+      "to_status": {
+        "id": 172,
+        "name": "No Charge (Not Warranty Work Related)"
+      }
+    },
+    {
+      "name": "No Charge",
+      "from_status_id": 24,
+      "to_status_id": 172,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 24,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 172,
+        "name": "No Charge (Not Warranty Work Related)"
+      }
+    },
+    {
+      "name": "Override Compliance Docs - Ready to Process",
+      "from_status_id": 327,
+      "to_status_id": 226,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 327,
+        "name": "Pending Compliance Docs"
+      },
+      "to_status": {
+        "id": 226,
+        "name": "Ready To Process"
+      }
+    },
+    {
+      "name": "Paid - No Integration",
+      "from_status_id": 20,
+      "to_status_id": 243,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 20,
+        "name": "Paid"
+      },
+      "to_status": {
+        "id": 243,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "Paid - No Integration",
+      "from_status_id": 299,
+      "to_status_id": 243,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 299,
+        "name": "Exported - No Integration"
+      },
+      "to_status": {
+        "id": 243,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "Paid - No Integration",
+      "from_status_id": 18,
+      "to_status_id": 243,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 18,
+        "name": "Approved for Processing"
+      },
+      "to_status": {
+        "id": 243,
+        "name": "Paid - No Integration"
+      }
+    },
+    {
+      "name": "Partially Paid - No Integration",
+      "from_status_id": 20,
+      "to_status_id": 300,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 20,
+        "name": "Paid"
+      },
+      "to_status": {
+        "id": 300,
+        "name": "Partially Paid - No Integration"
+      }
+    },
+    {
+      "name": "Reject",
+      "from_status_id": 327,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 327,
+        "name": "Pending Compliance Docs"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Reject",
+      "from_status_id": 226,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 226,
+        "name": "Ready To Process"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Reject",
+      "from_status_id": 22,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Reject",
+      "from_status_id": 80,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 80,
+        "name": "Submitted - Exceeds NTE"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Reject",
+      "from_status_id": 317,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 317,
+        "name": "Pending Paperwork"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Reject Invoice",
+      "from_status_id": 24,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 24,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Reject Invoice",
+      "from_status_id": 101,
+      "to_status_id": 78,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      },
+      "to_status": {
+        "id": 78,
+        "name": "Rejected"
+      }
+    },
+    {
+      "name": "Submit (internal)",
+      "from_status_id": 22,
+      "to_status_id": 101,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 101,
+        "name": "Submitted - In Review"
+      }
+    },
+    {
+      "name": "Uncancel",
+      "from_status_id": 19,
+      "to_status_id": 22,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 19,
+        "name": "Cancelled - Created in Error"
+      },
+      "to_status": {
+        "id": 22,
+        "name": "Pending Submission"
+      }
+    },
+    {
+      "name": "Vendor Submitted",
+      "from_status_id": 103,
+      "to_status_id": 24,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 103,
+        "name": "Auto-Submit - Pending Confirmation"
+      },
+      "to_status": {
+        "id": 24,
+        "name": "Provider Submitted"
+      }
+    },
+    {
+      "name": "VOID after Export",
+      "from_status_id": 243,
+      "to_status_id": 239,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 243,
+        "name": "Paid - No Integration"
+      },
+      "to_status": {
+        "id": 239,
+        "name": "EXPORTED - VOID"
+      }
+    },
+    {
+      "name": "VOID After Exported",
+      "from_status_id": 102,
+      "to_status_id": 239,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 102,
+        "name": "Exported"
+      },
+      "to_status": {
+        "id": 239,
+        "name": "EXPORTED - VOID"
+      }
+    },
+    {
+      "name": "VOID After Paid",
+      "from_status_id": 20,
+      "to_status_id": 239,
+      "workflow_object_type": "Vendor Invoice",
+      "from_status": {
+        "id": 20,
+        "name": "Paid"
+      },
+      "to_status": {
+        "id": 239,
+        "name": "EXPORTED - VOID"
+      }
+    },
+    {
+      "name": "Approve After-the-Fact",
+      "from_status_id": 29,
+      "to_status_id": 93,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 93,
+        "name": "Approved After-the-Fact"
+      }
+    },
+    {
+      "name": "Approve After-the-Fact",
+      "from_status_id": 27,
+      "to_status_id": 93,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 93,
+        "name": "Approved After-the-Fact"
+      }
+    },
+    {
+      "name": "Approve - For Current Assignment",
+      "from_status_id": 29,
+      "to_status_id": 25,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 25,
+        "name": "Approved for Current Assignment"
+      }
+    },
+    {
+      "name": "Approve - For Current Assignment",
+      "from_status_id": 27,
+      "to_status_id": 25,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 25,
+        "name": "Approved for Current Assignment"
+      }
+    },
+    {
+      "name": "Approve - For Current Assignment",
+      "from_status_id": 100,
+      "to_status_id": 25,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 25,
+        "name": "Approved for Current Assignment"
+      }
+    },
+    {
+      "name": "Approve \u2013 For Current Assignment",
+      "from_status_id": 95,
+      "to_status_id": 25,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 95,
+        "name": "Provider Declined Request for Revision"
+      },
+      "to_status": {
+        "id": 25,
+        "name": "Approved for Current Assignment"
+      }
+    },
+    {
+      "name": "Approve - For Future Assignment",
+      "from_status_id": 100,
+      "to_status_id": 141,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 141,
+        "name": "Approved for Future Assignment"
+      }
+    },
+    {
+      "name": "Approve - For Future Assignment",
+      "from_status_id": 29,
+      "to_status_id": 141,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 141,
+        "name": "Approved for Future Assignment"
+      }
+    },
+    {
+      "name": "Approve for Submission (over $3500)",
+      "from_status_id": 188,
+      "to_status_id": 189,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 188,
+        "name": "Submitted - Needs Review"
+      },
+      "to_status": {
+        "id": 189,
+        "name": "Ready To Send To Client"
+      }
+    },
+    {
+      "name": "Back to Pending Submission",
+      "from_status_id": 25,
+      "to_status_id": 27,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 25,
+        "name": "Approved for Current Assignment"
+      },
+      "to_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      }
+    },
+    {
+      "name": "Cancel - Created in Error",
+      "from_status_id": 27,
+      "to_status_id": 96,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 96,
+        "name": "Cancelled - Provider Created in Error"
+      }
+    },
+    {
+      "name": "*Cancel - Not Needed",
+      "from_status_id": 29,
+      "to_status_id": 26,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 26,
+        "name": "Cancelled - Proposal Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Proposal Not Needed",
+      "from_status_id": 188,
+      "to_status_id": 26,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 188,
+        "name": "Submitted - Needs Review"
+      },
+      "to_status": {
+        "id": 26,
+        "name": "Cancelled - Proposal Not Needed"
+      }
+    },
+    {
+      "name": "Cancel - Proposal Not Needed",
+      "from_status_id": 27,
+      "to_status_id": 26,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 26,
+        "name": "Cancelled - Proposal Not Needed"
+      }
+    },
+    {
+      "name": "*Cancel - Provider Created in Error",
+      "from_status_id": 29,
+      "to_status_id": 96,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 96,
+        "name": "Cancelled - Provider Created in Error"
+      }
+    },
+    {
+      "name": "Copied to Client Quote",
+      "from_status_id": 27,
+      "to_status_id": 100,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Copied to Provider Invoice",
+      "from_status_id": 25,
+      "to_status_id": 143,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 25,
+        "name": "Approved for Current Assignment"
+      },
+      "to_status": {
+        "id": 143,
+        "name": "Transferred to Provider Invoice"
+      }
+    },
+    {
+      "name": "Copied to Provider Invoice",
+      "from_status_id": 93,
+      "to_status_id": 143,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 93,
+        "name": "Approved After-the-Fact"
+      },
+      "to_status": {
+        "id": 143,
+        "name": "Transferred to Provider Invoice"
+      }
+    },
+    {
+      "name": "Decline Proposal - No Incurred Cost",
+      "from_status_id": 100,
+      "to_status_id": 94,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 94,
+        "name": "Proposal Declined - No Incurred Cost"
+      }
+    },
+    {
+      "name": "Decline Proposal \u2013 No Incurred Cost",
+      "from_status_id": 95,
+      "to_status_id": 94,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 95,
+        "name": "Provider Declined Request for Revision"
+      },
+      "to_status": {
+        "id": 94,
+        "name": "Proposal Declined - No Incurred Cost"
+      }
+    },
+    {
+      "name": "Decline Proposal \u2013 Provider to Bill for Incurred",
+      "from_status_id": 95,
+      "to_status_id": 144,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 95,
+        "name": "Provider Declined Request for Revision"
+      },
+      "to_status": {
+        "id": 144,
+        "name": "Proposal Declined - Bill for Incurred Only"
+      }
+    },
+    {
+      "name": "Decline - Provider to Bill for Incurred",
+      "from_status_id": 100,
+      "to_status_id": 144,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 144,
+        "name": "Proposal Declined - Bill for Incurred Only"
+      }
+    },
+    {
+      "name": "Decline Request for Revision",
+      "from_status_id": 28,
+      "to_status_id": 95,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 28,
+        "name": "Rejected - Revision Needed"
+      },
+      "to_status": {
+        "id": 95,
+        "name": "Provider Declined Request for Revision"
+      }
+    },
+    {
+      "name": "Pending Client Approval",
+      "from_status_id": 189,
+      "to_status_id": 100,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 189,
+        "name": "Ready To Send To Client"
+      },
+      "to_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Pending Client Approval",
+      "from_status_id": 95,
+      "to_status_id": 100,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 95,
+        "name": "Provider Declined Request for Revision"
+      },
+      "to_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Put on Hold",
+      "from_status_id": 27,
+      "to_status_id": 99,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 99,
+        "name": "On Hold"
+      }
+    },
+    {
+      "name": "Put on Hold",
+      "from_status_id": 29,
+      "to_status_id": 99,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 99,
+        "name": "On Hold"
+      }
+    },
+    {
+      "name": "Put on Hold (over $3500)",
+      "from_status_id": 188,
+      "to_status_id": 99,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 188,
+        "name": "Submitted - Needs Review"
+      },
+      "to_status": {
+        "id": 99,
+        "name": "On Hold"
+      }
+    },
+    {
+      "name": "Reject - Allow Vendor to Bill Incurred",
+      "from_status_id": 29,
+      "to_status_id": 144,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 144,
+        "name": "Proposal Declined - Bill for Incurred Only"
+      }
+    },
+    {
+      "name": "Reject (over $3500)",
+      "from_status_id": 188,
+      "to_status_id": 28,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 188,
+        "name": "Submitted - Needs Review"
+      },
+      "to_status": {
+        "id": 28,
+        "name": "Rejected - Revision Needed"
+      }
+    },
+    {
+      "name": "Reject - Request a Revision",
+      "from_status_id": 29,
+      "to_status_id": 28,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 28,
+        "name": "Rejected - Revision Needed"
+      }
+    },
+    {
+      "name": "Release Hold - Ready To Send To Client",
+      "from_status_id": 99,
+      "to_status_id": 189,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 99,
+        "name": "On Hold"
+      },
+      "to_status": {
+        "id": 189,
+        "name": "Ready To Send To Client"
+      }
+    },
+    {
+      "name": "Resubmit",
+      "from_status_id": 28,
+      "to_status_id": 29,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 28,
+        "name": "Rejected - Revision Needed"
+      },
+      "to_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      }
+    },
+    {
+      "name": "Revision Needed",
+      "from_status_id": 100,
+      "to_status_id": 28,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      },
+      "to_status": {
+        "id": 28,
+        "name": "Rejected - Revision Needed"
+      }
+    },
+    {
+      "name": "Selected - Pending Client Approval",
+      "from_status_id": 29,
+      "to_status_id": 100,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      },
+      "to_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Submit",
+      "from_status_id": 27,
+      "to_status_id": 29,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      }
+    },
+    {
+      "name": "*Submit",
+      "from_status_id": 27,
+      "to_status_id": 29,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      },
+      "to_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      }
+    },
+    {
+      "name": "Uncancel",
+      "from_status_id": 26,
+      "to_status_id": 27,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 26,
+        "name": "Cancelled - Proposal Not Needed"
+      },
+      "to_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      }
+    },
+    {
+      "name": "Undo Decline",
+      "from_status_id": 144,
+      "to_status_id": 29,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 144,
+        "name": "Proposal Declined - Bill for Incurred Only"
+      },
+      "to_status": {
+        "id": 29,
+        "name": "Provider Submitted"
+      }
+    },
+    {
+      "name": "Undo Decline",
+      "from_status_id": 94,
+      "to_status_id": 100,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 94,
+        "name": "Proposal Declined - No Incurred Cost"
+      },
+      "to_status": {
+        "id": 100,
+        "name": "Pending Client Approval"
+      }
+    },
+    {
+      "name": "Undo Expiration",
+      "from_status_id": 247,
+      "to_status_id": 27,
+      "workflow_object_type": "Vendor Proposal",
+      "from_status": {
+        "id": 247,
+        "name": "Expired Proposal"
+      },
+      "to_status": {
+        "id": 27,
+        "name": "Pending Submission"
+      }
+    },
+    {
+      "name": "Back to Provider Scheduled",
+      "from_status_id": 1,
+      "to_status_id": 148,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 1,
+        "name": "Cancelled - Visit Created in Error"
+      },
+      "to_status": {
+        "id": 148,
+        "name": "Schedule Pending Acceptance"
+      }
+    },
+    {
+      "name": "Cancel - Equip Created in Error",
+      "from_status_id": 194,
+      "to_status_id": 195,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 194,
+        "name": "Equipment Picked Up"
+      },
+      "to_status": {
+        "id": 195,
+        "name": "Cancelled - Equip Schedule Created in Error"
+      }
+    },
+    {
+      "name": "Cancel Equipment Schedule",
+      "from_status_id": 190,
+      "to_status_id": 195,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 190,
+        "name": "Equipment Schedule Needed"
+      },
+      "to_status": {
+        "id": 195,
+        "name": "Cancelled - Equip Schedule Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Inclement Weather",
+      "from_status_id": 10,
+      "to_status_id": 9,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 9,
+        "name": "Re-Scheduled Due to In Climate Weather"
+      }
+    },
+    {
+      "name": "Cancelled - Visit created in Error",
+      "from_status_id": 202,
+      "to_status_id": 1,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      },
+      "to_status": {
+        "id": 1,
+        "name": "Cancelled - Visit Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Recall Visit Created In Error",
+      "from_status_id": 166,
+      "to_status_id": 180,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 166,
+        "name": "Recall Scheduled"
+      },
+      "to_status": {
+        "id": 180,
+        "name": "Cancelled - Recall Visit Created In Error"
+      }
+    },
+    {
+      "name": "Cancel - Visit Created in Error",
+      "from_status_id": 148,
+      "to_status_id": 1,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 148,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 1,
+        "name": "Cancelled - Visit Created in Error"
+      }
+    },
+    {
+      "name": "Cancel - Visit Created in Error",
+      "from_status_id": 10,
+      "to_status_id": 1,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 1,
+        "name": "Cancelled - Visit Created in Error"
+      }
+    },
+    {
+      "name": "Check In",
+      "from_status_id": 148,
+      "to_status_id": 2,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 148,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 2,
+        "name": "Checked In"
+      }
+    },
+    {
+      "name": "Check In",
+      "from_status_id": 202,
+      "to_status_id": 2,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      },
+      "to_status": {
+        "id": 2,
+        "name": "Checked In"
+      }
+    },
+    {
+      "name": "Check In",
+      "from_status_id": 10,
+      "to_status_id": 2,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 2,
+        "name": "Checked In"
+      }
+    },
+    {
+      "name": "Check In on Recall",
+      "from_status_id": 176,
+      "to_status_id": 168,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 176,
+        "name": "Recall Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 168,
+        "name": "Checked In on Recall"
+      }
+    },
+    {
+      "name": "Check Out Issue Resolved",
+      "from_status_id": 168,
+      "to_status_id": 169,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 168,
+        "name": "Checked In on Recall"
+      },
+      "to_status": {
+        "id": 169,
+        "name": "Checked Out Issue Resolved"
+      }
+    },
+    {
+      "name": "Check Out Location Closed",
+      "from_status_id": 2,
+      "to_status_id": 4,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 2,
+        "name": "Checked In"
+      },
+      "to_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      }
+    },
+    {
+      "name": "Check Out Needs Proposal",
+      "from_status_id": 2,
+      "to_status_id": 5,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 2,
+        "name": "Checked In"
+      },
+      "to_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      }
+    },
+    {
+      "name": "Check Out Return Needed",
+      "from_status_id": 2,
+      "to_status_id": 146,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 2,
+        "name": "Checked In"
+      },
+      "to_status": {
+        "id": 146,
+        "name": "Checked Out Return To Complete"
+      }
+    },
+    {
+      "name": "Check Out Return to Resolve",
+      "from_status_id": 168,
+      "to_status_id": 170,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 168,
+        "name": "Checked In on Recall"
+      },
+      "to_status": {
+        "id": 170,
+        "name": "Checked Out Return to Resolve"
+      }
+    },
+    {
+      "name": "Check Out Turned Away",
+      "from_status_id": 2,
+      "to_status_id": 7,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 2,
+        "name": "Checked In"
+      },
+      "to_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      }
+    },
+    {
+      "name": "Check Out Work Complete",
+      "from_status_id": 2,
+      "to_status_id": 8,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 2,
+        "name": "Checked In"
+      },
+      "to_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      }
+    },
+    {
+      "name": "Confirmed by Provider",
+      "from_status_id": 148,
+      "to_status_id": 204,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 148,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 204,
+        "name": "Provider Confirmed"
+      }
+    },
+    {
+      "name": "Confirmed - Day Before Service",
+      "from_status_id": 148,
+      "to_status_id": 10,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 148,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      }
+    },
+    {
+      "name": "Confirmed - Day Before Service",
+      "from_status_id": 204,
+      "to_status_id": 10,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 204,
+        "name": "Provider Confirmed"
+      },
+      "to_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      }
+    },
+    {
+      "name": "Confirmed - Day of Service",
+      "from_status_id": 10,
+      "to_status_id": 202,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      }
+    },
+    {
+      "name": "Delivery Scheduled",
+      "from_status_id": 190,
+      "to_status_id": 191,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 190,
+        "name": "Equipment Schedule Needed"
+      },
+      "to_status": {
+        "id": 191,
+        "name": "Equipment Delivery Scheduled"
+      }
+    },
+    {
+      "name": "Equipment On Site",
+      "from_status_id": 191,
+      "to_status_id": 192,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 191,
+        "name": "Equipment Delivery Scheduled"
+      },
+      "to_status": {
+        "id": 192,
+        "name": "Equipment Delivered to Location"
+      }
+    },
+    {
+      "name": "Equipment Picked Up",
+      "from_status_id": 193,
+      "to_status_id": 194,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 193,
+        "name": "Equipment Pick Up Scheduled"
+      },
+      "to_status": {
+        "id": 194,
+        "name": "Equipment Picked Up"
+      }
+    },
+    {
+      "name": "Facility No Show",
+      "from_status_id": 202,
+      "to_status_id": 151,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      },
+      "to_status": {
+        "id": 151,
+        "name": "Facility No Show"
+      }
+    },
+    {
+      "name": "Facility No Show",
+      "from_status_id": 10,
+      "to_status_id": 151,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 151,
+        "name": "Facility No Show"
+      }
+    },
+    {
+      "name": "Manual Complete",
+      "from_status_id": 5,
+      "to_status_id": 8,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      },
+      "to_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      }
+    },
+    {
+      "name": "Pick Up Scheduled",
+      "from_status_id": 190,
+      "to_status_id": 193,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 190,
+        "name": "Equipment Schedule Needed"
+      },
+      "to_status": {
+        "id": 193,
+        "name": "Equipment Pick Up Scheduled"
+      }
+    },
+    {
+      "name": "Provider Declined - Need to Reschedule",
+      "from_status_id": 202,
+      "to_status_id": 205,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      },
+      "to_status": {
+        "id": 205,
+        "name": "Provider Declined - Need to Reschedule"
+      }
+    },
+    {
+      "name": "Provider Declined - Need to Schedule",
+      "from_status_id": 148,
+      "to_status_id": 205,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 148,
+        "name": "Schedule Pending Acceptance"
+      },
+      "to_status": {
+        "id": 205,
+        "name": "Provider Declined - Need to Reschedule"
+      }
+    },
+    {
+      "name": "Recall No Longer Required",
+      "from_status_id": 176,
+      "to_status_id": 179,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 176,
+        "name": "Recall Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 179,
+        "name": "Cancelled - Recall Not Required"
+      }
+    },
+    {
+      "name": "Recall No Longer Required",
+      "from_status_id": 166,
+      "to_status_id": 179,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 166,
+        "name": "Recall Scheduled"
+      },
+      "to_status": {
+        "id": 179,
+        "name": "Cancelled - Recall Not Required"
+      }
+    },
+    {
+      "name": "Recall Scheduled",
+      "from_status_id": 166,
+      "to_status_id": 176,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 166,
+        "name": "Recall Scheduled"
+      },
+      "to_status": {
+        "id": 176,
+        "name": "Recall Schedule Confirmed"
+      }
+    },
+    {
+      "name": "Re-Scheduled due to in climate Weather",
+      "from_status_id": 202,
+      "to_status_id": 9,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      },
+      "to_status": {
+        "id": 9,
+        "name": "Re-Scheduled Due to In Climate Weather"
+      }
+    },
+    {
+      "name": "Reschedule Needed/Provider No Show",
+      "from_status_id": 10,
+      "to_status_id": 152,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 10,
+        "name": "Schedule Confirmed"
+      },
+      "to_status": {
+        "id": 152,
+        "name": "Reschedule Needed/Provider No Show"
+      }
+    },
+    {
+      "name": "Reschedule Needed/Provider No Show",
+      "from_status_id": 202,
+      "to_status_id": 152,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 202,
+        "name": "Confirmed - Day of Service"
+      },
+      "to_status": {
+        "id": 152,
+        "name": "Reschedule Needed/Provider No Show"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Location Closed",
+      "from_status_id": 8,
+      "to_status_id": 4,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      },
+      "to_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Location Closed",
+      "from_status_id": 5,
+      "to_status_id": 4,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      },
+      "to_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Location Closed",
+      "from_status_id": 7,
+      "to_status_id": 4,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      },
+      "to_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Needs Proposal",
+      "from_status_id": 4,
+      "to_status_id": 5,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      },
+      "to_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Needs Proposal",
+      "from_status_id": 8,
+      "to_status_id": 5,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      },
+      "to_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Needs Proposal",
+      "from_status_id": 7,
+      "to_status_id": 5,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      },
+      "to_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Return Needed",
+      "from_status_id": 8,
+      "to_status_id": 146,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      },
+      "to_status": {
+        "id": 146,
+        "name": "Checked Out Return To Complete"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Turned Away",
+      "from_status_id": 4,
+      "to_status_id": 7,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      },
+      "to_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Turned Away",
+      "from_status_id": 8,
+      "to_status_id": 7,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      },
+      "to_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Turned Away",
+      "from_status_id": 5,
+      "to_status_id": 7,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      },
+      "to_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Work Complete",
+      "from_status_id": 7,
+      "to_status_id": 8,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 7,
+        "name": "Checked Out Turned Away"
+      },
+      "to_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Work Complete",
+      "from_status_id": 4,
+      "to_status_id": 8,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 4,
+        "name": "Checked Out Location Closed"
+      },
+      "to_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Work Complete",
+      "from_status_id": 146,
+      "to_status_id": 8,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 146,
+        "name": "Checked Out Return To Complete"
+      },
+      "to_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      }
+    },
+    {
+      "name": "Switch to Checked Out Work Complete",
+      "from_status_id": 5,
+      "to_status_id": 8,
+      "workflow_object_type": "Visit",
+      "from_status": {
+        "id": 5,
+        "name": "Checked Out Needs Proposal"
+      },
+      "to_status": {
+        "id": 8,
+        "name": "Checked Out Work Complete"
+      }
+    },
+    {
+      "name": "Accept",
+      "from_status_id": 318,
+      "to_status_id": 319,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 318,
+        "name": "F2F: Pending Acceptance"
+      },
+      "to_status": {
+        "id": 319,
+        "name": "F2F: Accepted"
+      }
+    },
+    {
+      "name": "Accepted",
+      "from_status_id": 320,
+      "to_status_id": 319,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 320,
+        "name": "F2F: Declined"
+      },
+      "to_status": {
+        "id": 319,
+        "name": "F2F: Accepted"
+      }
+    },
+    {
+      "name": "Accounting Completed",
+      "from_status_id": 298,
+      "to_status_id": 53,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 298,
+        "name": "Accounting Complete - Roof Leak"
+      },
+      "to_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      }
+    },
+    {
+      "name": "Accounting Pending",
+      "from_status_id": 338,
+      "to_status_id": 159,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      },
+      "to_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      }
+    },
+    {
+      "name": "Action Required",
+      "from_status_id": 287,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 287,
+        "name": "Confirmed Schedule"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Action Required",
+      "from_status_id": 288,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "(ADMIN) BACK TO: Open",
+      "from_status_id": 290,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 290,
+        "name": "Quote Rejected"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "ADMIN - Reopen",
+      "from_status_id": 57,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "All Paperwork Received",
+      "from_status_id": 236,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "Assignment Pending",
+      "from_status_id": 294,
+      "to_status_id": 155,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      },
+      "to_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      }
+    },
+    {
+      "name": "Assignment Pending",
+      "from_status_id": 291,
+      "to_status_id": 155,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 291,
+        "name": "Qualified - Need Vendor"
+      },
+      "to_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      }
+    },
+    {
+      "name": "ATF Quote",
+      "from_status_id": 236,
+      "to_status_id": 296,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      },
+      "to_status": {
+        "id": 296,
+        "name": "Complete-ATF Quote"
+      }
+    },
+    {
+      "name": "Awaiting Client",
+      "from_status_id": 173,
+      "to_status_id": 324,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      },
+      "to_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      }
+    },
+    {
+      "name": "Awaiting Client",
+      "from_status_id": 316,
+      "to_status_id": 324,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 316,
+        "name": "Ready to Submit"
+      },
+      "to_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      }
+    },
+    {
+      "name": "Awaiting Client",
+      "from_status_id": 87,
+      "to_status_id": 324,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 292,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 292,
+        "name": "Material Confirmed - Schedule Needed"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 294,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 174,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 174,
+        "name": "Quote Approved"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 173,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 334,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 334,
+        "name": "Quote Approved - Materials Needed"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 293,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 293,
+        "name": "Quote Completed - Schedule Needed"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 287,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 287,
+        "name": "Confirmed Schedule"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 235,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 235,
+        "name": "Pending Vendor Quote"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 254,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 288,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 251,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 87,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 286,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 289,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 289,
+        "name": "Scheduled"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Awaiting Landlord",
+      "from_status_id": 324,
+      "to_status_id": 335,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      },
+      "to_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      }
+    },
+    {
+      "name": "Back to ATF Quote",
+      "from_status_id": 53,
+      "to_status_id": 296,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 296,
+        "name": "Complete-ATF Quote"
+      }
+    },
+    {
+      "name": "BACK TO: New",
+      "from_status_id": 88,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "Back to Open",
+      "from_status_id": 159,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "BACK TO: Open",
+      "from_status_id": 335,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 335,
+        "name": "Awaiting Landlord"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "BACK TO: Open (Quote Not Needed)",
+      "from_status_id": 235,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 235,
+        "name": "Pending Vendor Quote"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "BACK TO: Ops Completed",
+      "from_status_id": 338,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "BACK TO: OPS Completed",
+      "from_status_id": 296,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 296,
+        "name": "Complete-ATF Quote"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "BACK TO: Pending Signoffs / Photos",
+      "from_status_id": 88,
+      "to_status_id": 236,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      },
+      "to_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      }
+    },
+    {
+      "name": "Back to Quote Needed to Submit to Customer",
+      "from_status_id": 315,
+      "to_status_id": 173,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 315,
+        "name": "Ready to Review"
+      },
+      "to_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      }
+    },
+    {
+      "name": "Back to Quoting",
+      "from_status_id": 174,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 174,
+        "name": "Quote Approved"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Back to Ready to Review",
+      "from_status_id": 316,
+      "to_status_id": 315,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 316,
+        "name": "Ready to Submit"
+      },
+      "to_status": {
+        "id": 315,
+        "name": "Ready to Review"
+      }
+    },
+    {
+      "name": "Back to Ready to Submit",
+      "from_status_id": 324,
+      "to_status_id": 316,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      },
+      "to_status": {
+        "id": 316,
+        "name": "Ready to Submit"
+      }
+    },
+    {
+      "name": "Back to Ready to Submit",
+      "from_status_id": 254,
+      "to_status_id": 316,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 316,
+        "name": "Ready to Submit"
+      }
+    },
+    {
+      "name": "Cancel",
+      "from_status_id": 319,
+      "to_status_id": 47,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 319,
+        "name": "F2F: Accepted"
+      },
+      "to_status": {
+        "id": 47,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 319,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 319,
+        "name": "F2F: Accepted"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 318,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 318,
+        "name": "F2F: Pending Acceptance"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 86,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 320,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 320,
+        "name": "F2F: Declined"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 155,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 57,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled by Client",
+      "from_status_id": 87,
+      "to_status_id": 282,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      }
+    },
+    {
+      "name": "Cancelled - could not meet SLA",
+      "from_status_id": 86,
+      "to_status_id": 284,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 284,
+        "name": "Cancelled - could not meet SLA"
+      }
+    },
+    {
+      "name": "Cancelled - could not meet SLA",
+      "from_status_id": 57,
+      "to_status_id": 284,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 284,
+        "name": "Cancelled - could not meet SLA"
+      }
+    },
+    {
+      "name": "Cancelled - could not meet SLA",
+      "from_status_id": 155,
+      "to_status_id": 284,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 284,
+        "name": "Cancelled - could not meet SLA"
+      }
+    },
+    {
+      "name": "Cancelled - could not meet SLA",
+      "from_status_id": 87,
+      "to_status_id": 284,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 284,
+        "name": "Cancelled - could not meet SLA"
+      }
+    },
+    {
+      "name": "Cancelled - Duplicate WO",
+      "from_status_id": 87,
+      "to_status_id": 285,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 285,
+        "name": "Cancelled - Duplicate WO"
+      }
+    },
+    {
+      "name": "Cancelled - Duplicate WO",
+      "from_status_id": 86,
+      "to_status_id": 285,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 285,
+        "name": "Cancelled - Duplicate WO"
+      }
+    },
+    {
+      "name": "Cancelled - Duplicate WO",
+      "from_status_id": 155,
+      "to_status_id": 285,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 285,
+        "name": "Cancelled - Duplicate WO"
+      }
+    },
+    {
+      "name": "Cancelled - Duplicate WO",
+      "from_status_id": 57,
+      "to_status_id": 285,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 285,
+        "name": "Cancelled - Duplicate WO"
+      }
+    },
+    {
+      "name": "Cancelled - with Incurred",
+      "from_status_id": 87,
+      "to_status_id": 283,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 283,
+        "name": "Cancelled - with Incurred"
+      }
+    },
+    {
+      "name": "Cancelled - with Incurred",
+      "from_status_id": 57,
+      "to_status_id": 283,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 283,
+        "name": "Cancelled - with Incurred"
+      }
+    },
+    {
+      "name": "Cancelled - with Incurred",
+      "from_status_id": 155,
+      "to_status_id": 283,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 283,
+        "name": "Cancelled - with Incurred"
+      }
+    },
+    {
+      "name": "Cancelled - with Incurred",
+      "from_status_id": 86,
+      "to_status_id": 283,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 283,
+        "name": "Cancelled - with Incurred"
+      }
+    },
+    {
+      "name": "Cancel - WO Created in Error",
+      "from_status_id": 87,
+      "to_status_id": 47,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 47,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Cancel - WO Created in Error",
+      "from_status_id": 155,
+      "to_status_id": 47,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 47,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Cancel - WO Created in Error",
+      "from_status_id": 57,
+      "to_status_id": 47,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 47,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Cancel - WO Created in Error",
+      "from_status_id": 86,
+      "to_status_id": 47,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 47,
+        "name": "Cancelled"
+      }
+    },
+    {
+      "name": "Client Invoice Issue",
+      "from_status_id": 89,
+      "to_status_id": 255,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 89,
+        "name": "zzz Accounting Open"
+      },
+      "to_status": {
+        "id": 255,
+        "name": "Client Invoice Issue"
+      }
+    },
+    {
+      "name": "Client Invoice Issue",
+      "from_status_id": 53,
+      "to_status_id": 255,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 255,
+        "name": "Client Invoice Issue"
+      }
+    },
+    {
+      "name": "Client Invoice Issue",
+      "from_status_id": 159,
+      "to_status_id": 255,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      },
+      "to_status": {
+        "id": 255,
+        "name": "Client Invoice Issue"
+      }
+    },
+    {
+      "name": "Client Invoice Issue",
+      "from_status_id": 338,
+      "to_status_id": 255,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      },
+      "to_status": {
+        "id": 255,
+        "name": "Client Invoice Issue"
+      }
+    },
+    {
+      "name": "Client Quote Needed",
+      "from_status_id": 235,
+      "to_status_id": 173,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 235,
+        "name": "Pending Vendor Quote"
+      },
+      "to_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      }
+    },
+    {
+      "name": "Complete-ATF Quote",
+      "from_status_id": 88,
+      "to_status_id": 296,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      },
+      "to_status": {
+        "id": 296,
+        "name": "Complete-ATF Quote"
+      }
+    },
+    {
+      "name": "Compliance Issue Resolved",
+      "from_status_id": 281,
+      "to_status_id": 159,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 281,
+        "name": "Payment Ready - Pending Compliance"
+      },
+      "to_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      }
+    },
+    {
+      "name": "Decline",
+      "from_status_id": 318,
+      "to_status_id": 320,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 318,
+        "name": "F2F: Pending Acceptance"
+      },
+      "to_status": {
+        "id": 320,
+        "name": "F2F: Declined"
+      }
+    },
+    {
+      "name": "Does Not Meet Margin",
+      "from_status_id": 338,
+      "to_status_id": 280,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      },
+      "to_status": {
+        "id": 280,
+        "name": "Does Not Meet Margin"
+      }
+    },
+    {
+      "name": "Does Not Meet Margin",
+      "from_status_id": 89,
+      "to_status_id": 280,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 89,
+        "name": "zzz Accounting Open"
+      },
+      "to_status": {
+        "id": 280,
+        "name": "Does Not Meet Margin"
+      }
+    },
+    {
+      "name": "Does Not Meet Margin",
+      "from_status_id": 159,
+      "to_status_id": 280,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      },
+      "to_status": {
+        "id": 280,
+        "name": "Does Not Meet Margin"
+      }
+    },
+    {
+      "name": "Does Not Meet Margin",
+      "from_status_id": 53,
+      "to_status_id": 280,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 280,
+        "name": "Does Not Meet Margin"
+      }
+    },
+    {
+      "name": "FIN Complete - Billing Only",
+      "from_status_id": 159,
+      "to_status_id": 53,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      },
+      "to_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      }
+    },
+    {
+      "name": "FIN Pending",
+      "from_status_id": 89,
+      "to_status_id": 159,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 89,
+        "name": "zzz Accounting Open"
+      },
+      "to_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      }
+    },
+    {
+      "name": "FIN Reopened",
+      "from_status_id": 53,
+      "to_status_id": 159,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      }
+    },
+    {
+      "name": "Invoice Issue Resolved (Back to Previous Status)",
+      "from_status_id": 255,
+      "to_status_id": 255,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 255,
+        "name": "Client Invoice Issue"
+      },
+      "to_status": {
+        "id": 255,
+        "name": "Client Invoice Issue"
+      }
+    },
+    {
+      "name": "Jump to FIN Pending",
+      "from_status_id": 87,
+      "to_status_id": 159,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      }
+    },
+    {
+      "name": "JUMP TO: OPS Completed",
+      "from_status_id": 86,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "Margin Issue Resolved (Back to Previous Status)",
+      "from_status_id": 280,
+      "to_status_id": 280,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 280,
+        "name": "Does Not Meet Margin"
+      },
+      "to_status": {
+        "id": 280,
+        "name": "Does Not Meet Margin"
+      }
+    },
+    {
+      "name": "Material Delivered",
+      "from_status_id": 251,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Materials Confirmed",
+      "from_status_id": 251,
+      "to_status_id": 292,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      },
+      "to_status": {
+        "id": 292,
+        "name": "Material Confirmed - Schedule Needed"
+      }
+    },
+    {
+      "name": "Move Back to New",
+      "from_status_id": 283,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 283,
+        "name": "Cancelled - with Incurred"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "Move Back to New",
+      "from_status_id": 282,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "Move Back to New",
+      "from_status_id": 285,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 285,
+        "name": "Cancelled - Duplicate WO"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "Move Back to New",
+      "from_status_id": 284,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 284,
+        "name": "Cancelled - could not meet SLA"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "Move Back to New",
+      "from_status_id": 47,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 47,
+        "name": "Cancelled"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "New",
+      "from_status_id": 87,
+      "to_status_id": 86,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 86,
+        "name": "New"
+      }
+    },
+    {
+      "name": "NTE Issue Resolved (Back to Previous Status)",
+      "from_status_id": 270,
+      "to_status_id": 270,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 270,
+        "name": "Vendor NTE Issue"
+      },
+      "to_status": {
+        "id": 270,
+        "name": "Vendor NTE Issue"
+      }
+    },
+    {
+      "name": "On Hold per Client",
+      "from_status_id": 155,
+      "to_status_id": 57,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      }
+    },
+    {
+      "name": "On Hold per Client",
+      "from_status_id": 86,
+      "to_status_id": 57,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      }
+    },
+    {
+      "name": "On Hold per Client",
+      "from_status_id": 87,
+      "to_status_id": 57,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      }
+    },
+    {
+      "name": "On Hold - Per Client",
+      "from_status_id": 254,
+      "to_status_id": 57,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      }
+    },
+    {
+      "name": "Open",
+      "from_status_id": 200,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 200,
+        "name": "QUOTE - Single Trip Completion"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "OPS Complete",
+      "from_status_id": 288,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "OPS Complete",
+      "from_status_id": 87,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "OPS Completed",
+      "from_status_id": 290,
+      "to_status_id": 88,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 290,
+        "name": "Quote Rejected"
+      },
+      "to_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      }
+    },
+    {
+      "name": "Payment Ready - Pending Compliance",
+      "from_status_id": 53,
+      "to_status_id": 281,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 281,
+        "name": "Payment Ready - Pending Compliance"
+      }
+    },
+    {
+      "name": "Payment Ready - Pending Compliance",
+      "from_status_id": 159,
+      "to_status_id": 281,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      },
+      "to_status": {
+        "id": 281,
+        "name": "Payment Ready - Pending Compliance"
+      }
+    },
+    {
+      "name": "Payment Ready - Pending Compliance",
+      "from_status_id": 89,
+      "to_status_id": 281,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 89,
+        "name": "zzz Accounting Open"
+      },
+      "to_status": {
+        "id": 281,
+        "name": "Payment Ready - Pending Compliance"
+      }
+    },
+    {
+      "name": "Pending Approval",
+      "from_status_id": 173,
+      "to_status_id": 254,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      },
+      "to_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      }
+    },
+    {
+      "name": "Pending Quote",
+      "from_status_id": 288,
+      "to_status_id": 235,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 235,
+        "name": "Pending Vendor Quote"
+      }
+    },
+    {
+      "name": "Pending Signoffs / Photos",
+      "from_status_id": 87,
+      "to_status_id": 236,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      }
+    },
+    {
+      "name": "Pending Signoffs / Photos",
+      "from_status_id": 288,
+      "to_status_id": 236,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      }
+    },
+    {
+      "name": "Pending Vendor Proposal",
+      "from_status_id": 87,
+      "to_status_id": 235,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 235,
+        "name": "Pending Vendor Quote"
+      }
+    },
+    {
+      "name": "Qualified - Need Vendor",
+      "from_status_id": 86,
+      "to_status_id": 291,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 291,
+        "name": "Qualified - Need Vendor"
+      }
+    },
+    {
+      "name": "Qualified - Need Vendor",
+      "from_status_id": 319,
+      "to_status_id": 291,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 319,
+        "name": "F2F: Accepted"
+      },
+      "to_status": {
+        "id": 291,
+        "name": "Qualified - Need Vendor"
+      }
+    },
+    {
+      "name": "Quote Approved",
+      "from_status_id": 87,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Quote Approved",
+      "from_status_id": 324,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Quote Approved",
+      "from_status_id": 254,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Quote Approved - Materials Needed",
+      "from_status_id": 174,
+      "to_status_id": 334,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 174,
+        "name": "Quote Approved"
+      },
+      "to_status": {
+        "id": 334,
+        "name": "Quote Approved - Materials Needed"
+      }
+    },
+    {
+      "name": "Quote Approved - Materials Needed",
+      "from_status_id": 254,
+      "to_status_id": 334,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 334,
+        "name": "Quote Approved - Materials Needed"
+      }
+    },
+    {
+      "name": "Quote  Approved Waiting Material",
+      "from_status_id": 324,
+      "to_status_id": 251,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      },
+      "to_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      }
+    },
+    {
+      "name": "Quote  Approved Waiting Material",
+      "from_status_id": 254,
+      "to_status_id": 251,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      }
+    },
+    {
+      "name": "Quote Completed - Schedule Needed",
+      "from_status_id": 324,
+      "to_status_id": 293,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      },
+      "to_status": {
+        "id": 293,
+        "name": "Quote Completed - Schedule Needed"
+      }
+    },
+    {
+      "name": "Quote Completed - Schedule Needed",
+      "from_status_id": 254,
+      "to_status_id": 293,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 293,
+        "name": "Quote Completed - Schedule Needed"
+      }
+    },
+    {
+      "name": "Quote Rejected",
+      "from_status_id": 254,
+      "to_status_id": 290,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      },
+      "to_status": {
+        "id": 290,
+        "name": "Quote Rejected"
+      }
+    },
+    {
+      "name": "Quote Rejected",
+      "from_status_id": 324,
+      "to_status_id": 290,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 324,
+        "name": "Awaiting Client"
+      },
+      "to_status": {
+        "id": 290,
+        "name": "Quote Rejected"
+      }
+    },
+    {
+      "name": "QUOTE - Single Trip Completion",
+      "from_status_id": 86,
+      "to_status_id": 200,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 200,
+        "name": "QUOTE - Single Trip Completion"
+      }
+    },
+    {
+      "name": "QUOTE - Single Trip Completion",
+      "from_status_id": 155,
+      "to_status_id": 200,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 200,
+        "name": "QUOTE - Single Trip Completion"
+      }
+    },
+    {
+      "name": "Quote Waiting on Customer Approval",
+      "from_status_id": 316,
+      "to_status_id": 254,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 316,
+        "name": "Ready to Submit"
+      },
+      "to_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      }
+    },
+    {
+      "name": "Quoting",
+      "from_status_id": 89,
+      "to_status_id": 173,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 89,
+        "name": "zzz Accounting Open"
+      },
+      "to_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      }
+    },
+    {
+      "name": "Quoting",
+      "from_status_id": 236,
+      "to_status_id": 173,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      },
+      "to_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      }
+    },
+    {
+      "name": "Quoting",
+      "from_status_id": 86,
+      "to_status_id": 173,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      }
+    },
+    {
+      "name": "Ready to Bill",
+      "from_status_id": 296,
+      "to_status_id": 338,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 296,
+        "name": "Complete-ATF Quote"
+      },
+      "to_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      }
+    },
+    {
+      "name": "Ready to Bill",
+      "from_status_id": 88,
+      "to_status_id": 338,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 88,
+        "name": "OPS Completed"
+      },
+      "to_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      }
+    },
+    {
+      "name": "Ready to Review",
+      "from_status_id": 173,
+      "to_status_id": 315,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      },
+      "to_status": {
+        "id": 315,
+        "name": "Ready to Review"
+      }
+    },
+    {
+      "name": "Ready to Submit",
+      "from_status_id": 315,
+      "to_status_id": 316,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 315,
+        "name": "Ready to Review"
+      },
+      "to_status": {
+        "id": 316,
+        "name": "Ready to Submit"
+      }
+    },
+    {
+      "name": "Release",
+      "from_status_id": 57,
+      "to_status_id": 57,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      },
+      "to_status": {
+        "id": 57,
+        "name": "On Hold - per Client"
+      }
+    },
+    {
+      "name": "Release from Quoting",
+      "from_status_id": 174,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 174,
+        "name": "Quote Approved"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Release from Quoting",
+      "from_status_id": 173,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 173,
+        "name": "Quote Needed to Submit to Customer"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 236,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 53,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 47,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 47,
+        "name": "Cancelled"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 284,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 284,
+        "name": "Cancelled - could not meet SLA"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 298,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 298,
+        "name": "Accounting Complete - Roof Leak"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 283,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 283,
+        "name": "Cancelled - with Incurred"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 282,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 282,
+        "name": "Cancelled - by Client"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Reopen",
+      "from_status_id": 285,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 285,
+        "name": "Cancelled - Duplicate WO"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "Scheduled",
+      "from_status_id": 293,
+      "to_status_id": 289,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 293,
+        "name": "Quote Completed - Schedule Needed"
+      },
+      "to_status": {
+        "id": 289,
+        "name": "Scheduled"
+      }
+    },
+    {
+      "name": "Scheduled",
+      "from_status_id": 292,
+      "to_status_id": 289,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 292,
+        "name": "Material Confirmed - Schedule Needed"
+      },
+      "to_status": {
+        "id": 289,
+        "name": "Scheduled"
+      }
+    },
+    {
+      "name": "Scheduled",
+      "from_status_id": 286,
+      "to_status_id": 289,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      },
+      "to_status": {
+        "id": 289,
+        "name": "Scheduled"
+      }
+    },
+    {
+      "name": "Scheduled",
+      "from_status_id": 288,
+      "to_status_id": 289,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 289,
+        "name": "Scheduled"
+      }
+    },
+    {
+      "name": "Schedule Date Needed",
+      "from_status_id": 288,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Scheduled Confirmed",
+      "from_status_id": 289,
+      "to_status_id": 287,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 289,
+        "name": "Scheduled"
+      },
+      "to_status": {
+        "id": 287,
+        "name": "Confirmed Schedule"
+      }
+    },
+    {
+      "name": "Scheduled Confirmed",
+      "from_status_id": 286,
+      "to_status_id": 287,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      },
+      "to_status": {
+        "id": 287,
+        "name": "Confirmed Schedule"
+      }
+    },
+    {
+      "name": "Scheduled Date Needed",
+      "from_status_id": 87,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Scheduled Date Needed",
+      "from_status_id": 155,
+      "to_status_id": 286,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      }
+    },
+    {
+      "name": "Scheduled Date Not Needed",
+      "from_status_id": 286,
+      "to_status_id": 87,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 286,
+        "name": "Scheduled Date Needed"
+      },
+      "to_status": {
+        "id": 87,
+        "name": "Action Required"
+      }
+    },
+    {
+      "name": "SLA: New Vendor",
+      "from_status_id": 236,
+      "to_status_id": 294,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 236,
+        "name": "Pending Signoffs / Photos"
+      },
+      "to_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      }
+    },
+    {
+      "name": "SLA: New Vendor",
+      "from_status_id": 87,
+      "to_status_id": 294,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      }
+    },
+    {
+      "name": "SLA: New Vendor",
+      "from_status_id": 155,
+      "to_status_id": 294,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 155,
+        "name": "Assignment Pending"
+      },
+      "to_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      }
+    },
+    {
+      "name": "SLA: New Vendor",
+      "from_status_id": 174,
+      "to_status_id": 294,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 174,
+        "name": "Quote Approved"
+      },
+      "to_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      }
+    },
+    {
+      "name": "SLA: New Vendor",
+      "from_status_id": 86,
+      "to_status_id": 294,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 86,
+        "name": "New"
+      },
+      "to_status": {
+        "id": 294,
+        "name": "SLA: New Vendor"
+      }
+    },
+    {
+      "name": "Tech On Site",
+      "from_status_id": 287,
+      "to_status_id": 288,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 287,
+        "name": "Confirmed Schedule"
+      },
+      "to_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      }
+    },
+    {
+      "name": "To Schedule Confirmed",
+      "from_status_id": 87,
+      "to_status_id": 287,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 287,
+        "name": "Confirmed Schedule"
+      }
+    },
+    {
+      "name": "To Tech On Site",
+      "from_status_id": 87,
+      "to_status_id": 288,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 87,
+        "name": "Action Required"
+      },
+      "to_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      }
+    },
+    {
+      "name": "Undo Rejected - Quote Waiting on Customer Approval",
+      "from_status_id": 290,
+      "to_status_id": 254,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 290,
+        "name": "Quote Rejected"
+      },
+      "to_status": {
+        "id": 254,
+        "name": "Quote Waiting on Customer Approval"
+      }
+    },
+    {
+      "name": "Vendor NTE Issue",
+      "from_status_id": 338,
+      "to_status_id": 270,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 338,
+        "name": "Ready to Bill"
+      },
+      "to_status": {
+        "id": 270,
+        "name": "Vendor NTE Issue"
+      }
+    },
+    {
+      "name": "Vendor NTE Issue",
+      "from_status_id": 159,
+      "to_status_id": 270,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 159,
+        "name": "Accounting Pending"
+      },
+      "to_status": {
+        "id": 270,
+        "name": "Vendor NTE Issue"
+      }
+    },
+    {
+      "name": "Vendor NTE Issue",
+      "from_status_id": 53,
+      "to_status_id": 270,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 53,
+        "name": "Accounting Completed"
+      },
+      "to_status": {
+        "id": 270,
+        "name": "Vendor NTE Issue"
+      }
+    },
+    {
+      "name": "Waiting on Material",
+      "from_status_id": 334,
+      "to_status_id": 251,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 334,
+        "name": "Quote Approved - Materials Needed"
+      },
+      "to_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      }
+    },
+    {
+      "name": "Waiting on Materials",
+      "from_status_id": 288,
+      "to_status_id": 251,
+      "workflow_object_type": "Work Order",
+      "from_status": {
+        "id": 288,
+        "name": "Tech On Site"
+      },
+      "to_status": {
+        "id": 251,
+        "name": "Waiting On Material"
+      }
+    }
+  ],
+  "count": 492,
+  "downloaded_at": "2025-08-21 00:40:40 UTC"
+}

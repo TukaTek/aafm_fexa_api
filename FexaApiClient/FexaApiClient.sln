@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2DFE1E8C-BBB7-49A1-9EA0-1C39FF704201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fexa.ApiClient", "src\Fexa.ApiClient\Fexa.ApiClient.csproj", "{93EDF026-373E-4C7A-B91B-C955BB0F837B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fexa.ApiClient.Console", "src\Fexa.ApiClient.Console\Fexa.ApiClient.Console.csproj", "{3591E78A-12D3-44D4-8313-CD417F319259}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{889F1E3C-A88A-4B56-88D5-46FEFA56C8B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fexa.ApiClient.Tests", "tests\Fexa.ApiClient.Tests\Fexa.ApiClient.Tests.csproj", "{1A171A3B-A691-4753-8193-48ED994DD599}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fexa.ApiClient.Function", "src\Fexa.ApiClient.Function\Fexa.ApiClient.Function.csproj", "{F028F448-81EF-4AF5-B5A0-56BCDFCDF8C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93EDF026-373E-4C7A-B91B-C955BB0F837B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EDF026-373E-4C7A-B91B-C955BB0F837B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EDF026-373E-4C7A-B91B-C955BB0F837B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EDF026-373E-4C7A-B91B-C955BB0F837B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3591E78A-12D3-44D4-8313-CD417F319259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3591E78A-12D3-44D4-8313-CD417F319259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3591E78A-12D3-44D4-8313-CD417F319259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3591E78A-12D3-44D4-8313-CD417F319259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A171A3B-A691-4753-8193-48ED994DD599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A171A3B-A691-4753-8193-48ED994DD599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A171A3B-A691-4753-8193-48ED994DD599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A171A3B-A691-4753-8193-48ED994DD599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F028F448-81EF-4AF5-B5A0-56BCDFCDF8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F028F448-81EF-4AF5-B5A0-56BCDFCDF8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F028F448-81EF-4AF5-B5A0-56BCDFCDF8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F028F448-81EF-4AF5-B5A0-56BCDFCDF8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{93EDF026-373E-4C7A-B91B-C955BB0F837B} = {2DFE1E8C-BBB7-49A1-9EA0-1C39FF704201}
+		{3591E78A-12D3-44D4-8313-CD417F319259} = {2DFE1E8C-BBB7-49A1-9EA0-1C39FF704201}
+		{1A171A3B-A691-4753-8193-48ED994DD599} = {889F1E3C-A88A-4B56-88D5-46FEFA56C8B6}
+		{F028F448-81EF-4AF5-B5A0-56BCDFCDF8C7} = {2DFE1E8C-BBB7-49A1-9EA0-1C39FF704201}
+	EndGlobalSection
+EndGlobal

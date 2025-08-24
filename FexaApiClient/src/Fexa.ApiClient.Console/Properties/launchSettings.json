@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Fexa.ApiClient.Console": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

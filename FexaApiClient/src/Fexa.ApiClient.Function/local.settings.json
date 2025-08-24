@@ -1,0 +1,19 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "FexaApi__BaseUrl": "https://aafmapisandbox.fexa.io/",
+    "FexaApi__ClientId": "YmQ2Yjk1Y2FiZjQ0MjdhOTdmNGNmMmQzZjA2NmZiNzBkNmMzNmIyZTgwMTUwOWExYTU5MjFjNWNkZWNkMzZjMzNiMTc5ZjFlYzBlM2I0M2MzNWM5NzJiOGQwZjcwNzI5OGRmNA==",
+    "FexaApi__ClientSecret": "NzE2OTVjMjMzMmU4Yzg5NzA5YzVjMmRhYzliMmU3ZjAwNGFmMTI2NWI4MjNlN2FkMjAzMDEzYmU0Mjk3YWNkMWZkZGUyYWJkNDg5OTY2ODI=",
+    "FexaApi__PollyRetryCount": "3",
+    "FexaApi__PollyRetryBackoffPower": "2",
+    "FexaApi__CircuitBreakerThreshold": "5",
+    "FexaApi__CircuitBreakerDuration": "00:00:30"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*",
+    "CORSCredentials": false
+  }
+}

@@ -1,0 +1,361 @@
+{
+    "assignments": {
+        "id": 1213567,
+        "workorder_id": 180901,
+        "role_id": 460538,
+        "spoke_with": null,
+        "created_at": "2025-08-12T20:27:11.342Z",
+        "updated_at": "2025-08-15T00:31:12.259Z",
+        "created_by": 7652,
+        "updated_by": 1,
+        "scope": null,
+        "category_id": 315,
+        "facility_id": 521897,
+        "custom_field_values": {},
+        "default_assignment_category_id": null,
+        "rank": null,
+        "initial_response_deadline": "2025-08-13T00:00:00.000Z",
+        "initial_arrival_deadline": "2025-08-14T00:15:00.000Z",
+        "completion_deadline": "2025-08-15T00:30:00.000Z",
+        "priority_id": 13,
+        "past_initial_response_deadline": true,
+        "past_initial_arrival_deadline": true,
+        "past_completion_deadline": true,
+        "date_completed": null,
+        "import_id": null,
+        "import_date": null,
+        "program_generation_id": null,
+        "subcontractor_invoice_billing_requirement_id": 1,
+        "pending_invoice_total": "0.0",
+        "approved_invoice_total": "0.0",
+        "combined_invoice_total": "0.0",
+        "submitted_pending_invoice_total": "0.0",
+        "quote_required": false,
+        "pending_invoice_sub_total": "0.0",
+        "approved_invoice_sub_total": "0.0",
+        "submitted_pending_invoice_sub_total": "0.0",
+        "combined_invoice_sub_total": "0.0",
+        "pending_invoice_tax": "0.0",
+        "approved_invoice_tax": "0.0",
+        "submitted_pending_invoice_tax": "0.0",
+        "combined_invoice_tax": "0.0",
+        "initial_response_date": "2025-08-12T20:27:14.320Z",
+        "date_accepted": "2025-08-12T20:27:14.320Z",
+        "gl_code": null,
+        "currency": "USD",
+        "currency_details": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "symbol": "$",
+            "subunit": "Cent",
+            "iso_code": "USD",
+            "priority": 1,
+            "html_entity": "$",
+            "iso_numeric": "840",
+            "decimal_mark": ".",
+            "symbol_first": true,
+            "subunit_to_unit": 100,
+            "alternate_symbols": [
+                "US$"
+            ],
+            "disambiguate_symbol": "US$",
+            "thousands_separator": ",",
+            "smallest_denomination": 1
+        },
+        "currency_client_exchange_rate": "1.0",
+        "currency_client_details": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "symbol": "$",
+            "subunit": "Cent",
+            "iso_code": "USD",
+            "priority": 1,
+            "html_entity": "$",
+            "iso_numeric": "840",
+            "decimal_mark": ".",
+            "symbol_first": true,
+            "subunit_to_unit": 100,
+            "alternate_symbols": [
+                "US$"
+            ],
+            "disambiguate_symbol": "US$",
+            "thousands_separator": ",",
+            "smallest_denomination": 1
+        },
+        "currency_facility_exchange_rate": "1.0",
+        "currency_facility_details": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "symbol": "$",
+            "subunit": "Cent",
+            "iso_code": "USD",
+            "priority": 1,
+            "html_entity": "$",
+            "iso_numeric": "840",
+            "decimal_mark": ".",
+            "symbol_first": true,
+            "subunit_to_unit": 100,
+            "alternate_symbols": [
+                "US$"
+            ],
+            "disambiguate_symbol": "US$",
+            "thousands_separator": ",",
+            "smallest_denomination": 1
+        },
+        "currency_home_exchange_rate": "1.0",
+        "currency_home_details": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "symbol": "$",
+            "subunit": "Cent",
+            "iso_code": "USD",
+            "priority": 1,
+            "html_entity": "$",
+            "iso_numeric": "840",
+            "decimal_mark": ".",
+            "symbol_first": true,
+            "subunit_to_unit": 100,
+            "alternate_symbols": [
+                "US$"
+            ],
+            "disambiguate_symbol": "US$",
+            "thousands_separator": ",",
+            "smallest_denomination": 1
+        },
+        "currency_subcontractor_exchange_rate": "1.0",
+        "currency_subcontractor_details": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "symbol": "$",
+            "subunit": "Cent",
+            "iso_code": "USD",
+            "priority": 1,
+            "html_entity": "$",
+            "iso_numeric": "840",
+            "decimal_mark": ".",
+            "symbol_first": true,
+            "subunit_to_unit": 100,
+            "alternate_symbols": [
+                "US$"
+            ],
+            "disambiguate_symbol": "US$",
+            "thousands_separator": ",",
+            "smallest_denomination": 1
+        },
+        "product_labor_total": "0.0",
+        "product_material_total": "0.0",
+        "product_other_total": "0.0",
+        "product_passthrough_tax_total": "0.0",
+        "product_tax_total": "0.0",
+        "product_travel_total": "0.0",
+        "combined_invoice_balance": "0.0",
+        "instructions_assignment_special": "",
+        "instructions_visit": "",
+        "workorder_class_id": 2,
+        "billing_requirement_id": null,
+        "business_requirement_met": true,
+        "creation_request_source": "Login Desktop App",
+        "date_cancelled": null,
+        "export_date": null,
+        "mass_dispatch_id": null,
+        "is_internal_assignment": false,
+        "expense_id": null,
+        "budget_id": null,
+        "next_visit_date": "2025-08-14T00:15:00.000Z",
+        "has_surveys": false,
+        "has_unsubmitted_surveys": false,
+        "latest_recalled_date": null,
+        "trakref_id": null,
+        "trakref_status": null,
+        "trakref_integration_status": null,
+        "from_assignment_association_links": [],
+        "priority": {
+            "id": 13,
+            "name": "Low - 7 Days",
+            "description": "Must be onsite within 7 Days of Call",
+            "hours_to_arrive": "168.0",
+            "hours_to_complete": "336.0",
+            "hours_to_respond": "0.5",
+            "severity_id": 4
+        },
+        "workorder_class": {
+            "id": 2,
+            "name": "Preventative Maintenance",
+            "description": "Preventative Maintenance"
+        },
+        "workorder": {
+            "id": 180901,
+            "description": "Monthly PM Grease trap cleaning/pumping.",
+            "asset_group_ids": [],
+            "assigned_to_role": {
+                "id": 446654,
+                "person": {
+                    "id": 286873,
+                    "default_address": {
+                        "first_name": "Construction",
+                        "last_name": "Team",
+                        "company": "",
+                        "dba": null
+                    },
+                    "user": {
+                        "id": 9415,
+                        "email": "constructionteam@allamericanfacilities.com"
+                    }
+                }
+            }
+        },
+        "subcontractor_not_to_exceed": {
+            "id": 532536,
+            "amount": "185.0",
+            "exchanged_info": {
+                "amount": 185.0,
+                "vendor_amount": 185.0,
+                "currency_info": {
+                    "id": "usd",
+                    "alternate_symbols": [
+                        "US$"
+                    ],
+                    "decimal_mark": ".",
+                    "disambiguate_symbol": "US$",
+                    "html_entity": "$",
+                    "iso_code": "USD",
+                    "iso_numeric": "840",
+                    "name": "United States Dollar",
+                    "priority": 1,
+                    "smallest_denomination": 1,
+                    "subunit": "Cent",
+                    "subunit_to_unit": 100,
+                    "symbol": "$",
+                    "symbol_first": true,
+                    "thousands_separator": ","
+                },
+                "vendor_currency": {
+                    "id": "usd",
+                    "alternate_symbols": [
+                        "US$"
+                    ],
+                    "decimal_mark": ".",
+                    "disambiguate_symbol": "US$",
+                    "html_entity": "$",
+                    "iso_code": "USD",
+                    "iso_numeric": "840",
+                    "name": "United States Dollar",
+                    "priority": 1,
+                    "smallest_denomination": 1,
+                    "subunit": "Cent",
+                    "subunit_to_unit": 100,
+                    "symbol": "$",
+                    "symbol_first": true,
+                    "thousands_separator": ","
+                }
+            }
+        },
+        "category": {
+            "id": 315,
+            "category": "Grease Trap",
+            "description": "Grease Trap",
+            "parent_id": 285,
+            "parent": {
+                "id": 285,
+                "category": "Plumbing",
+                "description": "Parent Trade General Plumbing",
+                "parent_id": null
+            }
+        },
+        "store": {
+            "id": 521897,
+            "name": "VGSG-001932",
+            "identifier": "VGSG-001932",
+            "center_id": null,
+            "district_id": null,
+            "facility_code": "VGSG-001932",
+            "brand_id": 1098,
+            "default_address": {
+                "address1": "1341 N. M-52",
+                "address2": null,
+                "address3": null,
+                "address4": null,
+                "address5": null,
+                "city": "Owosso",
+                "state": "MI",
+                "province": null,
+                "postal_code": "48867",
+                "country": "US",
+                "phone": "+1 (888) 888-8888",
+                "extension": null,
+                "fax": null,
+                "mobile": "+1 (888) 888-8888",
+                "emergency": null,
+                "alternate_phone": null,
+                "email": "fake_email@fexa.io",
+                "active": true,
+                "long": "-84.119813",
+                "lat": "43.0177296",
+                "timezone": "America/Detroit",
+                "notes": null,
+                "default_address": true,
+                "facility_id": 521897,
+                "main_contact_id": null,
+                "language": "en",
+                "currency": "USD"
+            }
+        },
+        "object_state": {
+            "id": 1625990,
+            "object_id": 1213567,
+            "status_id": 206,
+            "last_status_id": 11,
+            "past_status_expiration_date": null,
+            "status_expiration_date": null,
+            "status_last_changed": "2025-08-13T00:01:10.804Z",
+            "status": {
+                "id": 206,
+                "name": "Response Deadline Missed",
+                "workflow_type": {
+                    "id": 8,
+                    "name": "Accepted"
+                }
+            }
+        },
+        "role": {
+            "id": 460538,
+            "type": "Roles::EntityRole::SubcontractorRole",
+            "entity": {
+                "id": 300756,
+                "type": "Entities::Organization",
+                "default_dispatch_address": {
+                    "company": "All Florida - Xavier Cardona",
+                    "dba": "All Florida - Xavier Cardona",
+                    "address1": "710 International Parkway",
+                    "address2": null,
+                    "address3": null,
+                    "address4": null,
+                    "address5": null,
+                    "city": "Sunrise",
+                    "state": "FL",
+                    "province": null,
+                    "postal_code": "33325",
+                    "country": "US",
+                    "phone": "+1 (888) 888-8888",
+                    "extension": null,
+                    "fax": null,
+                    "mobile": "+1 (888) 888-8888",
+                    "emergency": "+1 954 322 9909",
+                    "alternate_phone": null,
+                    "email": "fake_email@fexa.io",
+                    "active": true,
+                    "long": "-80.3407219",
+                    "lat": "26.1291689",
+                    "timezone": "America/New_York",
+                    "notes": null,
+                    "default_address": true,
+                    "facility_id": null,
+                    "main_contact_id": null,
+                    "language": "en",
+                    "currency": "USD"
+                }
+            }
+        },
+        "to_assignment_association_links": []
+    }
+}
