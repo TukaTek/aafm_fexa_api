@@ -264,7 +264,6 @@ public class VendorFunctions
         _logger.LogInformation("Getting vendors for work order {WorkOrderId}", workOrderId);
         
         var response = req.CreateResponse();
-        response.Headers.Add("Content-Type", "application/json");
         
         try
         {
