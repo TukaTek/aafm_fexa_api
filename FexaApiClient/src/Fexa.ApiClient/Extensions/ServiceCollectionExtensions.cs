@@ -73,6 +73,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IPriorityService, PriorityService>();
         services.AddSingleton<IWorkOrderCategoryService, WorkOrderCategoryService>();
         services.AddSingleton<ILocationService, LocationService>();
+        services.AddSingleton<IDocumentService, DocumentService>();
         
         return services;
     }
@@ -137,6 +138,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IPriorityService, PriorityService>();
         services.AddSingleton<IWorkOrderCategoryService, WorkOrderCategoryService>();
         services.AddSingleton<ILocationService, LocationService>();
+        services.AddSingleton<IDocumentService, DocumentService>();
         
         return services;
     }

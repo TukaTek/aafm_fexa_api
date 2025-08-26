@@ -48,6 +48,9 @@ class Program
             })
             .ConfigureServices((context, services) =>
             {
+                // Add memory cache (required by several services)
+                services.AddMemoryCache();
+                
                 // Add Fexa API client with configuration
                 services.AddFexaApiClient(context.Configuration);
                 

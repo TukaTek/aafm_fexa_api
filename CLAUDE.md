@@ -58,8 +58,15 @@ dotnet build --no-incremental
 
 ### Solution Structure
 - **src/Fexa.ApiClient/**: Core library implementing the API client
+  - Models: Data models and DTOs (Document, WorkOrder, Note, etc.)
+  - Services: API service implementations (DocumentService, WorkOrderService, etc.)
+  - Extensions: Extension methods and DI registration
 - **src/Fexa.ApiClient.WebApi/**: ASP.NET Core Web API middleware (primary deployment)
+  - Controllers: REST API endpoints (DocumentController, WorkOrderController, etc.)
+  - Deployed to Azure App Service at fexa-api-webapp
 - **src/Fexa.ApiClient.Console/**: Interactive console application for testing/demonstration
+  - Menu system for testing all services (option 16 for Document Upload)
+  - Direct API testing capabilities
 - **src/Fexa.ApiClient.Function/**: Azure Functions (deprecated - replaced by WebApi)
 - **tests/Fexa.ApiClient.Tests/**: Unit tests using xUnit, FluentAssertions, and Moq
 
@@ -75,6 +82,7 @@ The client uses dependency injection with service interfaces:
 - `IRegionService`: Region data operations
 - `ISeverityService`: Severity level operations
 - `INoteService`: Note management operations (updated for work order notes)
+- `IDocumentService`: Document upload operations with multipart/form-data support
 - `IDocumentTypeService`: Document type operations with caching
 - `IPriorityService`: Priority management with caching
 - `IWorkOrderCategoryService`: Work order category operations with hierarchy support
@@ -196,12 +204,14 @@ The `FilterBuilder` class provides a fluent API for building complex Fexa API fi
 ### Development Guidelines
 
 When adding new API endpoints:
-1. Create interface in `/Services/Interfaces/`
-2. Implement in `/Services/`
-3. Add models in `/Models/`
-4. Register in `ServiceCollectionExtensions`
-5. Add unit tests in corresponding test project
-6. Test with console application menu system
+1. Create interface in `/Services/` (e.g., `IDocumentService.cs`)
+2. Implement service in `/Services/` (e.g., `DocumentService.cs`)
+3. Add models in `/Models/` (e.g., `Document.cs`)
+4. Register in `ServiceCollectionExtensions` (choose appropriate lifetime)
+5. Create controller in `/WebApi/Controllers/` for middleware endpoints
+6. Add unit tests in corresponding test project
+7. Test with console application menu system
+8. Remember to add `services.AddMemoryCache()` if using caching
 
 When modifying filter capabilities:
 1. Update `FilterBuilder` class
@@ -218,6 +228,7 @@ When modifying filter capabilities:
 - `Visit` - Service visit information
 - `Transition` - Workflow state transitions
 - `Region`, `Severity` - Reference data models
+- `Document` - Document metadata and upload/response models
 - `DocumentType` - Document type definitions
 - `Priority` - Priority levels with severity information
 - `WorkOrderCategory` - Hierarchical category structure
@@ -225,6 +236,7 @@ When modifying filter capabilities:
 - `Location` - Store/location information with addresses and geographic data
 
 **Simplified DTOs** (for Web API responses):
+- `DocumentDto` - id, documentTypeId, description, fileName, url, createdAt
 - `DocumentTypeDto` - id, name, description
 - `PriorityDto` - id, name, description
 - `WorkOrderCategoryDto` - id, category, description, parent_category, full_path
@@ -414,6 +426,14 @@ The Web API provides simplified endpoints with DTOs at https://fexa-api-webapp.a
 - GET `/clientpo/{poNumber}` - Get ALL work orders by Client PO (auto-pagination)
 - Returns: WorkOrder model
 
+**Documents** (`/api/Document`):
+- POST `/workorder/{workOrderId}` - Upload document to work order (multipart/form-data)
+  - Parameters: `DocumentTypeId`, `Description`, `File`
+  - Max file size: 50MB (configurable)
+  - Supported formats: pdf, doc, docx, xls, xlsx, png, jpg, txt, csv
+- POST `/workorder/{workOrderId}/base64` - Upload document using base64 encoding
+- Returns: DocumentDto with document details and URL
+
 **Notes** (`/api/Note`):
 - GET `/` - Get paginated notes
 - GET `/{noteId}` - Get specific note
@@ -457,7 +477,16 @@ The Web API provides simplified endpoints with DTOs at https://fexa-api-webapp.a
 
 ### Recent Fixes and Improvements
 
-1. **Work Order Filter Fix (December 2024)**:
+1. **Document Upload Service (August 2025)**:
+   - Added multipart/form-data document upload capability to work orders
+   - Implemented `IDocumentService` with stream and byte array upload support
+   - Created Web API endpoint: `POST /api/Document/workorder/{workOrderId}`
+   - Handles proper Fexa field mapping for nested form structure
+   - Includes file type validation, size limits, and content type detection
+   - Console app test menu option 16 for interactive testing
+   - Fixed memory cache registration for console app
+
+2. **Work Order Filter Fix (December 2024)**:
    - Fixed vendor filtering to use `"vendors.id"` instead of `"assigned_to"`
    - Fixed client filtering to use `"clients.id"` instead of `"placed_for"`
    - Corrected filter format to use URL-encoded JSON arrays
