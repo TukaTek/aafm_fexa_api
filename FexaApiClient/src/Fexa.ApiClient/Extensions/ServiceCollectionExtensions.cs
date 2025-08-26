@@ -74,6 +74,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IWorkOrderCategoryService, WorkOrderCategoryService>();
         services.AddSingleton<ILocationService, LocationService>();
         services.AddSingleton<IDocumentService, DocumentService>();
+        services.AddSingleton<IWorkOrderClassService, WorkOrderClassService>();
         
         return services;
     }
@@ -139,6 +140,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IWorkOrderCategoryService, WorkOrderCategoryService>();
         services.AddSingleton<ILocationService, LocationService>();
         services.AddSingleton<IDocumentService, DocumentService>();
+        services.AddSingleton<IWorkOrderClassService, WorkOrderClassService>();
         
         return services;
     }
