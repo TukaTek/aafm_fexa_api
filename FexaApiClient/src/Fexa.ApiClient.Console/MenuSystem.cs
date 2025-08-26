@@ -79,6 +79,7 @@ public class MenuSystem
         System.Console.WriteLine("15. Test Vendor Service");
         System.Console.WriteLine("16. Test Document Upload Service");
         System.Console.WriteLine("17. Test Work Order Category Service");
+        System.Console.WriteLine("18. Test Cached Client Service");
         System.Console.WriteLine("0. Exit");
         System.Console.WriteLine();
         System.Console.Write("Enter your choice: ");
@@ -138,6 +139,9 @@ public class MenuSystem
                 break;
             case "17":
                 await TestWorkOrderCategoryService();
+                break;
+            case "18":
+                await TestCachedClientService();
                 break;
             case "0":
                 _exitRequested = true;
@@ -2085,6 +2089,190 @@ public class MenuSystem
         catch (Exception ex)
         {
             ShowError($"Error navigating categories: {ex.Message}");
+        }
+    }
+    
+    private async Task TestCachedClientService()
+    {
+        System.Console.Clear();
+        ShowHeader("Test Cached Client Service");
+        
+        // CachedClientService is singleton, so no scope needed
+        var cachedService = _services.GetRequiredService<ICachedClientService>();
+        
+        System.Console.WriteLine("\n=== Cached Client Service Menu ===");
+        System.Console.WriteLine("1. Get all cached clients (ID & Name only)");
+        System.Console.WriteLine("2. Get active clients only");
+        System.Console.WriteLine("3. Get client by ID");
+        System.Console.WriteLine("4. Get client by name");
+        System.Console.WriteLine("5. Get client by IVR ID");
+        System.Console.WriteLine("6. Search clients (partial match)");
+        System.Console.WriteLine("7. Get cache status");
+        System.Console.WriteLine("8. Refresh cache synchronously");
+        System.Console.WriteLine("9. Refresh cache asynchronously (background)");
+        System.Console.WriteLine("0. Back to main menu");
+        System.Console.WriteLine();
+        System.Console.Write("Enter your choice: ");
+        
+        var choice = System.Console.ReadLine()?.Trim();
+        
+        try
+        {
+            switch (choice)
+            {
+                case "1":
+                    var allClients = await cachedService.GetAllClientInfoAsync();
+                    ShowSuccess($"Found {allClients.Count} cached clients");
+                    foreach (var client in allClients.Take(20))
+                    {
+                        var dbaInfo = !string.IsNullOrEmpty(client.Dba) ? $" (DBA: {client.Dba})" : "";
+                        var activeInfo = client.Active ? "" : " [INACTIVE]";
+                        var ivrInfo = !string.IsNullOrEmpty(client.IvrId) ? $" IVR:{client.IvrId}" : "";
+                        System.Console.WriteLine($"  - {client.Id}: {client.Name}{dbaInfo}{activeInfo}{ivrInfo}");
+                    }
+                    if (allClients.Count > 20)
+                    {
+                        System.Console.WriteLine($"  ... and {allClients.Count - 20} more");
+                    }
+                    break;
+                    
+                case "2":
+                    var activeClients = await cachedService.GetActiveClientInfoAsync();
+                    ShowSuccess($"Found {activeClients.Count} active clients");
+                    foreach (var client in activeClients.Take(20))
+                    {
+                        var dbaInfo = !string.IsNullOrEmpty(client.Dba) ? $" (DBA: {client.Dba})" : "";
+                        System.Console.WriteLine($"  - {client.Id}: {client.Name}{dbaInfo}");
+                    }
+                    if (activeClients.Count > 20)
+                    {
+                        System.Console.WriteLine($"  ... and {activeClients.Count - 20} more");
+                    }
+                    break;
+                    
+                case "3":
+                    System.Console.Write("Enter client ID: ");
+                    if (int.TryParse(System.Console.ReadLine(), out var clientId))
+                    {
+                        var client = await cachedService.GetClientInfoByIdAsync(clientId);
+                        if (client != null)
+                        {
+                            ShowSuccess($"Found client:");
+                            System.Console.WriteLine($"  ID: {client.Id}");
+                            System.Console.WriteLine($"  Name: {client.Name}");
+                            System.Console.WriteLine($"  DBA: {client.Dba ?? "(none)"}");
+                            System.Console.WriteLine($"  Active: {client.Active}");
+                            System.Console.WriteLine($"  IVR ID: {client.IvrId ?? "(none)"}");
+                        }
+                        else
+                        {
+                            ShowWarning($"Client {clientId} not found in cache");
+                        }
+                    }
+                    break;
+                    
+                case "4":
+                    System.Console.Write("Enter client name: ");
+                    var clientName = System.Console.ReadLine();
+                    if (!string.IsNullOrEmpty(clientName))
+                    {
+                        var client = await cachedService.GetClientInfoByNameAsync(clientName);
+                        if (client != null)
+                        {
+                            ShowSuccess($"Found client:");
+                            System.Console.WriteLine($"  ID: {client.Id}");
+                            System.Console.WriteLine($"  Name: {client.Name}");
+                            System.Console.WriteLine($"  DBA: {client.Dba ?? "(none)"}");
+                            System.Console.WriteLine($"  Active: {client.Active}");
+                            System.Console.WriteLine($"  IVR ID: {client.IvrId ?? "(none)"}");
+                        }
+                        else
+                        {
+                            ShowWarning($"Client '{clientName}' not found in cache");
+                        }
+                    }
+                    break;
+                    
+                case "5":
+                    System.Console.Write("Enter IVR ID: ");
+                    var ivrId = System.Console.ReadLine();
+                    if (!string.IsNullOrEmpty(ivrId))
+                    {
+                        var client = await cachedService.GetClientInfoByIvrIdAsync(ivrId);
+                        if (client != null)
+                        {
+                            ShowSuccess($"Found client:");
+                            System.Console.WriteLine($"  ID: {client.Id}");
+                            System.Console.WriteLine($"  Name: {client.Name}");
+                            System.Console.WriteLine($"  DBA: {client.Dba ?? "(none)"}");
+                            System.Console.WriteLine($"  Active: {client.Active}");
+                            System.Console.WriteLine($"  IVR ID: {client.IvrId}");
+                        }
+                        else
+                        {
+                            ShowWarning($"Client with IVR ID '{ivrId}' not found in cache");
+                        }
+                    }
+                    break;
+                    
+                case "6":
+                    System.Console.Write("Enter search term: ");
+                    var searchTerm = System.Console.ReadLine();
+                    if (!string.IsNullOrEmpty(searchTerm))
+                    {
+                        var results = await cachedService.SearchClientInfoAsync(searchTerm);
+                        ShowSuccess($"Found {results.Count} matching clients");
+                        foreach (var client in results.Take(20))
+                        {
+                            var dbaInfo = !string.IsNullOrEmpty(client.Dba) ? $" (DBA: {client.Dba})" : "";
+                            var activeInfo = client.Active ? "" : " [INACTIVE]";
+                            System.Console.WriteLine($"  - {client.Id}: {client.Name}{dbaInfo}{activeInfo}");
+                        }
+                        if (results.Count > 20)
+                        {
+                            System.Console.WriteLine($"  ... and {results.Count - 20} more");
+                        }
+                    }
+                    break;
+                    
+                case "7":
+                    var status = await cachedService.GetCacheStatusAsync();
+                    ShowInfo("Client Cache Status:");
+                    System.Console.WriteLine($"  Last Refreshed: {status.LastRefreshed:yyyy-MM-dd HH:mm:ss}");
+                    System.Console.WriteLine($"  Cache Age: {status.CacheAge.TotalMinutes:F1} minutes");
+                    System.Console.WriteLine($"  Total Clients: {status.ItemCount}");
+                    System.Console.WriteLine($"  Active Clients: {status.ActiveCount}");
+                    System.Console.WriteLine($"  Is Refreshing: {status.IsRefreshing}");
+                    if (status.LastRefreshAttempt != DateTime.MinValue)
+                    {
+                        System.Console.WriteLine($"  Last Refresh Attempt: {status.LastRefreshAttempt:yyyy-MM-dd HH:mm:ss}");
+                    }
+                    System.Console.WriteLine($"  Last Refresh Successful: {status.LastRefreshSuccessful}");
+                    break;
+                    
+                case "8":
+                    ShowInfo("Refreshing client cache synchronously (please wait)...");
+                    var refreshedClients = await cachedService.RefreshCacheAsync();
+                    ShowSuccess($"Cache refreshed with {refreshedClients.Count} clients ({refreshedClients.Count(c => c.Active)} active)");
+                    break;
+                    
+                case "9":
+                    ShowInfo("Starting background cache refresh...");
+                    await cachedService.RefreshCacheInBackgroundAsync();
+                    ShowSuccess("Background refresh started. Check cache status to monitor progress.");
+                    break;
+                    
+                case "0":
+                    return;
+                    
+                default:
+                    ShowError("Invalid choice.");
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            ShowError($"Error: {ex.Message}");
         }
     }
 }
