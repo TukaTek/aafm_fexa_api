@@ -78,6 +78,7 @@ public class MenuSystem
         System.Console.WriteLine("14. Test Client Service");
         System.Console.WriteLine("15. Test Vendor Service");
         System.Console.WriteLine("16. Test Document Upload Service");
+        System.Console.WriteLine("17. Test Work Order Category Service");
         System.Console.WriteLine("0. Exit");
         System.Console.WriteLine();
         System.Console.Write("Enter your choice: ");
@@ -134,6 +135,9 @@ public class MenuSystem
                 break;
             case "16":
                 await TestDocumentUpload.RunDocumentUploadTests(_services);
+                break;
+            case "17":
+                await TestWorkOrderCategoryService();
                 break;
             case "0":
                 _exitRequested = true;
@@ -1753,5 +1757,149 @@ public class MenuSystem
         
         var testVendorService = new TestVendorService(_services);
         await testVendorService.RunTests();
+    }
+    
+    private async Task TestWorkOrderCategoryService()
+    {
+        System.Console.Clear();
+        ShowHeader("Test Work Order Category Service");
+        
+        // WorkOrderCategoryService is singleton, so no scope needed
+        var categoryService = _services.GetRequiredService<IWorkOrderCategoryService>();
+        
+        System.Console.WriteLine("\n=== Category Service Menu ===");
+        System.Console.WriteLine("1. Get all categories");
+        System.Console.WriteLine("2. Get simplified categories (with hierarchy)");
+        System.Console.WriteLine("3. Get active simplified categories only");
+        System.Console.WriteLine("4. Get root categories");
+        System.Console.WriteLine("5. Get category by path (e.g., 'Plumbing | Grease Trap')");
+        System.Console.WriteLine("6. Get cache status");
+        System.Console.WriteLine("7. Refresh cache synchronously");
+        System.Console.WriteLine("8. Refresh cache asynchronously (background)");
+        System.Console.WriteLine("0. Back to main menu");
+        System.Console.WriteLine();
+        System.Console.Write("Enter your choice: ");
+        
+        var choice = System.Console.ReadLine()?.Trim();
+        
+        try
+        {
+            switch (choice)
+            {
+                case "1":
+                    var allCategories = await categoryService.GetAllCategoriesAsync();
+                    ShowSuccess($"Found {allCategories.Count} categories");
+                    foreach (var cat in allCategories.Take(10))
+                    {
+                        System.Console.WriteLine($"  - {cat.Id}: {cat.Category} (Active: {cat.Active}, IsLeaf: {cat.IsLeaf})");
+                        if (!string.IsNullOrEmpty(cat.CategoryWithAllAncestors))
+                        {
+                            System.Console.WriteLine($"    Full Path: {cat.CategoryWithAllAncestors}");
+                        }
+                    }
+                    if (allCategories.Count > 10)
+                    {
+                        System.Console.WriteLine($"  ... and {allCategories.Count - 10} more");
+                    }
+                    break;
+                    
+                case "2":
+                    var hierarchyResponse = await categoryService.GetSimplifiedCategoriesAsync();
+                    ShowSuccess($"Found {hierarchyResponse.Categories.Count} simplified categories");
+                    if (hierarchyResponse.Warnings?.Any() == true)
+                    {
+                        ShowWarning($"Hierarchy has {hierarchyResponse.Warnings.Count} warnings:");
+                        foreach (var warning in hierarchyResponse.Warnings.Take(5))
+                        {
+                            System.Console.WriteLine($"  - {warning}");
+                        }
+                    }
+                    foreach (var cat in hierarchyResponse.Categories.Take(10))
+                    {
+                        System.Console.WriteLine($"  - {cat.Id}: {cat.Category}");
+                        System.Console.WriteLine($"    Full Path: {cat.FullPath}");
+                        System.Console.WriteLine($"    Active: {cat.Active}, IsLeaf: {cat.IsLeaf}, ParentId: {cat.ParentId ?? 0}");
+                    }
+                    break;
+                    
+                case "3":
+                    var activeCategories = await categoryService.GetActiveSimplifiedCategoriesAsync();
+                    ShowSuccess($"Found {activeCategories.Count} active categories");
+                    foreach (var cat in activeCategories.Take(10))
+                    {
+                        System.Console.WriteLine($"  - {cat.Id}: {cat.Category} - {cat.FullPath}");
+                    }
+                    break;
+                    
+                case "4":
+                    var rootCategories = await categoryService.GetRootCategoriesAsync();
+                    ShowSuccess($"Found {rootCategories.Count} root categories");
+                    foreach (var cat in rootCategories)
+                    {
+                        System.Console.WriteLine($"  - {cat.Id}: {cat.Category}");
+                    }
+                    break;
+                    
+                case "5":
+                    System.Console.Write("Enter category path (e.g., 'Plumbing | Grease Trap'): ");
+                    var path = System.Console.ReadLine();
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        var category = await categoryService.GetByFullPathAsync(path);
+                        if (category != null)
+                        {
+                            ShowSuccess($"Found category:");
+                            System.Console.WriteLine($"  ID: {category.Id}");
+                            System.Console.WriteLine($"  Name: {category.Category}");
+                            System.Console.WriteLine($"  Full Path: {category.FullPath}");
+                            System.Console.WriteLine($"  Active: {category.Active}");
+                            System.Console.WriteLine($"  IsLeaf: {category.IsLeaf}");
+                            System.Console.WriteLine($"  ParentId: {category.ParentId ?? 0}");
+                        }
+                        else
+                        {
+                            ShowWarning($"Category not found for path: {path}");
+                        }
+                    }
+                    break;
+                    
+                case "6":
+                    var status = await categoryService.GetCacheStatusAsync();
+                    ShowInfo("Cache Status:");
+                    System.Console.WriteLine($"  Last Refreshed: {status.LastRefreshed:yyyy-MM-dd HH:mm:ss}");
+                    System.Console.WriteLine($"  Cache Age: {status.CacheAge.TotalMinutes:F1} minutes");
+                    System.Console.WriteLine($"  Item Count: {status.ItemCount}");
+                    System.Console.WriteLine($"  Is Refreshing: {status.IsRefreshing}");
+                    if (status.LastRefreshAttempt.HasValue)
+                    {
+                        System.Console.WriteLine($"  Last Refresh Attempt: {status.LastRefreshAttempt:yyyy-MM-dd HH:mm:ss}");
+                    }
+                    System.Console.WriteLine($"  Last Refresh Successful: {status.LastRefreshSuccessful}");
+                    break;
+                    
+                case "7":
+                    ShowInfo("Refreshing cache synchronously (please wait)...");
+                    var refreshedCategories = await categoryService.RefreshCacheAsync();
+                    ShowSuccess($"Cache refreshed with {refreshedCategories.Count} categories");
+                    break;
+                    
+                case "8":
+                    ShowInfo("Starting background cache refresh...");
+                    await categoryService.RefreshCacheInBackgroundAsync();
+                    ShowSuccess("Background refresh started. Check cache status to monitor progress.");
+                    break;
+                    
+                case "0":
+                    return;
+                    
+                default:
+                    ShowError("Invalid choice.");
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            ShowError($"Error: {ex.Message}");
+        }
     }
 }
