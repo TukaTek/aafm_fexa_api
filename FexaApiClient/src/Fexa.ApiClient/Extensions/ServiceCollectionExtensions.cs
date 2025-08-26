@@ -76,6 +76,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IDocumentService, DocumentService>();
         services.AddSingleton<IWorkOrderClassService, WorkOrderClassService>();
         
+        // Register cached client service as singleton for fast lookups
+        services.AddSingleton<ICachedClientService, CachedClientService>();
+        
         return services;
     }
     
