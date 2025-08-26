@@ -277,6 +277,61 @@ public class WorkOrderService : IWorkOrderService
         return allWorkOrders;
     }
     
+    public async Task<PagedResponse<WorkOrder>> GetWorkOrdersByClientPOAsync(string poNumber, QueryParameters? parameters = null)
+    {
+        _logger.LogDebug("Getting work orders with Client PO: {PONumber}", poNumber);
+        
+        var queryParams = parameters ?? new QueryParameters();
+        queryParams.Filters = queryParams.Filters ?? new List<FexaFilter>();
+        
+        // Add the purchase_order_number filter using "in" operator as shown in the working example
+        queryParams.Filters.Add(new FexaFilter("purchase_order_number", new[] { poNumber }, FilterOperators.In));
+        
+        return await GetWorkOrdersAsync(queryParams);
+    }
+    
+    public async Task<List<WorkOrder>> GetAllWorkOrdersByClientPOAsync(string poNumber, QueryParameters? baseParameters = null, int maxPages = 10)
+    {
+        _logger.LogInformation("Fetching all work orders with Client PO '{PONumber}' (up to {MaxPages} pages)", poNumber, maxPages);
+        
+        var allWorkOrders = new List<WorkOrder>();
+        var pageSize = baseParameters?.Limit ?? 100;
+        var currentPage = 0;
+        var hasMoreData = true;
+        
+        while (hasMoreData && currentPage < maxPages)
+        {
+            var parameters = new QueryParameters
+            {
+                Start = currentPage * pageSize,
+                Limit = pageSize,
+                SortBy = baseParameters?.SortBy,
+                SortDescending = baseParameters?.SortDescending ?? false,
+                Filters = baseParameters?.Filters
+            };
+            
+            var response = await GetWorkOrdersByClientPOAsync(poNumber, parameters);
+            
+            if (response.Data != null && response.Data.Any())
+            {
+                allWorkOrders.AddRange(response.Data);
+                _logger.LogDebug("Fetched page {Page} with {Count} work orders. Total so far: {Total}", 
+                    currentPage + 1, response.Data.Count(), allWorkOrders.Count);
+            }
+            
+            hasMoreData = response.Data != null && 
+                         response.Data.Count() == pageSize && 
+                         (response.TotalCount == 0 || allWorkOrders.Count < response.TotalCount);
+            
+            currentPage++;
+        }
+        
+        _logger.LogInformation("Fetched {Total} work orders with Client PO '{PONumber}' across {Pages} pages", 
+            allWorkOrders.Count, poNumber, currentPage);
+        
+        return allWorkOrders;
+    }
+    
     public async Task<WorkOrder> UpdateStatusAsync(int workOrderId, int newStatusId, string? reason = null)
     {
         _logger.LogInformation("Updating work order {WorkOrderId} status to {StatusId}", workOrderId, newStatusId);

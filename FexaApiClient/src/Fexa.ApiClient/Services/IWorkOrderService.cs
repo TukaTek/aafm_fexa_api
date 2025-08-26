@@ -19,6 +19,7 @@ public interface IWorkOrderService
     // Status management
     Task<WorkOrder> UpdateStatusAsync(int workOrderId, int newStatusId, string? reason = null);
     
-    // Client PO search - Commented out: API doesn't support filtering on client_purchase_order_numbers
-    // Task<List<WorkOrder>> GetWorkOrdersByClientPONumberAsync(string poNumber, int? vendorId = null, int? clientId = null);
+    // Client PO search - Uses purchase_order_number filter
+    Task<PagedResponse<WorkOrder>> GetWorkOrdersByClientPOAsync(string poNumber, QueryParameters? parameters = null);
+    Task<List<WorkOrder>> GetAllWorkOrdersByClientPOAsync(string poNumber, QueryParameters? baseParameters = null, int maxPages = 10);
 }

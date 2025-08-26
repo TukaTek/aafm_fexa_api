@@ -59,16 +59,20 @@ public static class ServiceCollectionExtensions
         .AddPolicyHandler(GetCircuitBreakerPolicy());
         
         // Register additional services
-        services.AddScoped<IUserService, UserService>();
-        services.AddScoped<IClientService, ClientService>();
-        services.AddScoped<IVendorService, VendorService>();
-        services.AddScoped<IClientInvoiceService, ClientInvoiceService>();
-        services.AddScoped<IVisitService, VisitService>();
-        services.AddScoped<IWorkOrderService, WorkOrderService>();
-        services.AddScoped<ITransitionService, TransitionService>();
-        services.AddScoped<INoteService, NoteService>();
-        services.AddScoped<IRegionService, RegionService>();
-        services.AddScoped<ISeverityService, SeverityService>();
+        services.AddSingleton<IUserService, UserService>();
+        services.AddSingleton<IClientService, ClientService>();
+        services.AddSingleton<IVendorService, VendorService>();
+        services.AddSingleton<IClientInvoiceService, ClientInvoiceService>();
+        services.AddSingleton<IVisitService, VisitService>();
+        services.AddSingleton<IWorkOrderService, WorkOrderService>();
+        services.AddSingleton<ITransitionService, TransitionService>();
+        services.AddSingleton<INoteService, NoteService>();
+        services.AddSingleton<IRegionService, RegionService>();
+        services.AddSingleton<ISeverityService, SeverityService>();
+        services.AddSingleton<IDocumentTypeService, DocumentTypeService>();
+        services.AddSingleton<IPriorityService, PriorityService>();
+        services.AddSingleton<IWorkOrderCategoryService, WorkOrderCategoryService>();
+        services.AddSingleton<ILocationService, LocationService>();
         
         return services;
     }
@@ -119,16 +123,20 @@ public static class ServiceCollectionExtensions
         .AddPolicyHandler(GetCircuitBreakerPolicy());
         
         // Register additional services
-        services.AddScoped<IUserService, UserService>();
-        services.AddScoped<IClientService, ClientService>();
-        services.AddScoped<IVendorService, VendorService>();
-        services.AddScoped<IClientInvoiceService, ClientInvoiceService>();
-        services.AddScoped<IVisitService, VisitService>();
-        services.AddScoped<IWorkOrderService, WorkOrderService>();
-        services.AddScoped<ITransitionService, TransitionService>();
-        services.AddScoped<INoteService, NoteService>();
-        services.AddScoped<IRegionService, RegionService>();
-        services.AddScoped<ISeverityService, SeverityService>();
+        services.AddSingleton<IUserService, UserService>();
+        services.AddSingleton<IClientService, ClientService>();
+        services.AddSingleton<IVendorService, VendorService>();
+        services.AddSingleton<IClientInvoiceService, ClientInvoiceService>();
+        services.AddSingleton<IVisitService, VisitService>();
+        services.AddSingleton<IWorkOrderService, WorkOrderService>();
+        services.AddSingleton<ITransitionService, TransitionService>();
+        services.AddSingleton<INoteService, NoteService>();
+        services.AddSingleton<IRegionService, RegionService>();
+        services.AddSingleton<ISeverityService, SeverityService>();
+        services.AddSingleton<IDocumentTypeService, DocumentTypeService>();
+        services.AddSingleton<IPriorityService, PriorityService>();
+        services.AddSingleton<IWorkOrderCategoryService, WorkOrderCategoryService>();
+        services.AddSingleton<ILocationService, LocationService>();
         
         return services;
     }

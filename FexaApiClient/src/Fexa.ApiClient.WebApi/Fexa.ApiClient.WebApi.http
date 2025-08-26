@@ -1,0 +1,6 @@
+@Fexa.ApiClient.WebApi_HostAddress = http://localhost:5216
+
+GET {{Fexa.ApiClient.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

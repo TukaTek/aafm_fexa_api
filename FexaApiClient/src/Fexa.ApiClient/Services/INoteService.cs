@@ -55,6 +55,9 @@ internal class CreateNoteApiData
     
     [JsonPropertyName("note_type_id")]
     public int? NoteTypeId { get; set; }
+    
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }
 
 public class UpdateNoteRequest

@@ -3,11 +3,19 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
-This is a .NET 8.0 API client library for the Fexa API, providing OAuth 2.0 authenticated access to AAFM (American Association of Fleet Managers) data including users, invoices, visits, work orders, and workflow transitions.
+This is a .NET 8.0 API client library and Web API middleware for the Fexa API, providing OAuth 2.0 authenticated access to AAFM (American Association of Fleet Managers) data including users, invoices, visits, work orders, workflow transitions, and reference data.
 
-**Repository**: [https://github.com/TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)  
-**Organization**: [TukaTek](https://github.com/TukaTek)  
-**Status**: Active Development (December 2024)
+**Solution Components**:
+- Core API Client Library (Fexa.ApiClient)
+- ASP.NET Core Web API Middleware (Fexa.ApiClient.WebApi) 
+- Interactive Console Application (Fexa.ApiClient.Console)
+- Azure Functions (Fexa.ApiClient.Function) - Deprecated due to DI issues
+
+**Azure Deployment**:
+- **Resource Group**: aafm_chatcmb
+- **App Service**: fexa-api-webapp
+- **URL**: https://fexa-api-webapp.azurewebsites.net
+- **Swagger**: https://fexa-api-webapp.azurewebsites.net/swagger/v1/swagger.json
 
 ## Essential Commands
 
@@ -50,7 +58,9 @@ dotnet build --no-incremental
 
 ### Solution Structure
 - **src/Fexa.ApiClient/**: Core library implementing the API client
+- **src/Fexa.ApiClient.WebApi/**: ASP.NET Core Web API middleware (primary deployment)
 - **src/Fexa.ApiClient.Console/**: Interactive console application for testing/demonstration
+- **src/Fexa.ApiClient.Function/**: Azure Functions (deprecated - replaced by WebApi)
 - **tests/Fexa.ApiClient.Tests/**: Unit tests using xUnit, FluentAssertions, and Moq
 
 ### Key Architectural Components
@@ -64,7 +74,13 @@ The client uses dependency injection with service interfaces:
 - `ITransitionService`: Workflow transition management with caching
 - `IRegionService`: Region data operations
 - `ISeverityService`: Severity level operations
-- `INoteService`: Note management operations
+- `INoteService`: Note management operations (updated for work order notes)
+- `IDocumentTypeService`: Document type operations with caching
+- `IPriorityService`: Priority management with caching
+- `IWorkOrderCategoryService`: Work order category operations with hierarchy support
+- `IClientService`: Client information management
+- `IVendorService`: Vendor operations
+- `ILocationService`: Location/store operations with caching
 
 #### Authentication Flow
 - OAuth 2.0 Client Credentials flow implemented in `FexaAuthenticationHandler`
@@ -92,10 +108,14 @@ The `FilterBuilder` class provides a fluent API for building complex Fexa API fi
 - `FexaValidationException`: Validation errors
 
 ### API Integration Points
-- **Base URL**: https://aafmapisandbox.fexa.io/ (sandbox)
-- **Documentation**: https://aafmapisandbox.fexa.io/fexa_docs/index.html
+- **Fexa Base URL**: https://aafmapisandbox.fexa.io/ (sandbox)
+- **Fexa Documentation**: https://aafmapisandbox.fexa.io/fexa_docs/index.html
 - **Authentication Endpoint**: /oauth/token
-- **Main Endpoints**: /api/v2/{endpoint} (most endpoints), /api/ev1/{endpoint} (visits, work orders, transitions)
+- **Fexa Endpoints**: 
+  - /api/v2/{endpoint} (users, clients, invoices)
+  - /api/ev1/{endpoint} (visits, work orders, transitions, notes, categories, priorities, document types)
+- **Our Web API**: https://fexa-api-webapp.azurewebsites.net
+- **Swagger Documentation**: https://fexa-api-webapp.azurewebsites.net/swagger/v1/swagger.json
 
 ### Important Implementation Details
 
@@ -103,7 +123,10 @@ The `FilterBuilder` class provides a fluent API for building complex Fexa API fi
 
 2. **Response Handling**: All API responses wrapped in `BaseResponse<T>` or `PagedResponse<T>` with standardized error handling
 
-3. **Service Registration**: Extension method `AddFexaApiClient()` registers all services with proper lifetimes and configuration
+3. **Service Registration**: Extension method `AddFexaApiClient()` registers all services with proper lifetimes:
+   - Scoped: Core API services (IFexaApiService, ITokenService, domain services)
+   - Singleton: Reference data services with caching (DocumentType, Priority, WorkOrderCategory)
+   - Memory cache configured with 1-hour expiration for reference data
 
 4. **Testing Approach**: Unit tests focus on FilterBuilder logic and service behavior with mocked dependencies
 
@@ -145,6 +168,31 @@ The `FilterBuilder` class provides a fluent API for building complex Fexa API fi
    - Do NOT check for presence of "error" string (false positives from "errors" array)
    - Routing errors contain "routing_error" string
 
+11. **Note Service Updates**:
+   - For work order notes, use `type: "Notes::WorkorderNote"` instead of `note_type_id`
+   - CreateNoteForWorkOrderAsync method specifically handles work order note creation
+   - General notes still use `note_type_id` parameter
+
+12. **Reference Data Services** (with 1-hour memory caching):
+   - DocumentTypeService: Manages document types from `/api/ev1/document_types`
+   - PriorityService: Handles priorities from `/api/ev1/priorities`
+   - WorkOrderCategoryService: Categories with hierarchy from `/api/ev1/workorder_categories`
+   - All registered as Singleton services for efficient memory usage
+
+13. **Work Order Client PO Search**:
+   - Single endpoint: `/api/WorkOrder/clientpo/{poNumber}` 
+   - Automatically fetches ALL matching work orders (handles pagination internally)
+   - Uses `purchase_order_number` filter with "in" operator
+   - Note: `workorder_number` field may be null in API responses
+
+14. **Location Service** (Stores):
+   - Uses `/api/ev1/stores` endpoint
+   - Filter by client using `occupied_by` field
+   - Single location returns `{"stores": {...}}` not `{"store": {...}}`
+   - Nullable fields: `flag`, `default_address`, `import_id` (can be int or null)
+   - Includes full address, geographic coordinates, and timezone information
+   - 1-hour memory caching for performance
+
 ### Development Guidelines
 
 When adding new API endpoints:
@@ -170,6 +218,18 @@ When modifying filter capabilities:
 - `Visit` - Service visit information
 - `Transition` - Workflow state transitions
 - `Region`, `Severity` - Reference data models
+- `DocumentType` - Document type definitions
+- `Priority` - Priority levels with severity information
+- `WorkOrderCategory` - Hierarchical category structure
+- `Client` - Client organization information
+- `Location` - Store/location information with addresses and geographic data
+
+**Simplified DTOs** (for Web API responses):
+- `DocumentTypeDto` - id, name, description
+- `PriorityDto` - id, name, description
+- `WorkOrderCategoryDto` - id, category, description, parent_category, full_path
+- `ClientDto` - id, company, dba, active, ivr_id, address info, cmms_prog, invoicing_method, taxable
+- `LocationDto` - id, name, identifier, facility_code, address, geographic coordinates, timezone
 
 ### Common Tasks
 
@@ -189,6 +249,8 @@ public class NewService : INewService
 
 // 3. Register in ServiceCollectionExtensions
 services.AddScoped<INewService, NewService>();
+// For reference data services with caching:
+services.AddSingleton<INewService, NewService>();
 ```
 
 **Using FilterBuilder:**
@@ -251,6 +313,18 @@ var endpoint = $"/api/ev1/workorders/{workOrderId}/update_status/{newStatusId}";
 var response = await _apiService.PutAsync<dynamic>(endpoint, null); // null body!
 ```
 
+**Note Creation for Work Orders:**
+```csharp
+// Use CreateNoteForWorkOrderAsync for work order notes
+var note = await noteService.CreateNoteForWorkOrderAsync(
+    workOrderId: 12345,
+    content: "Work completed successfully",
+    visibility: "all",
+    actionRequired: false
+);
+// This uses type: "Notes::WorkorderNote" internally
+```
+
 ### Console Application Menu System
 
 The console app provides comprehensive testing capabilities:
@@ -268,11 +342,118 @@ Key menu classes:
 - `TestStatusUpdateFix.cs` - Direct status update testing
 - `DownloadTransitions.cs` - Export transitions to JSON
 
-### Repository Migration
-- **December 2024**: Repository migrated to TukaTek organization
-- **Repository URL**: https://github.com/TukaTek/aafm_fexa_api
-- **Organization**: TukaTek
-- **Status**: Active development and maintenance
+### Migration History
+
+**December 2024**: 
+- Migrated from Azure Functions to ASP.NET Core Web API due to DI issues
+- Added reference data services with memory caching
+- Simplified DTOs for cleaner API responses
+- Fixed work order note creation to use correct type field
+- Deployed to Azure App Service (fexa-api-webapp)
+
+**August 2025**:
+- Added Location service for store/location management
+- Implemented location search by client ID
+- Added geographic and timezone support for locations
+
+### Deployment & Publishing
+
+**Azure Web App Deployment**:
+```bash
+# Build and publish locally
+cd /Users/sanjay/Source/repos/aafm_fexa_api/FexaApiClient
+rm -rf ./webapi-publish
+dotnet publish src/Fexa.ApiClient.WebApi -c Release -o ./webapi-publish
+
+# Create deployment package
+cd webapi-publish
+zip -r ../webapi-deploy.zip .
+
+# Deploy to Azure (only when explicitly requested)
+az webapp deploy --resource-group aafm_chatcmb --name fexa-api-webapp \
+  --src-path ../webapi-deploy.zip --type zip --restart true
+```
+
+**Configuration in Azure**:
+- App Settings use double underscore format: `FexaApi__PropertyName`
+- Startup command: `dotnet Fexa.ApiClient.WebApi.dll`
+- Runtime: DOTNETCORE|8.0
+
+**Important**: Do NOT auto-deploy. Only publish when explicitly requested by the user.
+
+### Web API Endpoints (Deployed to Azure)
+
+The Web API provides simplified endpoints with DTOs at https://fexa-api-webapp.azurewebsites.net
+
+**Document Types** (`/api/DocumentType`):
+- GET `/` - Get all document types (cached 1 hour)
+- GET `/active` - Get only active document types
+- Returns: DocumentTypeDto (id, name, description)
+
+**Priorities** (`/api/Priority`):
+- GET `/` - Get all priorities (cached 1 hour)
+- GET `/active` - Get only active priorities
+- Returns: PriorityDto (id, name, description)
+
+**Work Order Categories** (`/api/WorkOrderCategory`):
+- GET `/` - Get all categories (cached 1 hour)
+- GET `/hierarchy` - Get categories with parent-child relationships
+- Returns: WorkOrderCategoryDto (id, category, description, parent_category, full_path)
+
+**Clients** (`/api/Client`):
+- GET `/` - Get paginated clients
+- GET `/{id}` - Get specific client
+- GET `/active` - Get only active clients
+- GET `/all` - Get all clients (handles pagination internally)
+- Returns: ClientDto (simplified client information)
+
+**Work Orders** (`/api/WorkOrder`):
+- GET `/{id}` - Get specific work order
+- GET `/vendor/{vendorId}` - Get work orders by vendor
+- GET `/client/{clientId}` - Get work orders by client
+- GET `/clientpo/{poNumber}` - Get ALL work orders by Client PO (auto-pagination)
+- Returns: WorkOrder model
+
+**Notes** (`/api/Note`):
+- GET `/` - Get paginated notes
+- GET `/{noteId}` - Get specific note
+- GET `/object/{objectType}/{objectId}` - Get notes for an object
+- POST `/` - Create a note
+- POST `/workorder/{workOrderId}` - Create work order note (uses type: "Notes::WorkorderNote")
+- PUT `/{noteId}` - Update a note
+- DELETE `/{noteId}` - Delete a note
+- Returns: Note model
+
+**Locations** (`/api/Location`):
+- GET `/{id}` - Get specific location (cached 1 hour)
+- GET `/client/{clientId}` - Get all locations for a client (cached 1 hour)
+- GET `/` - Get all locations
+- GET `/active` - Get only active locations
+- Returns: LocationDto (simplified location information with address and coordinates)
+- GET `/{id}` - Get document type by ID
+- GET `/byname/{name}` - Get document type by name
+
+**Priorities** (`/api/Priority`):
+- GET `/` - Get all priorities
+- GET `/active` - Get only active priorities
+- GET `/{id}` - Get priority by ID
+- GET `/byname/{name}` - Get priority by name
+
+**Work Order Categories** (`/api/WorkOrderCategory`):
+- GET `/` - Get all categories
+- GET `/active` - Get only active categories
+- GET `/leaf` - Get only leaf categories (no children)
+- GET `/parent` - Get only parent categories (top-level)
+- GET `/{id}` - Get category by ID
+- GET `/byname/{name}` - Get category by name
+
+**Clients** (`/api/Client`):
+- GET `/` - Get paged list of clients
+- GET `/{id}` - Get client by ID
+- GET `/all` - Get all clients (with max pages limit)
+
+**Other Endpoints**:
+- Vendors, Work Orders, Visits, Transitions, Notes, Users - all available with various operations
 
 ### Recent Fixes and Improvements
 
@@ -296,21 +477,39 @@ Key menu classes:
    - Corrected transition type detection
    - Updated all services to use correct workflow_object_type
 
-5. **Error Detection Improvement**:
+5. **Notes Endpoint Specifics**:
+   - Uses `/api/ev1/notes` endpoint
+   - Work order notes require `type: "Notes::WorkorderNote"` in payload
+   - Do NOT use `note_type_id` for work order notes
+   - Other note types still use `note_type_id` field
+   - Filters use `notable_id` for object ID filtering
+
+6. **Error Detection Improvement**:
    - Fixed false positives from "errors" array
    - Now checks for explicit "success":true/false
    - Better handling of routing errors
 
-6. **Performance Optimizations**:
+7. **Performance Optimizations**:
    - Added 30-minute caching for transitions
    - Bulk operations for fetching all pages
    - Efficient service scoping
 
-7. **Console App Enhancements**:
+8. **Console App Enhancements**:
    - Added warning about transition requirements
    - Improved error messages
    - Added transition download capability
    - Interactive debugging tools
+
+9. **Work Order Note Creation Fix (December 2024)**:
+   - Changed payload for work order notes to use `type: "Notes::WorkorderNote"`
+   - Removed `note_type_id` field for work order notes
+   - Maintained backward compatibility for other note types
+
+10. **Web API Implementation (December 2024)**:
+   - Created ASP.NET Core Web API to replace Azure Functions
+   - Added simplified DTOs for all major entities
+   - Implemented caching for reference data (document types, priorities, categories)
+   - Deployed to Azure App Service at fexa-api-webapp
 
 ### Testing Strategy
 

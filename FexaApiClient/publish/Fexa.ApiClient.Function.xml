@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fexa.ApiClient.Function</name>
+    </assembly>
+    <members>
+        <member name="M:Fexa.ApiClient.Function.Functions.ClientFunctions.GetClients(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets all clients
+            </summary>
+            <param name="req">HTTP request</param>
+            <returns>List of clients</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.ClientFunctions.GetClient(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets a specific client by ID
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="id">Client ID</param>
+            <returns>Client details</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.ClientFunctions.GetAllClients(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets all clients (fetches all pages)
+            </summary>
+            <param name="req">HTTP request</param>
+            <returns>All clients</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.HealthFunctions.Health(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Basic health check endpoint
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.HealthFunctions.HealthDetailed(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Detailed health check with connectivity status
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.UserFunctions.GetUsers(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets all users
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.UserFunctions.GetUser(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets a specific user by ID
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VendorFunctions.GetVendors(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets all vendors
+            </summary>
+            <param name="req">HTTP request</param>
+            <returns>List of vendors</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VendorFunctions.GetVendor(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets a specific vendor by ID
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="id">Vendor ID</param>
+            <returns>Vendor details</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VendorFunctions.GetAllVendors(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets all vendors (fetches all pages)
+            </summary>
+            <param name="req">HTTP request</param>
+            <returns>All vendors</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VendorFunctions.GetActiveVendors(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets active vendors only
+            </summary>
+            <param name="req">HTTP request</param>
+            <returns>List of active vendors</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VendorFunctions.GetVendorsByCompliance(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Boolean)">
+            <summary>
+            Gets vendors by compliance status
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="compliant">Compliance status</param>
+            <returns>List of vendors with specified compliance status</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VendorFunctions.GetAssignableVendors(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets assignable vendors only
+            </summary>
+            <param name="req">HTTP request</param>
+            <returns>List of assignable vendors</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VisitFunctions.GetVisitsByWorkOrder(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets visits for a specific work order
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VisitFunctions.GetVisitsByDateRange(Microsoft.Azure.Functions.Worker.Http.HttpRequestData)">
+            <summary>
+            Gets visits within a date range
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.VisitFunctions.GetVisit(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets a specific visit by ID
+            </summary>
+        </member>
+        <member name="T:Fexa.ApiClient.Function.Functions.DateRangeRequest">
+            <summary>
+            Request model for date range filtering
+            </summary>
+        </member>
+        <member name="P:Fexa.ApiClient.Function.Functions.DateRangeRequest.StartDate">
+            <summary>
+            Start date for the range
+            </summary>
+        </member>
+        <member name="P:Fexa.ApiClient.Function.Functions.DateRangeRequest.EndDate">
+            <summary>
+            End date for the range
+            </summary>
+        </member>
+        <member name="P:Fexa.ApiClient.Function.Functions.DateRangeRequest.WorkOrderId">
+            <summary>
+            Optional work order ID filter
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.WorkOrderFunctions.GetWorkOrdersByVendor(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets work orders for a specific vendor
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="vendorId">Vendor ID</param>
+            <returns>List of work orders</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.WorkOrderFunctions.GetWorkOrder(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets a specific work order by ID
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="id">Work order ID</param>
+            <returns>Work order details</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.WorkOrderFunctions.UpdateWorkOrderStatus(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32,System.Int32)">
+            <summary>
+            Updates the status of a work order
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="id">Work order ID</param>
+            <param name="statusId">New status ID</param>
+            <returns>Updated work order</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.WorkOrderFunctions.GetWorkOrderTransitions(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.Int32)">
+            <summary>
+            Gets available status transitions for a work order
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="id">Work order ID</param>
+            <returns>Available transitions</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.Functions.WorkOrderFunctions.GetWorkOrdersByClientPO(Microsoft.Azure.Functions.Worker.Http.HttpRequestData,System.String)">
+            <summary>
+            Gets work orders by client PO number
+            </summary>
+            <param name="req">HTTP request</param>
+            <param name="poNumber">Client PO number</param>
+            <returns>List of matching work orders</returns>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.WorkerExtensionStartupCodeExecutor.Configure(Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder)">
+            <summary>
+            Configures the worker to register extension startup services.
+            </summary>
+            <param name="applicationBuilder">The <see cref="T:Microsoft.Azure.Functions.Worker.IFunctionsWorkerApplicationBuilder"/> to configure.</param>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.DirectFunctionExecutor.ExecuteAsync(Microsoft.Azure.Functions.Worker.FunctionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Fexa.ApiClient.Function.FunctionExecutorHostBuilderExtensions">
+            <summary>
+            Extension methods to enable registration of the custom <see cref="T:Microsoft.Azure.Functions.Worker.Invocation.IFunctionExecutor"/> implementation generated for the current worker.
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.FunctionExecutorHostBuilderExtensions.ConfigureGeneratedFunctionExecutor(Microsoft.Extensions.Hosting.IHostBuilder)">
+            <summary>
+             Configures an optimized function executor to the invocation pipeline.
+            </summary>
+        </member>
+        <member name="T:Fexa.ApiClient.Function.FunctionExecutorAutoStartup">
+            <summary>
+            Auto startup class to register the custom <see cref="T:Microsoft.Azure.Functions.Worker.Invocation.IFunctionExecutor"/> implementation generated for the current worker.
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.FunctionExecutorAutoStartup.Configure(Microsoft.Extensions.Hosting.IHostBuilder)">
+            <summary>
+            Configures the <see cref="T:Microsoft.Extensions.Hosting.IHostBuilder"/> to use the custom <see cref="T:Microsoft.Azure.Functions.Worker.Invocation.IFunctionExecutor"/> implementation generated for the current worker.
+            </summary>
+            <param name="hostBuilder">The <see cref="T:Microsoft.Extensions.Hosting.IHostBuilder"/> instance to use for service registration.</param>
+        </member>
+        <member name="T:Fexa.ApiClient.Function.GeneratedFunctionMetadataProvider">
+            <summary>
+            Custom <see cref="T:Microsoft.Azure.Functions.Worker.Core.FunctionMetadata.IFunctionMetadataProvider"/> implementation that returns function metadata definitions for the current worker."/>
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.GeneratedFunctionMetadataProvider.GetFunctionMetadataAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Fexa.ApiClient.Function.WorkerHostBuilderFunctionMetadataProviderExtension">
+            <summary>
+            Extension methods to enable registration of the custom <see cref="T:Microsoft.Azure.Functions.Worker.Core.FunctionMetadata.IFunctionMetadataProvider"/> implementation generated for the current worker.
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.WorkerHostBuilderFunctionMetadataProviderExtension.ConfigureGeneratedFunctionMetadataProvider(Microsoft.Extensions.Hosting.IHostBuilder)">
+            <summary>
+             Adds the GeneratedFunctionMetadataProvider to the service collection.
+             During initialization, the worker will return generated function metadata instead of relying on the Azure Functions host for function indexing.
+            </summary>
+        </member>
+        <member name="T:Fexa.ApiClient.Function.FunctionMetadataProviderAutoStartup">
+            <summary>
+            Auto startup class to register the custom <see cref="T:Microsoft.Azure.Functions.Worker.Core.FunctionMetadata.IFunctionMetadataProvider"/> implementation generated for the current worker.
+            </summary>
+        </member>
+        <member name="M:Fexa.ApiClient.Function.FunctionMetadataProviderAutoStartup.Configure(Microsoft.Extensions.Hosting.IHostBuilder)">
+            <summary>
+            Configures the <see cref="T:Microsoft.Extensions.Hosting.IHostBuilder"/> to use the custom <see cref="T:Microsoft.Azure.Functions.Worker.Core.FunctionMetadata.IFunctionMetadataProvider"/> implementation generated for the current worker.
+            </summary>
+            <param name="hostBuilder">The <see cref="T:Microsoft.Extensions.Hosting.IHostBuilder"/> instance to use for service registration.</param>
+        </member>
+    </members>
+</doc>

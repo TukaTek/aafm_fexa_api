@@ -1,10 +1,10 @@
-# Fexa API Client
+# Fexa API Client & Web API Middleware
 
-A scalable, reusable, and secure .NET client library for accessing the Fexa API (AAFM - American Association of Fleet Managers).
+A scalable .NET 8.0 client library and ASP.NET Core Web API middleware for the Fexa API (AAFM - American Association of Fleet Managers).
 
-**Repository**: [https://github.com/TukaTek/aafm_fexa_api](https://github.com/TukaTek/aafm_fexa_api)  
-**API Documentation**: https://aafmapisandbox.fexa.io/fexa_docs/index.html  
-**Organization**: [TukaTek](https://github.com/TukaTek)
+**Fexa API Documentation**: https://aafmapisandbox.fexa.io/fexa_docs/index.html  
+**Web API Deployment**: https://fexa-api-webapp.azurewebsites.net  
+**Swagger Documentation**: https://fexa-api-webapp.azurewebsites.net/swagger/v1/swagger.json
 
 ## Features
 
@@ -15,10 +15,12 @@ A scalable, reusable, and secure .NET client library for accessing the Fexa API 
 - **Comprehensive Error Handling**: Custom exceptions for different error scenarios
 - **Logging**: Integrated logging support using Microsoft.Extensions.Logging
 - **Configuration**: Flexible configuration using IOptions pattern
-- **Multiple Services**: Support for Users, Invoices, Visits, Work Orders, Transitions, Regions, Severities, and Notes
+- **Multiple Services**: Support for Users, Invoices, Visits, Work Orders, Transitions, Regions, Severities, Notes, Document Types, Priorities, Work Order Categories, Clients, Vendors, and Locations
 - **Advanced Filtering**: Powerful filter builder supporting multiple operators and date ranges with bulk filter operations
 - **Workflow Management**: Complete support for status transitions and workflow states
-- **Performance Optimized**: Caching for frequently accessed data like transitions
+- **Performance Optimized**: Memory caching for reference data (1-hour expiration) and transitions (30-minute expiration)
+- **Web API Middleware**: Simplified REST endpoints with DTOs for cleaner client integration
+- **Azure Deployment**: Production-ready deployment to Azure App Service
 
 ## Solution Structure
 
@@ -32,12 +34,23 @@ FexaApiClient/
 │   │   ├── Exceptions/             # Custom exceptions
 │   │   ├── Http/                   # HTTP handlers and client setup
 │   │   └── Extensions/             # DI and service extensions
-│   └── Fexa.ApiClient.Console/      # Interactive test console application
+│   ├── Fexa.ApiClient.WebApi/       # ASP.NET Core Web API (primary deployment)
+│   │   └── Controllers/            # REST API controllers with simplified DTOs
+│   ├── Fexa.ApiClient.Console/      # Interactive test console application
+│   └── Fexa.ApiClient.Function/     # Azure Functions (deprecated)
 └── tests/
     └── Fexa.ApiClient.Tests/        # Unit tests
 ```
 
 ## Quick Start
+
+### Using the Web API
+
+The Web API is deployed at: https://fexa-api-webapp.azurewebsites.net
+
+View available endpoints in the [Swagger documentation](https://fexa-api-webapp.azurewebsites.net/swagger/v1/swagger.json).
+
+### Local Development
 
 1. Clone the repository:
    ```bash
@@ -75,6 +88,10 @@ The included console application provides an interactive menu system for testing
 9. **Download All Transitions** - Export all transitions to JSON
 10. **Test Action Required Transitions** - Verify specific transition paths
 11. **Test Direct Status Update** - Debug status update API calls
+12. **Test Reference Data Services** - Document Types, Priorities, Work Order Categories
+13. **Test Client Service** - Client operations with simplified DTOs
+14. **Test Note Service** - Note creation including work order notes
+15. **Test Location Service** - Location/store operations by client
 
 ### Command Line Options
 ```bash
@@ -84,7 +101,18 @@ dotnet run download-transitions
 
 ## Getting Started
 
-### Installation
+### Running the Web API Locally
+
+```bash
+# Build and run the Web API
+cd src/Fexa.ApiClient.WebApi
+dotnet run
+
+# API will be available at https://localhost:5001
+# Swagger UI at https://localhost:5001/swagger
+```
+
+### Using as a Library
 
 1. Add the Fexa.ApiClient project reference to your application:
 ```xml
@@ -95,6 +123,15 @@ dotnet run download-transitions
 ```csharp
 services.AddFexaApiClient(configuration);
 ```
+
+### Azure Deployment
+
+The Web API is deployed to Azure App Service:
+- **Resource Group**: aafm_chatcmb
+- **App Service**: fexa-api-webapp
+- **URL**: https://fexa-api-webapp.azurewebsites.net
+
+**Note**: Deployment should only be done when explicitly requested. Do not auto-deploy changes.
 
 ### Configuration
 
@@ -177,6 +214,15 @@ dotnet user-secrets set "FexaApi:ClientSecret" "YOUR_ACTUAL_CLIENT_SECRET"
 - Support for bulk filter operations
 - Full filtering capabilities with FilterBuilder integration
 - User association with NoteUser model
+- Special handling for work order notes using type field
+
+### Location Service
+- Query locations by client ID (uses `occupied_by` field)
+- Get individual location details with full address
+- Geographic coordinates (latitude/longitude) support
+- Timezone information for each location
+- 1-hour memory caching for improved performance
+- Simplified LocationDto for cleaner responses
 
 ## Usage Examples
 
@@ -338,19 +384,67 @@ catch (Exception ex)
 }
 ```
 
-## API Endpoints
+## Web API Endpoints (Deployed)
 
-### Key Endpoints Used
+The middleware API is deployed at: https://fexa-api-webapp.azurewebsites.net
+
+### Available Endpoints
+
+**Document Types** (`/api/DocumentType`):
+- `GET /` - Get all document types
+- `GET /active` - Get active document types only
+
+**Priorities** (`/api/Priority`):
+- `GET /` - Get all priorities
+- `GET /active` - Get active priorities only
+
+**Work Order Categories** (`/api/WorkOrderCategory`):
+- `GET /` - Get all categories
+- `GET /hierarchy` - Get categories with parent-child relationships
+
+**Clients** (`/api/Client`):
+- `GET /` - Get paginated clients
+- `GET /{id}` - Get specific client
+- `GET /active` - Get active clients only
+- `GET /all` - Get all clients (auto-pagination)
+
+**Locations** (`/api/Location`):
+- `GET /{id}` - Get specific location
+- `GET /client/{clientId}` - Get all locations for a client
+- `GET /` - Get all locations
+- `GET /active` - Get active locations only
+
+**Work Orders** (`/api/WorkOrder`):
+- `GET /{id}` - Get specific work order
+- `GET /vendor/{vendorId}` - Get work orders by vendor
+- `GET /client/{clientId}` - Get work orders by client
+- `GET /clientpo/{poNumber}` - Get all work orders by Client PO
+
+**Notes** (`/api/Note`):
+- `GET /` - Get paginated notes
+- `GET /{noteId}` - Get specific note
+- `POST /` - Create a note
+- `POST /workorder/{workOrderId}` - Create work order note
+- `PUT /{noteId}` - Update a note
+- `DELETE /{noteId}` - Delete a note
+
+## Fexa API Endpoints Used
+
+### Key Fexa API Endpoints
 
 - **Authentication**: `POST /oauth/token`
 - **Work Orders**: 
   - List: `GET /api/ev1/workorders` (with URL-encoded JSON filters)
   - Get: `GET /api/ev1/workorders/{id}`
   - Update Status: `PUT /api/ev1/workorders/{id}/update_status/{statusId}` (no request body)
+- **Locations/Stores**: `GET /api/ev1/stores` (filter by `occupied_by` for client)
 - **Visits**: `GET /api/ev1/visits` (different filter format than work orders)
 - **Transitions**: `GET /api/ev1/users/list_transitions`
 - **Users**: `GET/POST/PUT/DELETE /api/ev1/users`
 - **Invoices**: `GET /api/v2/invoices`
+- **Document Types**: `GET /api/ev1/document_types`
+- **Priorities**: `GET /api/ev1/priorities`
+- **Categories**: `GET /api/ev1/workorder_categories`
 - **Regions**: `GET /api/v2/regions`
 - **Severities**: `GET /api/v2/severities`
 - **Notes**: `GET /api/v2/notes`

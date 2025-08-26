@@ -198,6 +198,8 @@ public class NoteService : INoteService
                 Visibility = request.Visibility ?? "all",
                 ActionRequired = request.ActionRequired,
                 NotableId = request.NotableId,
+                // For generic notes, still use note_type_id
+                // Use CreateNoteForWorkOrderAsync for work order specific notes
                 NoteTypeId = request.NoteTypeId ?? 2
             }
         };
@@ -217,16 +219,28 @@ public class NoteService : INoteService
     {
         _logger.LogInformation("Creating note for WorkOrder: {WorkOrderId}", workOrderId);
         
-        var request = new CreateNoteRequest
+        // For work order notes, we need to use type instead of note_type_id
+        var apiRequest = new CreateNoteApiRequest
         {
-            Content = content,
-            Visibility = visibility ?? "all",
-            ActionRequired = actionRequired,
-            NotableId = workOrderId,
-            NoteTypeId = noteTypeId ?? 2
+            Notes = new CreateNoteApiData
+            {
+                Note = content,
+                Visibility = visibility ?? "all",
+                ActionRequired = actionRequired,
+                NotableId = workOrderId,
+                Type = "Notes::WorkorderNote"  // Use type instead of note_type_id for work orders
+            }
         };
         
-        return await CreateNoteAsync(request, cancellationToken);
+        // The API returns {"notes":[{...}]} not {"note":{...}}
+        var response = await _apiService.PostAsync<NotesResponse>(BaseEndpoint, apiRequest, cancellationToken);
+        
+        if (response?.Notes == null || !response.Notes.Any())
+        {
+            throw new InvalidOperationException("Failed to create note");
+        }
+        
+        return response.Notes.First();
     }
 
     public async Task<Note> UpdateNoteAsync(int noteId, UpdateNoteRequest request, CancellationToken cancellationToken = default)
