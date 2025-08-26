@@ -1773,9 +1773,10 @@ public class MenuSystem
         System.Console.WriteLine("3. Get active simplified categories only");
         System.Console.WriteLine("4. Get root categories");
         System.Console.WriteLine("5. Get category by path (e.g., 'Plumbing | Grease Trap')");
-        System.Console.WriteLine("6. Get cache status");
-        System.Console.WriteLine("7. Refresh cache synchronously");
-        System.Console.WriteLine("8. Refresh cache asynchronously (background)");
+        System.Console.WriteLine("6. View sub-categories by parent (interactive)");
+        System.Console.WriteLine("7. Get cache status");
+        System.Console.WriteLine("8. Refresh cache synchronously");
+        System.Console.WriteLine("9. Refresh cache asynchronously (background)");
         System.Console.WriteLine("0. Back to main menu");
         System.Console.WriteLine();
         System.Console.Write("Enter your choice: ");
@@ -1864,6 +1865,10 @@ public class MenuSystem
                     break;
                     
                 case "6":
+                    await ViewSubCategoriesByParent(categoryService);
+                    break;
+                    
+                case "7":
                     var status = await categoryService.GetCacheStatusAsync();
                     ShowInfo("Cache Status:");
                     System.Console.WriteLine($"  Last Refreshed: {status.LastRefreshed:yyyy-MM-dd HH:mm:ss}");
@@ -1877,13 +1882,13 @@ public class MenuSystem
                     System.Console.WriteLine($"  Last Refresh Successful: {status.LastRefreshSuccessful}");
                     break;
                     
-                case "7":
+                case "8":
                     ShowInfo("Refreshing cache synchronously (please wait)...");
                     var refreshedCategories = await categoryService.RefreshCacheAsync();
                     ShowSuccess($"Cache refreshed with {refreshedCategories.Count} categories");
                     break;
                     
-                case "8":
+                case "9":
                     ShowInfo("Starting background cache refresh...");
                     await categoryService.RefreshCacheInBackgroundAsync();
                     ShowSuccess("Background refresh started. Check cache status to monitor progress.");
@@ -1900,6 +1905,186 @@ public class MenuSystem
         catch (Exception ex)
         {
             ShowError($"Error: {ex.Message}");
+        }
+    }
+    
+    private async Task ViewSubCategoriesByParent(IWorkOrderCategoryService categoryService)
+    {
+        try
+        {
+            ShowInfo("Loading category hierarchy...");
+            
+            // Get all categories to work with
+            var hierarchyResponse = await categoryService.GetSimplifiedCategoriesAsync();
+            var allCategories = hierarchyResponse.Categories;
+            
+            if (!allCategories.Any())
+            {
+                ShowWarning("No categories found. Please refresh the cache.");
+                return;
+            }
+            
+            // Start with root categories
+            var currentParentId = (int?)null;
+            var breadcrumb = new Stack<(int? id, string name)>();
+            breadcrumb.Push((null, "Root"));
+            
+            while (true)
+            {
+                // Get categories at current level
+                var categoriesAtLevel = allCategories
+                    .Where(c => c.ParentId == currentParentId)
+                    .OrderBy(c => c.Category)
+                    .ToList();
+                
+                if (!categoriesAtLevel.Any())
+                {
+                    ShowWarning($"No sub-categories found at this level.");
+                    
+                    if (breadcrumb.Count > 1)
+                    {
+                        // Go back up one level
+                        breadcrumb.Pop();
+                        var parent = breadcrumb.Peek();
+                        currentParentId = parent.id;
+                        continue;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                
+                // Display current location in hierarchy
+                System.Console.WriteLine();
+                ShowHeader($"Category Navigation - Level: {string.Join(" > ", breadcrumb.Reverse().Select(b => b.name))}");
+                
+                // Show categories at this level
+                System.Console.WriteLine($"\nCategories at this level ({categoriesAtLevel.Count} items):");
+                System.Console.WriteLine("──────────────────────────────────────────────────");
+                
+                for (int i = 0; i < categoriesAtLevel.Count; i++)
+                {
+                    var cat = categoriesAtLevel[i];
+                    var childCount = allCategories.Count(c => c.ParentId == cat.Id);
+                    var leafIndicator = cat.IsLeaf ? " [LEAF]" : $" [{childCount} children]";
+                    var activeIndicator = cat.Active ? "" : " [INACTIVE]";
+                    
+                    System.Console.WriteLine($"{i + 1,3}. {cat.Category}{leafIndicator}{activeIndicator}");
+                    
+                    // Show full path in gray
+                    System.Console.ForegroundColor = ConsoleColor.DarkGray;
+                    System.Console.WriteLine($"     Path: {cat.FullPath}");
+                    System.Console.ResetColor();
+                }
+                
+                // Show navigation options
+                System.Console.WriteLine("──────────────────────────────────────────────────");
+                System.Console.WriteLine("\nOptions:");
+                System.Console.WriteLine("  Enter number to drill into that category");
+                System.Console.WriteLine("  'b' to go back to parent level");
+                System.Console.WriteLine("  'r' to return to root categories");
+                System.Console.WriteLine("  'd' to show details of a category");
+                System.Console.WriteLine("  'q' to quit navigation");
+                System.Console.WriteLine();
+                System.Console.Write("Your choice: ");
+                
+                var input = System.Console.ReadLine()?.Trim().ToLower();
+                
+                if (string.IsNullOrEmpty(input))
+                {
+                    continue;
+                }
+                
+                if (input == "q")
+                {
+                    return;
+                }
+                else if (input == "b")
+                {
+                    if (breadcrumb.Count > 1)
+                    {
+                        breadcrumb.Pop();
+                        var parent = breadcrumb.Peek();
+                        currentParentId = parent.id;
+                    }
+                    else
+                    {
+                        ShowInfo("Already at root level");
+                    }
+                }
+                else if (input == "r")
+                {
+                    // Return to root
+                    breadcrumb.Clear();
+                    breadcrumb.Push((null, "Root"));
+                    currentParentId = null;
+                }
+                else if (input == "d")
+                {
+                    System.Console.Write("Enter category number to view details: ");
+                    if (int.TryParse(System.Console.ReadLine(), out var detailIndex) && 
+                        detailIndex > 0 && detailIndex <= categoriesAtLevel.Count)
+                    {
+                        var cat = categoriesAtLevel[detailIndex - 1];
+                        System.Console.WriteLine();
+                        ShowInfo($"Category Details:");
+                        System.Console.WriteLine($"  ID: {cat.Id}");
+                        System.Console.WriteLine($"  Name: {cat.Category}");
+                        System.Console.WriteLine($"  Full Path: {cat.FullPath}");
+                        System.Console.WriteLine($"  Description: {cat.Description ?? "(none)"}");
+                        System.Console.WriteLine($"  Active: {cat.Active}");
+                        System.Console.WriteLine($"  Is Leaf: {cat.IsLeaf}");
+                        System.Console.WriteLine($"  Parent ID: {cat.ParentId ?? 0}");
+                        System.Console.WriteLine($"  Created: {cat.CreatedAt:yyyy-MM-dd HH:mm:ss}");
+                        System.Console.WriteLine($"  Updated: {cat.UpdatedAt:yyyy-MM-dd HH:mm:ss}");
+                        
+                        // Show children if any
+                        var children = allCategories.Where(c => c.ParentId == cat.Id).ToList();
+                        if (children.Any())
+                        {
+                            System.Console.WriteLine($"  Children ({children.Count}):");
+                            foreach (var child in children.Take(5))
+                            {
+                                System.Console.WriteLine($"    - {child.Category}");
+                            }
+                            if (children.Count > 5)
+                            {
+                                System.Console.WriteLine($"    ... and {children.Count - 5} more");
+                            }
+                        }
+                        
+                        System.Console.WriteLine();
+                        System.Console.Write("Press any key to continue...");
+                        System.Console.ReadKey(true);
+                    }
+                }
+                else if (int.TryParse(input, out var index) && index > 0 && index <= categoriesAtLevel.Count)
+                {
+                    var selectedCategory = categoriesAtLevel[index - 1];
+                    
+                    if (selectedCategory.IsLeaf)
+                    {
+                        ShowInfo($"'{selectedCategory.Category}' is a leaf category (no sub-categories)");
+                        System.Console.Write("Press any key to continue...");
+                        System.Console.ReadKey(true);
+                    }
+                    else
+                    {
+                        // Navigate into this category
+                        currentParentId = selectedCategory.Id;
+                        breadcrumb.Push((selectedCategory.Id, selectedCategory.Category));
+                    }
+                }
+                else
+                {
+                    ShowError("Invalid choice. Please try again.");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            ShowError($"Error navigating categories: {ex.Message}");
         }
     }
 }
