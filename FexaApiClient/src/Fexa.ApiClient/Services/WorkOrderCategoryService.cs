@@ -40,23 +40,53 @@ public class WorkOrderCategoryService : IWorkOrderCategoryService
 
         try
         {
-            _logger.LogInformation("Fetching all work order categories from API");
+            _logger.LogInformation("Fetching ALL work order categories from API (with pagination)...");
             
-            // Call the API endpoint - FIXED: correct endpoint
-            var response = await _apiService.GetAsync<WorkOrderCategoriesResponse>("/api/ev1/workorder_categories", cancellationToken);
+            var allCategories = new List<WorkOrderCategory>();
+            var pageSize = 100;
+            var currentPage = 0;
+            var hasMoreData = true;
             
-            if (response?.Categories != null)
+            while (hasMoreData)
             {
-                _logger.LogInformation("Successfully fetched {Count} work order categories", response.Categories.Count);
+                var start = currentPage * pageSize;
+                var endpoint = $"/api/ev1/workorder_categories?start={start}&limit={pageSize}";
                 
-                // Cache the results
-                _cache.Set(CACHE_KEY, response.Categories, _cacheExpiration);
+                _logger.LogDebug("Fetching page {Page} (start={Start}, limit={Limit})", currentPage + 1, start, pageSize);
                 
-                return response.Categories;
+                var response = await _apiService.GetAsync<WorkOrderCategoriesResponse>(endpoint, cancellationToken);
+                
+                if (response?.Categories != null && response.Categories.Any())
+                {
+                    allCategories.AddRange(response.Categories);
+                    _logger.LogDebug("Fetched page {Page} with {Count} categories. Total so far: {Total}", 
+                        currentPage + 1, response.Categories.Count, allCategories.Count);
+                    
+                    // Check if there are more pages
+                    hasMoreData = response.Categories.Count == pageSize;
+                }
+                else
+                {
+                    hasMoreData = false;
+                }
+                
+                currentPage++;
+                
+                // Safety check to prevent infinite loops (max 50 pages = 5000 categories)
+                if (currentPage > 50)
+                {
+                    _logger.LogWarning("Reached maximum page limit, stopping pagination");
+                    break;
+                }
             }
             
-            _logger.LogWarning("No work order categories returned from API");
-            return new List<WorkOrderCategory>();
+            _logger.LogInformation("Successfully fetched {Count} work order categories across {Pages} pages", 
+                allCategories.Count, currentPage);
+            
+            // Cache the results
+            _cache.Set(CACHE_KEY, allCategories, _cacheExpiration);
+            
+            return allCategories;
         }
         catch (Exception ex)
         {
@@ -189,30 +219,62 @@ public class WorkOrderCategoryService : IWorkOrderCategoryService
             {
                 _isRefreshing = true;
                 _lastRefreshAttempt = DateTime.UtcNow;
-                _logger.LogInformation("Starting background cache refresh");
+                _logger.LogInformation("Starting background cache refresh with pagination...");
 
-                // Fetch fresh data
-                var response = await _apiService.GetAsync<WorkOrderCategoriesResponse>("/api/ev1/workorder_categories");
+                // Fetch fresh data with pagination
+                var allCategories = new List<WorkOrderCategory>();
+                var pageSize = 100;
+                var currentPage = 0;
+                var hasMoreData = true;
                 
-                if (response?.Categories != null)
+                while (hasMoreData)
+                {
+                    var start = currentPage * pageSize;
+                    var endpoint = $"/api/ev1/workorder_categories?start={start}&limit={pageSize}";
+                    
+                    var response = await _apiService.GetAsync<WorkOrderCategoriesResponse>(endpoint);
+                    
+                    if (response?.Categories != null && response.Categories.Any())
+                    {
+                        allCategories.AddRange(response.Categories);
+                        _logger.LogDebug("Background refresh: page {Page} with {Count} categories. Total: {Total}", 
+                            currentPage + 1, response.Categories.Count, allCategories.Count);
+                        
+                        hasMoreData = response.Categories.Count == pageSize;
+                    }
+                    else
+                    {
+                        hasMoreData = false;
+                    }
+                    
+                    currentPage++;
+                    
+                    if (currentPage > 50) // Safety limit
+                    {
+                        _logger.LogWarning("Background refresh: reached maximum page limit");
+                        break;
+                    }
+                }
+                
+                if (allCategories.Any())
                 {
                     // Update cache atomically
-                    _cache.Set(CACHE_KEY, response.Categories, _cacheExpiration);
+                    _cache.Set(CACHE_KEY, allCategories, _cacheExpiration);
                     _lastRefreshSuccessful = true;
                     
                     // Update status
                     var status = new CacheStatusDto
                     {
                         LastRefreshed = DateTime.UtcNow,
-                        ItemCount = response.Categories.Count,
+                        ItemCount = allCategories.Count,
                         LastRefreshAttempt = _lastRefreshAttempt,
                         LastRefreshSuccessful = true,
                         IsRefreshing = false
                     };
                     _cache.Set(CACHE_STATUS_KEY, status, _cacheExpiration);
                     
-                    _logger.LogInformation("Background cache refresh completed successfully with {Count} items", 
-                        response.Categories.Count);
+                    _logger.LogInformation("Background cache refresh completed successfully with {Count} items across {Pages} pages", 
+                        allCategories.Count, currentPage);
                 }
                 else
                 {
