@@ -12,6 +12,7 @@ public class FexaApiOptions
     public int MaxRetryAttempts { get; set; } = 3;
     public bool EnableLogging { get; set; } = true;
     public int TokenRefreshBufferSeconds { get; set; } = 300; // Refresh 5 minutes before expiry
+    public int? DefaultUserId { get; set; } // Default user ID for operations like creating work orders
     
     public void Validate()
     {

@@ -1,7 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Fexa.ApiClient.Services;
 using Fexa.ApiClient.Models;
+using Fexa.ApiClient.Configuration;
 
 namespace Fexa.ApiClient.Console;
 
@@ -23,7 +25,7 @@ public class TestCreateWorkOrder
         var locationService = services.GetRequiredService<ILocationService>();
         var categoryService = services.GetRequiredService<IWorkOrderCategoryService>();
         var priorityService = services.GetRequiredService<IPriorityService>();
-        var userService = scope.ServiceProvider.GetRequiredService<IUserService>();
+        var options = services.GetRequiredService<IOptions<FexaApiOptions>>();
         
         try
         {
@@ -204,40 +206,36 @@ public class TestCreateWorkOrder
             System.Console.Write("Enter Client PO Number (or press Enter to skip): ");
             var poNumber = System.Console.ReadLine();
             
-            // Step 7: Get current user ID for placed_by
-            System.Console.WriteLine("\n=== Step 7: Select User (placed_by) ===");
-            System.Console.WriteLine("Fetching users...");
-            var usersResponse = await userService.GetUsersAsync(new QueryParameters { Limit = 10 });
+            // Step 7: Use configured user ID for placed_by
+            System.Console.WriteLine("\n=== Step 7: User (placed_by) ===");
             
-            if (usersResponse.Data == null || !usersResponse.Data.Any())
+            var userId = options.Value.DefaultUserId;
+            if (!userId.HasValue)
             {
-                System.Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("No users found. Cannot proceed.");
-                System.Console.ResetColor();
-                return;
+                System.Console.Write("No default user ID configured. Enter user ID manually: ");
+                if (!int.TryParse(System.Console.ReadLine(), out var manualUserId))
+                {
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Invalid user ID.");
+                    System.Console.ResetColor();
+                    return;
+                }
+                userId = manualUserId;
+            }
+            else
+            {
+                System.Console.WriteLine($"Using configured user ID: {userId.Value}");
+                System.Console.Write("Press Enter to use this ID or enter a different one: ");
+                var customUserId = System.Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(customUserId) && int.TryParse(customUserId, out var newUserId))
+                {
+                    userId = newUserId;
+                    System.Console.WriteLine($"Using custom user ID: {userId.Value}");
+                }
             }
             
-            System.Console.WriteLine("\nAvailable users:");
-            var usersList = usersResponse.Data.ToList();
-            for (int i = 0; i < usersList.Count; i++)
-            {
-                var user = usersList[i];
-                System.Console.WriteLine($"{i + 1}. {user.FirstName} {user.LastName} ({user.Email}) - ID: {user.Id}");
-            }
-            
-            System.Console.Write("\nSelect user number: ");
-            if (!int.TryParse(System.Console.ReadLine(), out var userIndex) || 
-                userIndex < 1 || userIndex > usersList.Count)
-            {
-                System.Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("Invalid selection.");
-                System.Console.ResetColor();
-                return;
-            }
-            
-            var selectedUser = usersList[userIndex - 1];
             System.Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine($"Selected: {selectedUser.FirstName} {selectedUser.LastName}");
+            System.Console.WriteLine($"User ID: {userId.Value}");
             System.Console.ResetColor();
             
             // Step 8: Confirm and Create
@@ -247,7 +245,7 @@ public class TestCreateWorkOrder
             System.Console.WriteLine($"Category: {selectedCategory.CategoryWithAllAncestors ?? selectedCategory.Category}");
             System.Console.WriteLine($"Priority: {selectedPriority.Name}");
             System.Console.WriteLine($"Description: {description}");
-            System.Console.WriteLine($"Placed By: {selectedUser.FirstName} {selectedUser.LastName}");
+            System.Console.WriteLine($"Placed By User ID: {userId.Value}");
             if (!string.IsNullOrEmpty(poNumber))
             {
                 System.Console.WriteLine($"Client PO: {poNumber}");
@@ -272,7 +270,7 @@ public class TestCreateWorkOrder
                     CategoryId = selectedCategory.Id,
                     Description = description ?? "",
                     FacilityId = selectedLocation.Id,
-                    PlacedBy = int.Parse(selectedUser.Id),
+                    PlacedBy = userId!.Value,
                     PlacedFor = selectedClient.Id,
                     ClientPurchaseOrderNumbers = string.IsNullOrEmpty(poNumber) 
                         ? new List<ClientPurchaseOrder>()
