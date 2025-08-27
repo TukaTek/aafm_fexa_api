@@ -80,6 +80,8 @@ public class MenuSystem
         System.Console.WriteLine("16. Test Document Upload Service");
         System.Console.WriteLine("17. Test Work Order Category Service");
         System.Console.WriteLine("18. Test Cached Client Service");
+        System.Console.WriteLine("19. View Sub Categories by Parent Category");
+        System.Console.WriteLine("20. Create Work Order");
         System.Console.WriteLine("0. Exit");
         System.Console.WriteLine();
         System.Console.Write("Enter your choice: ");
@@ -142,6 +144,12 @@ public class MenuSystem
                 break;
             case "18":
                 await TestCachedClientService();
+                break;
+            case "19":
+                await ViewSubCategoriesByParentStandalone();
+                break;
+            case "20":
+                await TestCreateWorkOrder.RunCreateWorkOrderTest(_services);
                 break;
             case "0":
                 _exitRequested = true;
@@ -2274,5 +2282,14 @@ public class MenuSystem
         {
             ShowError($"Error: {ex.Message}");
         }
+    }
+    
+    private async Task ViewSubCategoriesByParentStandalone()
+    {
+        System.Console.Clear();
+        ShowHeader("View Sub Categories by Parent Category");
+        
+        var categoryService = _services.GetRequiredService<IWorkOrderCategoryService>();
+        await ViewSubCategoriesByParent(categoryService);
     }
 }

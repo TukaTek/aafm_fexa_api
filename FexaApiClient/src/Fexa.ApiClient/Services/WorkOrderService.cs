@@ -504,4 +504,85 @@ public class WorkOrderService : IWorkOrderService
         return matchingWorkOrders;
     }
     */
+    
+    public async Task<WorkOrder> CreateWorkOrderAsync(CreateWorkOrderRequest request)
+    {
+        if (request == null)
+        {
+            throw new ArgumentNullException(nameof(request));
+        }
+        
+        // Validate required fields
+        if (request.Workorders == null)
+        {
+            throw new ArgumentException("WorkOrderData is required", nameof(request));
+        }
+        
+        var data = request.Workorders;
+        if (data.WorkorderClassId <= 0)
+        {
+            throw new ArgumentException("WorkorderClassId is required", nameof(request));
+        }
+        if (data.PriorityId <= 0)
+        {
+            throw new ArgumentException("PriorityId is required", nameof(request));
+        }
+        if (data.CategoryId <= 0)
+        {
+            throw new ArgumentException("CategoryId is required", nameof(request));
+        }
+        if (string.IsNullOrWhiteSpace(data.Description))
+        {
+            throw new ArgumentException("Description is required", nameof(request));
+        }
+        if (data.FacilityId <= 0)
+        {
+            throw new ArgumentException("FacilityId (location/store ID) is required", nameof(request));
+        }
+        if (data.PlacedBy <= 0)
+        {
+            throw new ArgumentException("PlacedBy (user ID) is required", nameof(request));
+        }
+        if (data.PlacedFor <= 0)
+        {
+            throw new ArgumentException("PlacedFor (client ID) is required", nameof(request));
+        }
+        
+        _logger.LogInformation("Creating work order for client {ClientId} at facility {FacilityId}", 
+            data.PlacedFor, data.FacilityId);
+        
+        try
+        {
+            // POST to /api/ev1/workorders endpoint
+            var response = await _apiService.PostAsync<CreateWorkOrderResponse>(
+                BaseEndpoint, 
+                request);
+            
+            if (response?.Workorders == null)
+            {
+                var errorMessage = "Failed to create work order.";
+                if (response?.Errors != null && response.Errors.Any())
+                {
+                    var errorDetails = string.Join("; ", 
+                        response.Errors.SelectMany(kvp => kvp.Value.Select(v => $"{kvp.Key}: {v}")));
+                    errorMessage += $" Errors: {errorDetails}";
+                }
+                else if (!string.IsNullOrEmpty(response?.Message))
+                {
+                    errorMessage += $" Message: {response.Message}";
+                }
+                
+                _logger.LogError("Work order creation failed: {ErrorMessage}", errorMessage);
+                throw new InvalidOperationException(errorMessage);
+            }
+            
+            _logger.LogInformation("Successfully created work order {WorkOrderId}", response.Workorders.Id);
+            return response.Workorders;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating work order");
+            throw;
+        }
+    }
 }

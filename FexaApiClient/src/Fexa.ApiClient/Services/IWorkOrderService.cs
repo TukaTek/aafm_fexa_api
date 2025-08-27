@@ -22,4 +22,7 @@ public interface IWorkOrderService
     // Client PO search - Uses purchase_order_number filter
     Task<PagedResponse<WorkOrder>> GetWorkOrdersByClientPOAsync(string poNumber, QueryParameters? parameters = null);
     Task<List<WorkOrder>> GetAllWorkOrdersByClientPOAsync(string poNumber, QueryParameters? baseParameters = null, int maxPages = 10);
+    
+    // Create work order
+    Task<WorkOrder> CreateWorkOrderAsync(CreateWorkOrderRequest request);
 }

@@ -92,4 +92,44 @@ public class WorkOrderController : ControllerBase
             return StatusCode(500, new { error = ex.Message });
         }
     }
+    
+    [HttpPost]
+    public async Task<ActionResult<WorkOrder>> CreateWorkOrder([FromBody] CreateWorkOrderRequest request)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            _logger.LogInformation("Creating work order for client {ClientId} at facility {FacilityId}", 
+                request?.Workorders?.PlacedFor, request?.Workorders?.FacilityId);
+            
+            var workOrder = await _workOrderService.CreateWorkOrderAsync(request!);
+            
+            _logger.LogInformation("Successfully created work order {WorkOrderId}", workOrder.Id);
+            return CreatedAtAction(nameof(GetWorkOrder), new { id = workOrder.Id }, workOrder);
+        }
+        catch (ArgumentNullException ex)
+        {
+            _logger.LogError(ex, "Null argument provided for work order creation");
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (ArgumentException ex)
+        {
+            _logger.LogError(ex, "Invalid argument provided for work order creation");
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogError(ex, "Failed to create work order");
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Unexpected error creating work order");
+            return StatusCode(500, new { error = "An unexpected error occurred while creating the work order." });
+        }
+    }
 }
