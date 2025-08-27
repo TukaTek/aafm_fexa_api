@@ -87,4 +87,35 @@ public class LocationController : ControllerBase
             return StatusCode(500, new { error = ex.Message });
         }
     }
+    
+    /// <summary>
+    /// Search for locations by name, address, city, state, zip, etc.
+    /// </summary>
+    /// <param name="q">Search term (e.g., "PA", "Monroeville", "Best Buy")</param>
+    /// <param name="clientId">Optional: Filter by specific client ID</param>
+    /// <returns>List of locations matching the search criteria</returns>
+    [HttpGet("search")]
+    public async Task<ActionResult<List<LocationDto>>> SearchLocations(
+        [FromQuery] string q,
+        [FromQuery] int? clientId = null)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(q))
+            {
+                return BadRequest(new { error = "Search term 'q' is required" });
+            }
+            
+            _logger.LogInformation("Searching locations with term '{SearchTerm}' for client {ClientId}", q, clientId);
+            var locations = await _locationService.SearchLocationsAsync(q, clientId);
+            
+            _logger.LogInformation("Found {Count} locations matching '{SearchTerm}'", locations.Count, q);
+            return Ok(locations);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error searching locations with term '{SearchTerm}'", q);
+            return StatusCode(500, new { error = ex.Message });
+        }
+    }
 }

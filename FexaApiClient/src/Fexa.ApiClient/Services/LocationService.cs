@@ -182,4 +182,44 @@ public class LocationService : ILocationService
             UpdatedAt = location.UpdatedAt
         };
     }
+    
+    public async Task<List<LocationDto>> SearchLocationsAsync(string searchTerm, int? clientId = null, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(searchTerm))
+        {
+            _logger.LogWarning("Empty search term provided for location search");
+            return new List<LocationDto>();
+        }
+        
+        _logger.LogInformation("Searching locations with term '{SearchTerm}' and clientId {ClientId}", searchTerm, clientId);
+        
+        // Get all locations or client-specific locations
+        List<LocationDto> locations;
+        if (clientId.HasValue)
+        {
+            locations = await GetLocationsByClientAsync(clientId.Value, cancellationToken);
+        }
+        else
+        {
+            locations = await GetAllLocationsAsync(cancellationToken);
+        }
+        
+        // Perform case-insensitive search across multiple fields
+        var searchLower = searchTerm.ToLower();
+        var results = locations.Where(loc =>
+            (loc.Name?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.Address1?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.Address2?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.City?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.State?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.PostalCode?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.FacilityCode?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.Identifier?.ToLower().Contains(searchLower) ?? false) ||
+            (loc.ClientCompany?.ToLower().Contains(searchLower) ?? false)
+        ).ToList();
+        
+        _logger.LogInformation("Found {Count} locations matching search term '{SearchTerm}'", results.Count, searchTerm);
+        
+        return results;
+    }
 }

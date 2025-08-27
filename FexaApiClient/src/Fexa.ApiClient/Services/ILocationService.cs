@@ -8,4 +8,5 @@ public interface ILocationService
     Task<LocationDto> GetLocationAsync(int locationId, CancellationToken cancellationToken = default);
     Task<List<LocationDto>> GetAllLocationsAsync(CancellationToken cancellationToken = default);
     Task<List<LocationDto>> GetActiveLocationsAsync(CancellationToken cancellationToken = default);
+    Task<List<LocationDto>> SearchLocationsAsync(string searchTerm, int? clientId = null, CancellationToken cancellationToken = default);
 }

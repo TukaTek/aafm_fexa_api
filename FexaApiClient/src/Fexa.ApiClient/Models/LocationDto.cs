@@ -10,7 +10,7 @@ public class LocationDto
     public int? OccupiedBy { get; set; }
     public string? ClientCompany { get; set; }
     public string? LocationType { get; set; }
-    public int? SqFootage { get; set; }
+    public object? SqFootage { get; set; }  // Can be int, decimal, string, or null
     
     // Address information
     public string? Address1 { get; set; }

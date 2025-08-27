@@ -59,7 +59,7 @@ public class Location
     public DateTime? MoveDate { get; set; }
     
     [JsonPropertyName("sq_footage")]
-    public int? SqFootage { get; set; }
+    public object? SqFootage { get; set; }  // Can be int, decimal, string, or null
     
     [JsonPropertyName("warranty_start_date")]
     public DateTime? WarrantyStartDate { get; set; }
